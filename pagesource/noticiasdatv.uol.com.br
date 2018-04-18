@@ -1,0 +1,1706 @@
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+  
+<script type="text/javascript" charset="utf-8">
+function changeFlavourQuirks(flavour,desired_width) {
+  var origin = typeof window.location.origin == "undefined" ? "" : window.location.origin;
+  var path = typeof window.location.pathname == "undefined" ? "" : window.location.pathname;
+  var redirect_url = false;
+
+  // console.log(path);
+
+  if (flavour == 'Mobile') {
+    // Vamos PARA o Mobile, então preciso redirecionar pra ele
+    if (desired_width <= 580) {
+      if (path == '/' || path == '') {
+        // Home
+        redirect_url = origin + '/mobile/capa/';
+      } else {
+        redirect_url = origin + '/mobile' + path;
+      }
+    }
+  } else {
+    if (desired_width > 580) {
+      // Vamos para Desktop
+      if (path == '/mobile/capa/' || path == '/mobile/capa') {
+        // Home
+        redirect_url = origin + '/';
+      } else {
+        redirect_url = origin + path.replace('/mobile/','/');
+      }
+
+    }
+  }
+
+  console.log(flavour+' '+desired_width+' -- '+redirect_url);
+  if (redirect_url != false) { location.replace(redirect_url); }
+}
+
+function changeToDesktop() {
+  return changeFlavourQuirks('Desktop',screen.width)
+}
+
+function changeToMobile() {
+  return changeFlavourQuirks('Mobile',screen.width)
+}
+
+changeToMobile();
+
+// window.addEventListener("resize", changeToMobile);
+
+// DEBUG/TESTE (screen.width ou window.innerWidth)
+// for (var i = 1920; i >= 0; i=i-145) {
+//  changeFlavourQuirks('Mobile',i)
+//  changeFlavourQuirks('Desktop',i)
+// };
+
+
+</script>
+  
+  <meta charset="utf-8">
+  <title>Notícias da TV</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"28c52ddc20","agent":"","transactionName":"bwABZxNSC0NVAUwIDVZKJUYPUBFZWwwXDw1MDABaAEABUUAUFhcLXRIQCQlcCFU=","applicationID":"7974811","errorBeacon":"bam.nr-data.net","applicationTime":31}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Notícias da TV">
+  <meta name="robots" content="index, follow">
+  <meta property="og:site_name" content="Notícias da TV">
+  <meta property="og:locale" content="pt_BR">
+  
+  <meta name="twitter:site" content="@DanielKastro">
+  <link rel="dns-prefetch" href="//www.amdb.com.br">
+  <!-- analytics UA-44112655-1 -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44112655-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+  
+<link rel="icon" type="image/png" href="/static/favicon/favicon-192x192.png" sizes="196x196">
+<link rel="icon" type="image/png" href="/static/favicon/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="/static/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/static/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/static/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/static/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/static/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/static/favicon/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/favicon/apple-touch-icon-152x152.png">
+<meta name="msapplication-config" content="/IEconfig.xml" />
+
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Notícias da TV">
+  <meta name="application-name" content="Notícias da TV">
+  <link href='http://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+  
+  <link rel="stylesheet" href="/static/alexei.min.css?160520">
+  <link rel="stylesheet" href="/static/ntvcommon.min.css?171129">
+  <link rel="stylesheet" href="/static/recomenda.min.css?171205">
+  
+  <link rel="stylesheet" href="/static/menu.min.css?160616">
+  <script src="/static/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55c90cec01aec92f" async></script>
+  <script type="text/javascript">
+    var addthis_share = addthis_share || {}
+    addthis_share = {
+      passthrough : {
+        twitter: {
+          via: "DanielKastro"
+        }
+      }
+    }
+  </script>
+  
+  <script type="text/javascript">
+    function clickRecomenda(local, titulo, rid) {
+      UOLPD.Audience.countClick({category:'Recomenda '+local,action:'Click',label:titulo+' - rid:'+rid,value:1});
+      console.log('Recomenda '+local, titulo+' - rid:'+rid);
+    }
+  </script>
+  
+<meta http-equiv="refresh" content="240">
+
+  <meta property="fb:app_id" content="1411569402388711">
+
+
+  <script type="text/javascript">
+  // Banner Shuffler @ AMDB (alexei)
+  function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function selectBanner(array_banners,width,height) {
+    var selected_banner = array_banners[getRandomInt(0,array_banners.length-1)];
+    if(selected_banner[1]==false) {
+      // Flash
+      return('<object width="'+width+'" height="'+height+'" data="'+selected_banner[0]+'"></object>');
+    }
+    else {
+      return('<a href="'+selected_banner[1]+'" target="_blank"><img src="'+selected_banner[0]+'" width="'+width+'" height="'+height+'"></a>');
+    }
+  }
+</script>
+  <!-- block: config_banners -->
+  
+    
+    <!-- uol_tagmanager_async -->
+<script type="text/javascript">
+        window.universal_variable = window.universal_variable || {};
+        window.universal_variable.dfp = {
+            "custom_params" : {
+                "subchan" : "",
+            }
+        };
+        window.uolads = window.uolads || [];
+        ;(function() {
+            var scr = document.createElement("script");
+            scr.async = true;
+            scr.src =  "//tm.jsuol.com.br/uoltm.js?id=7w3vsq";
+            var el = document.getElementsByTagName("script")[0];
+                el.parentNode.insertBefore(scr, el);
+        })();
+</script>
+    
+  
+</head>
+<body>
+  <!-- block: page_specific -->
+  
+
+
+
+
+<div class="wrapper_banner_home">
+	<div class="xcontainer bg_menu"> 
+		<div style="display:table;margin:0 auto;min-width:728px;max-width:970px;min-height:90px;max-height:250px;overflow:hidden;">
+			
+			
+			
+			
+
+	<div id="banner-728x90-area"><script>window.uolads && window.uolads.push({ id: "banner-728x90-area" });</script></div>
+
+
+			
+		</div>
+	</div>
+</div>
+
+
+  <!-- block:header -->
+  
+<!-- menu -->
+
+
+
+<script>
+$(document).ready(function(){
+	var navpos = $(".menu_principal").offset();
+		console.log(navpos.top);
+	$(window).bind("scroll", function() {
+  		if ($(window).scrollTop() > navpos.top) {
+  			$(".menu_movel").show();
+			// $(".menu_expandido").removeClass("alt_home");
+    		$(".menu_expandido").addClass("menu_expandido_movel");
+    		// $(".menu_busca_expandido").removeClass("alt_home");
+    		$(".menu_busca_expandido").addClass("menu_busca_expandido_movel");
+   		}
+   		else {
+   			$(".menu_movel").hide();
+   			// $(".menu_expandido").addClass("alt_home");
+        	$(".menu_expandido").removeClass("menu_expandido_movel");
+        	// $(".menu_busca_expandido").addClass("alt_home");
+        	$(".menu_busca_expandido").removeClass("menu_busca_expandido_movel");
+   		}
+	});
+
+	$(".busca_btn_img").click(function(){
+		if ( $(".menu_busca_expandido").css("display") == "none" ){
+		    $(".busca_btn_img").attr("src","/static/img/menu/fechar_btn.png");
+		}
+		else {
+			$(".busca_btn_img").attr("src","/static/img/menu/busca_btn.png");
+		}
+		$(".menu_busca_expandido").animate({
+    		height: "toggle"
+        },150);
+        $(".menu_expandido").hide();
+        $(".menu_btn_img").attr("src","/static/img/menu/menu_btn.png");
+        $("#campo_busca_menu").focus();
+	});
+
+	$(".menu_btn_img").click(function(){
+		if ( $(".menu_expandido").css("display") == "none" ){
+		    $(".menu_btn_img").attr("src","/static/img/menu/fechar_btn.png");
+		}
+		else {
+			$(".menu_btn_img").attr("src","/static/img/menu/menu_btn.png");
+		}
+		$(".menu_expandido").toggle("ease");
+		$(".menu_busca_expandido").hide();
+		$(".busca_btn_img").attr("src","/static/img/menu/busca_btn.png");
+	});
+});
+</script>
+
+<style>
+	.menu_altura_new {height:100px;}
+	.logo_new {margin: 25px 0 0 0;}
+	.menu_busca_btn_new {margin: 30px 0 0 0;}
+	.patrocinio_new {height: 50px; margin: 5px 0 0 0;}
+	.patrocinio_new p {
+	    font-family: 'Roboto Condensed';
+	    font-size: 14px;
+	    margin: 5px 0;
+	    color: #8b8b8b;
+	    text-align: center;
+	}
+</style>
+
+<div class="xcontainer menu_altura_new">
+	<div class="xrow">
+		
+		<div class="fl m1 menu_busca_btn_new menu_principal">
+			<img id="btn_menu" class="menu_btn_img" src="/static/img/menu/menu_btn.png" alt="">
+			<img id="btn_busca" class="busca_btn_img" src="/static/img/menu/busca_btn.png" alt="">
+		</div>
+		<div class="fl m2 logo_new">
+			<a href="/"><img src="/static/img/logo.png" alt=""></a>
+		</div>
+
+		
+		<div class="fr m3 patrocinio_new">
+			<p style="margin-bottom: 0;">Oferecimento &nbsp;
+				
+					<style>
+	.botao_patrocinador {width:150px;height:90px; display:none; text-align: center;}
+</style>
+
+
+<div class="botao_patrocinador" id="patrocinio1">
+	<a href="http://multishow.globo.com/" target="_blank"><img src="/media/uploads/patrocinios/multishow_roxo.png" alt="Multishow"></a>
+</div>
+<div class="botao_patrocinador" id="patrocinio2">
+	<a href="http://www.zapimoveis.com.br/?utm_source=uol&utm_medium=logotipo&utm_campaign=home-imoveis_novologo" target="_blank"><img src="/media/uploads/patrocinios/zap.png" alt="ZAP"></a>
+</div>
+
+
+<script>
+	function um() {
+  		$('#patrocinio1').fadeIn(100).delay(7000).fadeOut(100, dois);
+	}
+
+	function dois() {
+  		$('#patrocinio2').fadeIn(100).delay(7000).fadeOut(100, um);
+	}
+	
+
+	um();
+</script>
+
+
+
+<!-- 	<a href="http://www.zapimoveis.com.br/?utm_source=uol&utm_medium=logotipo&utm_campaign=home-imoveis_novologo" target="_blank"><img src="uploads/patrocinios/zap.png" alt="ZAP"></a>
+<a href="http://www.tnt.com.br/" target="_blank"><img src="uploads/patrocinios/tnt.png" alt="TNT"></a>
+ -->
+
+				
+			</p>
+		</div>
+	</div>
+</div>
+
+
+<div class="menu_expandido" id="scrollable" style="display:none;">
+	<p class="titulo_menu_expandido">CANAIS</p>
+	
+		
+			<a href="/canal/televisao-1">Televisão</a>
+		
+		
+	
+		
+			<a href="/canal/novelas-6">Novelas</a>
+		
+		
+	
+		
+			<a href="/canal/celebridades-5">Celebridades</a>
+		
+		
+	
+		
+			<a href="/canal/audiencias-4">Audiências</a>
+		
+		
+	
+		
+			<a href="/canal/series-3">Séries</a>
+		
+		
+	
+		
+			<a href="/canal/bloco-de-notas-11">Bloco de Notas</a>
+		
+		
+			<a href="/recomenda/">Recomendamos</a>
+		
+	
+		
+			<a href="/noticia/photo-celeb/rafinha-bastos-fotografa-para-seu-novo-programa-do-multishow-10921">Photo Celeb</a>
+		
+		
+	
+		
+			<a href="/canal/mulher-12">Mulher</a>
+		
+		
+	
+		
+			<a href="/canal/mercado-8">Mercado</a>
+		
+		
+	
+		
+			<a href="/canal/opiniao-10">Opinião</a>
+		
+		
+	
+		
+			<a href="/canal/filmes-na-tv-14">Filmes na TV</a>
+		
+		
+	
+		
+			<a href="/canal/tecnologia-7">Tecnologia</a>
+		
+		
+	
+		
+			<a href="/canal/videos-15">Vídeos</a>
+		
+		
+	
+		
+			<a href="/canal/quiz-17">Quiz</a>
+		
+		
+	
+	<p class="titulo_menu_expandido">INSTITUCIONAL</p>
+	<a href="/quemsomos">Quem somos</a>
+	<a href="/comoanunciar">Como anunciar</a>
+	<a href="/contato">Contato</a>
+	<p></p><br>
+</div>
+
+<div class="menu_busca_expandido" style="display:none;">
+	<div class="xcontainer">
+		<form action="/busca" method="GET">
+			<input type="text" class="campo_busca_menu" id="campo_busca_menu" name="q" placeholder="digite aqui as palavras-chave para buscar no site">
+			<button method="submit" class="botao_busca_menu"><img src="/static/img/menu/busca_btn.png" alt="Buscar"></button>
+		</form>
+	</div>
+</div>
+
+<style>
+	.wrapper_menu_new {margin-bottom:20px;}
+	ul.menu li {padding: 0 !important;}
+	ul.menu li a {font-size: 16px; margin: 4px 0 2px 0 !important; padding: 2px 8px;}
+	.s_active_new a {color: white !important; font-weight: bold !important; border-width:0 !important;}
+</style>
+
+
+<div class="wrapper_menu_new">
+	<div class="xcontainer"> 
+		<ul class="menu">
+			
+			
+				<li class="s1"><a href="/canal/televisao-1" >Televisão</a></li>
+				
+			
+				<li class="s6"><a href="/canal/novelas-6" style="width:88px;text-align:center;">Novelas</a></li>
+				
+			
+				<li class="s5"><a href="/canal/celebridades-5" >Celebridades</a></li>
+				
+			
+				<li class="s4"><a href="/canal/audiencias-4" >Audiências</a></li>
+				
+			
+				<li class="s3"><a href="/canal/series-3" >Séries</a></li>
+				
+			
+				<li class="s11"><a href="/canal/bloco-de-notas-11" >Bloco de Notas</a></li>
+				
+					<li class="s_rec"><a href="/recomenda/">Recomendamos</a></li>
+				
+			
+				<li class="s12"><a href="/canal/mulher-12" >Mulher</a></li>
+				
+			
+				<li class="s8"><a href="/canal/mercado-8" >Mercado</a></li>
+				
+			
+				<li class="s10"><a href="/canal/opiniao-10" >Opinião</a></li>
+				
+			
+				<li class="s14"><a href="/canal/filmes-na-tv-14" >Filmes na TV</a></li>
+				
+			
+			<li class="sx"><a href="/comoanunciar" style="border-width:0;">Anuncie</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<div class="menu_movel" id="menu_movel" style="display: none;">
+	<div class="xcontainer">
+	<div class="xrow">
+		
+		<div class="fl m1 menu_busca_btn_home_movel" style="margin-top: 15px">
+			<img id="btn_menu_movel" class="menu_btn_img" src="/static/img/menu/menu_btn.png" alt="">
+			<img id="btn_menu_movel" class="busca_btn_img" src="/static/img/menu/busca_btn.png" alt="">
+		</div>
+		<div class="fl logo_home_movel">
+			<a href="/"><img src="/static/img/logo.png" alt=""></a>
+		</div>
+		
+		<div class="fl m3 patrocinio_home_movel">
+			
+				<div>
+					<p class="s0" style="width: 75px; float: left;">Oferecimento</p>
+				</div>
+				<div style="width: 75px; height: 50px; float: right;">
+					
+
+<style>
+	.botao_patrocinadorx {width:75px;height:50px; display:none; text-align: center;}
+</style>
+
+
+<div class="botao_patrocinadorx" id="patrocinio1x">
+	<a href="http://multishow.globo.com/" target="_blank"><img src="/media/uploads/patrocinios/multishow_roxo.png" alt="Multishow"></a>
+</div>
+<div class="botao_patrocinadorx" id="patrocinio2x">
+	<a href="http://www.zapimoveis.com.br/?utm_source=uol&utm_medium=logotipo&utm_campaign=home-imoveis_novologo" target="_blank"><img src="/media/uploads/patrocinios/zap.png" alt="ZAP"></a>
+</div>
+
+
+<script>
+	function umx() {
+  		$('#patrocinio1x').fadeIn(100).delay(7000).fadeOut(100, doisx);
+	}
+
+	function doisx() {
+  		$('#patrocinio2x').fadeIn(100).delay(7000).fadeOut(100, umx);
+	}
+
+	
+
+	umx();
+</script>
+
+
+				</div>
+			
+		</div>
+		<div class="fr menu_movel_social_home">
+			<a href="https://www.facebook.com/noticiasdatvoficial"><img src="/static/img/site/share_caixa_facebook.png" alt=""></a>
+			<a href="https://twitter.com/danielkastro"><img src="/static/img/site/share_caixa_twitter.png" alt=""></a>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+
+  <!-- block:main_content -->
+  
+
+
+<div class="xcontainer">
+	<div class="xrow">
+		<div class="fl main">
+
+			
+
+<div id="myCarousel" class="carousel slide" data-interval="4000" data-pause="hover">
+
+  
+
+
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    
+
+    
+
+    <div class="item active">
+      <a href="/noticia/novelas/em-o-outro-lado-do-paraiso-gael-descobre-que-a-mae-e-assassina-um-monstroa-19315"><img src="/media/_versions/_versions/o_outro_lado_do_paraiso_gael_sergio_guize_obV5htj_free_big_fixed_big.jpg" alt="Gael descobre que Sophia é assassina: &#39;Um monstro&#39;"></a>
+      <div class="">
+        <div class="carousel-caption carousel_fixed_big">
+          <a href="/noticia/novelas/em-o-outro-lado-do-paraiso-gael-descobre-que-a-mae-e-assassina-um-monstroa-19315">
+          <p class="chapeu">O Outro Lado do Paraíso</p>
+          <h2>Gael descobre que Sophia é assassina: &#39;Um monstro&#39;</h2>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+
+    
+
+    <div class="item">
+      <a href="/noticia/televisao/apos-gafe-com-guardanapo-ana-maria-braga-manda-espalhar-lencos-pela-globo--19537"><img src="/media/_versions/_versions/mais_voce_gafes_pano_free_big_fixed_big.jpg" alt="Ana Maria Braga manda espalhar lenços pela Globo após gafe "></a>
+      <div class="">
+        <div class="carousel-caption carousel_fixed_big">
+          <a href="/noticia/televisao/apos-gafe-com-guardanapo-ana-maria-braga-manda-espalhar-lencos-pela-globo--19537">
+          <p class="chapeu">muita emoção</p>
+          <h2>Ana Maria Braga manda espalhar lenços pela Globo após gafe </h2>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+
+    
+
+    <div class="item">
+      <a href="/noticia/novelas/volta-dos-que-nao-foram-sete-personagens-que-desafiaram-morte-nas-novelas--19539"><img src="/media/_versions/mortos_vivos_capa_fixed_big.jpg" alt="Sete personagens que desafiaram a morte nas telenovelas"></a>
+      <div class="">
+        <div class="carousel-caption carousel_fixed_big">
+          <a href="/noticia/novelas/volta-dos-que-nao-foram-sete-personagens-que-desafiaram-morte-nas-novelas--19539">
+          <p class="chapeu">A volta dos que não foram</p>
+          <h2>Sete personagens que desafiaram a morte nas telenovelas</h2>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev"><img src="/static/img/carousel/seta_carousel_voltar.png" alt="Anterior"></a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next"><img src="/static/img/carousel/seta_carousel.png" alt="Próximo"></a>
+</div>
+<script>
+  $(document).ready(function () {
+    $('.carousel').carousel({
+      interval: 4000
+    })
+  });
+</script>
+
+			
+
+<div class="chamada chamada_sem_imagem  mb30">
+  <a href="/noticia/novelas/carrasco-nega-veto-da-globo-e-assume-erro-por-transformar-mulher-em-homem--19575">
+  	
+	<p class="chapeu">O Outro Lado do Paraíso</p>
+	<h3>Autor nega veto da Globo e assume erro por transformar mulher em homem</h3>
+	
+  </a>
+</div>
+
+
+			<div class="row">
+				
+
+<div class="chamada chamada_fixed_medium col-md-3 mb30">
+  <a href="/noticia/novelas/o-outro-lado-do-paraiso-patrick-descobre-crime-cometido-por-fabiana-no-passado-19574">
+  	<img style="margin-bottom: 20px;" src="/media/_versions/o_outro_lado_do_paraiso_fernanda_rodrigues_1703_fixed_medium.jpg" alt="O Outro Lado do Paraíso:
+Patrick descobre crime
+cometido por Fabiana" class="img-responsive">
+	<p class="chapeu">Novela das nove</p>
+	<h3>O Outro Lado do Paraíso:
+Patrick descobre crime
+cometido por Fabiana</h3>
+	
+  </a>
+</div>
+
+<div class="chamada chamada_fixed_medium col-md-3 mb30">
+  <a href="/noticia/series/ator-transforma-lava-jato-em-ficcao-para-viver-com-consciencia-tranquila--19552">
+  	<img style="margin-bottom: 20px;" src="/media/_versions/_versions/o_mecanismo_leonardo_medeiros_enrique_diaz_free_big_fixed_medium.jpg" alt="Ator transforma Lava Jato em ficção para viver com consciência tranquila" class="img-responsive">
+	<p class="chapeu">ENRIQUE DIAZ</p>
+	<h3>Ator transforma Lava Jato em ficção para viver com consciência tranquila</h3>
+	
+  </a>
+</div>
+
+
+			</div>
+			<div class="row">
+				<div class="col-md-3"><!-- include_banners_async ad:300x250 on:True -->
+
+	<div id="banner-300x250-area">
+        <script>
+            window.uolads && window.uolads.push({ id: "banner-300x250-area" });
+        </script>
+	</div>
+</div>
+				
+
+<div class="chamada chamada_fixed_medium col-md-3 mb30">
+  <a href="/noticia/mercado/aplicacoes-financeira-e-tv-paga-salvam-globo-de-prejuizo-historico-em-2017--19551">
+  	<img style="margin-bottom: 20px;" src="/media/_versions/_versions/globo_carlos_henrique_schroder_T4t4DSe_free_big_fixed_medium.jpg" alt="Aplicações e TV paga salvam Globo de prejuízo em 2017" class="img-responsive">
+	<p class="chapeu">Balanço Oficial</p>
+	<h3>Aplicações e TV paga salvam Globo de prejuízo em 2017</h3>
+	
+  </a>
+</div>
+
+
+			</div>
+			<div class="row">
+				
+
+<div class="chamada chamada_fixed_medium col-md-3 mb30">
+  <a href="/noticia/novelas/deus-salve-o-rei-rodolfo-corta-agua-do-povo-para-fazer-casamento-ostentacao--19571">
+  	<img style="margin-bottom: 20px;" src="/media/_versions/deus_salve_o_rei_johnny_massaro_1603_fixed_medium.jpg" alt="Deus Salve o Rei: Rodolfo
+corta água para fazer
+casamento ostentação" class="img-responsive">
+	<p class="chapeu">Novela das sete</p>
+	<h3>Deus Salve o Rei: Rodolfo
+corta água para fazer
+casamento ostentação</h3>
+	
+  </a>
+</div>
+
+<div class="chamada chamada_fixed_medium col-md-3 mb30">
+  <a href="/noticia/series/prostituicao-de-luxo-vira-casos-de-familia-em-ultima-temporada-de-o-negocio--19554">
+  	<img style="margin-bottom: 20px;" src="/media/_versions/o_negocio_familia_fixed_medium.jpg" alt="Prostituição de luxo vira &#39;Casos de Família&#39; na última temporada de O Negócio" class="img-responsive">
+	<p class="chapeu">Na HBO</p>
+	<h3>Prostituição de luxo vira &#39;Casos de Família&#39; na última temporada de O Negócio</h3>
+	
+  </a>
+</div>
+
+
+			</div>
+		</div>
+		<div class="fr side">
+			<div class="mb20">
+				<!-- include_banners_async ad:300x600 on:True -->
+
+	<div id="banner-300x600-area">
+        <script>
+            window.uolads && window.uolads.push({ id: "banner-300x600-area" });
+        </script>
+	</div>
+
+			</div>
+
+
+			<!-- bloco_de_notas  -->
+
+
+
+<h3 class="bloco s11"><a href="/canal/bloco-de-notas-11" class="s11">Bloco de Notas</a></h3>
+
+
+
+	<div class="bloco_de_notas">
+		<h3>De pai para filho</h3>
+		<img src="/media/_versions/_versions/brasil_urgente_joel_datena_jose_luiz_datena_free_big_fixed_medium.jpg" alt="Joel Datena (à esq.) com o pai, José Luiz, no Brasil Urgente: troca de comando - Reprodução/Band" class="img-responsive">
+		Nesta sexta-feira (16), durante participação no Melhor da Tarde, José Luiz Datena anunciou que seu filho, Joel Datena, assinou contrato com a Band por dois anos para apresentar o Brasil Urgente. O herdeiro, que já ... <a href="/noticia/bloco-de-notas/de-pai-para-filho-19570" title="De pai para filho" class="lb">Leia +</a>
+	</div>
+
+	<div class="bloco_de_notas">
+		<h3>The Sinner renovada</h3>
+		<img src="/media/_versions/_versions/the_sinner_bill_pullman_jessica_biel_renovada_free_big_fixed_medium.jpg" alt="Os atores Bill Pullman e Jessica Biel em The Sinner; trama ganha nova temporada - Divulgação/USA Network" class="img-responsive">
+		O canal USA Network (de Mr. Robot e A Rainha do Sul) renovou The Sinner para a segunda temporada. A trama do novo ano será centrada no detetive Harry Ambrose (Bill Pullman), e a personagem ... <a href="/noticia/bloco-de-notas/sinner-renovada-19560" title="The Sinner renovada" class="lb">Leia +</a>
+	</div>
+
+
+<p style="text-align: center; font-size: 16px;"><a class="lb" href="/canal/bloco-de-notas-11">Leia todas as notas</a></p>
+		</div>
+	</div>
+</div>
+
+<div class="xcontainer">
+	<div class="xrow">
+		<div class="fl main"> 
+			<!-- bloco 1 -->
+
+
+
+
+
+	
+<h3 class="bloco s1">
+	<a href="/canal/televisao-1" class="s1">Televisão</a>
+</h3>
+
+
+
+	<a href="/noticia/televisao/apos-gafe-com-guardanapo-ana-maria-braga-manda-espalhar-lencos-pela-globo--19537">
+	<div class="ultima_noticia big mb30">
+		<img src="/media/_versions/_versions/mais_voce_gafes_pano_free_big_fixed_big.jpg" alt="Ana Maria limpou o nariz em um guardanapo após se emocionar com o cozinheiro Lacir... - IMAGENS: REPRODUÇÃO/TV GLOBO" width="680" height="320">
+		<div class="ultima_noticia_texto">
+			<div>
+				
+				
+				<p class="chapeu">GAFE</p>
+				<p class="titulo preline">Ana Maria Braga espalha 
+lenços pela Globo após 
+gafe com pano de prato</p>
+			</div>
+		</div>
+	</div>
+	
+	</a>
+	<div class="row">
+		
+		<div class="col-md-2">
+			<a href="/noticia/televisao/de-nariz-sujo-mosca-no-bolo-7-momentos-constrangedores-da-ana-maria-braga-19528">
+			<img src="/media/_versions/_versions/mais_voce_gafes_pano_free_big_fixed_small.jpg" alt=" - IMAGENS: REPRODUÇÃO/GLOBO" class="img-responsive mb20">
+			
+			<p class="chapeu s1">DEU RUIM</p>
+			<p class="titulo preline">De nariz sujo a mosca: 7 
+lances constrangedores
+ de Ana Maria Braga</p>
+			</a>
+		</div>
+		
+		<div class="col-md-2">
+			<a href="/noticia/televisao/voce-esta-demitido-record-decide-nao-renovar-contrato-com-roberto-justus--19502">
+			<img src="/media/_versions/_versions/power_couple_roberto_justus_final_2016_leo_franco_agnews_free_big_fixed_small.jpg" alt="Roberto Justus na final da edição de 2016 de Power Couple: sem projetos na Record - LEO FRANCO/AGNEWS" class="img-responsive mb20">
+			
+			<p class="chapeu s1">SEM EMPREGO</p>
+			<p class="titulo preline">Você está demitido:
+ Record decide não
+ renovar com Justus</p>
+			</a>
+		</div>
+		
+		<div class="col-md-2">
+			<a href="/noticia/televisao/de-ganhadora-do-oscar-heroi-cinco-rejeitados-do-american-idol-que-brilham-na-tv--19509">
+			<img src="/media/_versions/_versions/american_idol_jennifer_hudson_oscar_free_big_fixed_small.jpg" alt="Jennifer Hudson se apresenta no American Idol (à esq.) e recebe o Oscar de atriz coadjuvante - Reprodução/Fox" class="img-responsive mb20">
+			
+			<p class="chapeu s1">NOVA TEMPORADA</p>
+			<p class="titulo preline">De ganhadora do Oscar
+ a herói: cinco rejeitados
+ do reality American Idol </p>
+			</a>
+		</div>
+		
+	</div>
+
+
+
+		</div>
+		<div class="fr side">
+		
+		
+		<!-- box_mais_lidas 5 -->
+
+
+
+<h3 class="bloco s0">+ Lidas</h3>
+
+
+<div class="wrapper_chamada_quadrada">
+	<a href="/noticia/novelas/em-o-outro-lado-do-paraiso-juvenal-se-choca-ao-ver-prostituta-nua-e-homem-19497"><img src="/media/_versions/o_outro_lado_do_paraiso_anderson_di_rizzi_1303_pq_100x.jpg" class="side_100x"></a>
+	<div class="texto_100x" style="width:190px">
+		<p class="titulo_mais_lidas"><a href="/noticia/novelas/em-o-outro-lado-do-paraiso-juvenal-se-choca-ao-ver-prostituta-nua-e-homem-19497">Juvenal se choca ao
+ ver prostituta nua pela
+ primeira vez: &#39;É homem&#39;</a></p>
+		<p class="acessos">1.904.612 acessos</p>
+	</div>
+</div>
+
+<div class="wrapper_chamada_quadrada">
+	<a href="/noticia/novelas/o-outro-lado-do-paraiso-mercedes-ouve-vozes-e-preve-futuro-de-patrick-19499"><img src="/media/_versions/o_outro_lado_do_paraiso_mercedes_1303_pequena_100x.jpg" class="side_100x"></a>
+	<div class="texto_100x" style="width:190px">
+		<p class="titulo_mais_lidas"><a href="/noticia/novelas/o-outro-lado-do-paraiso-mercedes-ouve-vozes-e-preve-futuro-de-patrick-19499">O Outro Lado do Paraíso: 
+Mercedes ouve vozes e 
+prevê futuro de Patrick</a></p>
+		<p class="acessos">896.687 acessos</p>
+	</div>
+</div>
+
+<div class="wrapper_chamada_quadrada">
+	<a href="/noticia/novelas/o-outro-lado-do-paraiso-patrick-vai-hospicio-para-salvar-clara-saiba-mais--19511"><img src="/media/_versions/_versions/o_outro_lado_do_paraiso_patrick_thiago_fragoso__1_free_small_100x.jpg" class="side_100x"></a>
+	<div class="texto_100x" style="width:190px">
+		<p class="titulo_mais_lidas"><a href="/noticia/novelas/o-outro-lado-do-paraiso-patrick-vai-hospicio-para-salvar-clara-saiba-mais--19511">O Outro Lado do Paraíso: 
+Patrick vai a hospício 
+para salvar Clara </a></p>
+		<p class="acessos">450.367 acessos</p>
+	</div>
+</div>
+
+<div class="wrapper_chamada_quadrada">
+	<a href="/noticia/novelas/outro-lado-do-paraiso-nadia-implora-perdao-chora-abracada-raquel--19505"><img src="/media/_versions/_versions/o_outro_lado_do_paraiso_nadia_eliane_giardini_cap_free_small_100x.jpg" class="side_100x"></a>
+	<div class="texto_100x" style="width:190px">
+		<p class="titulo_mais_lidas"><a href="/noticia/novelas/outro-lado-do-paraiso-nadia-implora-perdao-chora-abracada-raquel--19505">O Outro Lado do Paraíso:
+ Nádia implora perdão e 
+chora abraçada a Raquel</a></p>
+		<p class="acessos">277.362 acessos</p>
+	</div>
+</div>
+
+<div class="wrapper_chamada_quadrada">
+	<a href="/noticia/televisao/de-nariz-sujo-mosca-no-bolo-7-momentos-constrangedores-da-ana-maria-braga-19528"><img src="/media/_versions/_versions/mais_voce_gafes_pano_pequena_free_big_100x.jpg" class="side_100x"></a>
+	<div class="texto_100x" style="width:190px">
+		<p class="titulo_mais_lidas"><a href="/noticia/televisao/de-nariz-sujo-mosca-no-bolo-7-momentos-constrangedores-da-ana-maria-braga-19528">De nariz sujo a mosca: 7 
+lances constrangedores
+ de Ana Maria Braga</a></p>
+		<p class="acessos">229.380 acessos</p>
+	</div>
+</div>
+
+
+	
+		</div>
+	</div>
+</div>
+
+
+
+<div class="xcontainer">
+	
+	
+
+
+
+
+
+
+
+
+<div class="xrow">
+	<div class="patrocinio_bloco_canal">
+		<p class="patrocinio_canal">Oferecimento &nbsp;<a href="http://webportal.nowonline.com.br/" target="_blank"><img src="/media/uploads/recomenda/ap_logo_patrocinio_now_positivo.png" alt="Oferecimento NET NOW" width="100" height="40"></a></p>
+	</div>
+	<a href="/recomenda/"><h3 class="bloco s_rec">Notícias da TV Recomenda</h3></a>
+
+	
+	<div class="col-md-2">
+		<a href="/recomenda/sopranos-130">
+			<img src="/media/_versions/recomenda/the_sopranos_poster_fixed_recomenda_big.jpg" class="mb15" alt="The Sopranos" width="320" height="480">
+		</a>
+	</div>
+	
+	<div class="col-md-2">
+		<a href="/recomenda/unbreakable-kimmy-schmidt-136">
+			<img src="/media/_versions/recomenda/unbreakable_kimmy_schmidt_poster_fixed_recomenda_big.jpg" class="mb15" alt="Unbreakable Kimmy Schmidt " width="320" height="480">
+		</a>
+	</div>
+	
+	<div class="col-md-2">
+		<a href="/recomenda/blackish-133">
+			<img src="/media/_versions/recomenda/blackish_poster_fixed_recomenda_big.jpg" class="mb15" alt="Blackish" width="320" height="480">
+		</a>
+	</div>
+	
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<div class="xcontainer">
+	<h3 class="bloco s6"><a href="/canal/novelas-6" class="s6">Novelas</a></h3>
+	<div class="xrow">
+		<div class="fl main"> 
+			<!-- bloco 1 -->
+
+
+
+
+
+
+
+	<a href="/noticia/novelas/em-o-outro-lado-do-paraiso-gael-descobre-que-a-mae-e-assassina-um-monstroa-19315">
+	<div class="ultima_noticia big mb30">
+		<img src="/media/_versions/_versions/o_outro_lado_do_paraiso_gael_sergio_guize_obV5htj_free_big_fixed_big.jpg" alt="Gael (Sergio Guizé) vai se rebelar contra a mãe nos próximos capítulos da novela das nove - Reprodução/TV Globo" width="680" height="320">
+		<div class="ultima_noticia_texto">
+			<div>
+				
+				
+				<p class="chapeu">Novela das nove</p>
+				<p class="titulo preline">Em O Outro Lado do
+ Paraíso, Gael descobre
+ que mãe é assassina</p>
+			</div>
+		</div>
+	</div>
+	
+	</a>
+	<div class="row">
+		
+		<div class="col-md-2">
+			<a href="/noticia/novelas/novela-deus-salve-o-rei-resumo-dos-capitulos-de-19-24-de-marco--19567">
+			<img src="/media/_versions/deus_salve_o_rei_tata_werneck_daniel_warren_1603_fixed_small.jpg" alt="Tatá Werneck (Lucrécia) e Daniel Warren (Orlando) em cena de Deus Salve o Rei, da Globo - Reprodução/TV Globo" class="img-responsive mb20">
+			
+			<p class="chapeu s6">Nesta Semana</p>
+			<p class="titulo preline">Novela Deus Salve o Rei:
+Resumo dos capítulos
+de 19 a 24 de março</p>
+			</a>
+		</div>
+		
+		<div class="col-md-2">
+			<a href="/noticia/novelas/novela-orgulho-e-paixao-resumo-dos-capitulos-de-20-24-de-marco--19566">
+			<img src="/media/_versions/orgulho_e_paixao_agatha_moreira_raquel_cunha_1603_fixed_small.jpg" alt="Agatha Moreira interpreta Ema, o cupido dos casais de Orgulho e Paixão, novela da seis - Raquel Cunha/TV Globo" class="img-responsive mb20">
+			
+			<p class="chapeu s6">Nesta Semana</p>
+			<p class="titulo preline">Novela Orgulho e Paixão:
+Resumo dos capítulos
+de 20 a 24 de março</p>
+			</a>
+		</div>
+		
+		<div class="col-md-2">
+			<a href="/noticia/novelas/novela-malhacao-resumo-dos-capitulos-de-19-23-de-marco--19565">
+			<img src="/media/_versions/malhacao_malu_mader_1603_fixed_small.jpg" alt="Melissa (Malu Mader) vai se separar e deixar o filho revoltado em cena de Malhação - Reprodução/TV Globo" class="img-responsive mb20">
+			
+			<p class="chapeu s6">Nesta Semana</p>
+			<p class="titulo preline">Novela Malhação:
+Resumo dos capítulos
+de 19 a 23 de março</p>
+			</a>
+		</div>
+		
+	</div>
+
+
+
+		</div>
+		<div class="fr side mb20">
+			<div class="mb30">
+				
+
+
+
+
+
+
+
+<a href="https://www.facebook.com/noticiasdatvoficial/" target="blank">
+	<img src="/media/uploads/banners/banner_institucional_2017-12.gif" alt="Notícias da TV">
+</a>
+
+			</div>
+			
+<h3 class="bloco s0">Leia as últimas de</h3>
+
+	
+	
+		<a class="novela_link" href="/novela/o-outro-lado-do-paraiso-32">O Outro Lado do Paraíso</a>
+	
+		<a class="novela_link" href="/novela/deus-salve-o-rei-36">Deus Salve o Rei</a>
+	
+		<a class="novela_link" href="/novela/tempo-de-amar-35">Tempo de Amar</a>
+	
+		<a class="novela_link" href="/novela/malhacao-1">Malhação</a>
+	
+		<a class="novela_link" href="/novela/apocalipse-43">Apocalipse</a>
+	
+		<a class="novela_link" href="/novela/orgulho-e-paixao-49">Orgulho e Paixão</a>
+	
+		<a class="novela_link" href="/novela/carinha-de-anjo-25">Carinha de Anjo</a>
+	
+
+		</div>
+	</div>
+</div>
+
+
+<div class="xcontainer"> 
+	<!-- bloco 3 -->
+
+
+
+
+
+	
+<h3 class="bloco s4">
+	<a href="/canal/audiencias-4" class="s4">Audiências</a>
+</h3>
+
+
+
+	<div class="row">
+		
+		<div class="col-md-2">
+			<div class="wrapper_chamada_quadrada">
+				<a href="/noticia/audiencias/nova-malhacao-perde-publico-e-tem-pior-ibope-da-novelinha-em-15-meses--19548"><img src="/media/_versions/_versions/malhacao_camila_morgado_1503_pequena_free_big_100x.jpg" alt="Camila Morgado, intérprete da professora Gabriela, em cena de Malhação: Vidas Brasileiras - Reprodução/TV Globo" class="side_100x"></a>
+				<div class="texto_100x" style="width:210px !important;"> 
+					<a href="/noticia/audiencias/nova-malhacao-perde-publico-e-tem-pior-ibope-da-novelinha-em-15-meses--19548">
+					<p class="chapeu s4">Audiências de 15/3/2018</p>
+					<p class="titulo preline">Malhação perde público e tem pior ibope da novelinha em 15 meses</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-2">
+			<div class="wrapper_chamada_quadrada">
+				<a href="/noticia/audiencias/com-xuxa-de-mae-dos-dragoes-dancing-brasil-tem-pior-ibope-da-temporada-19531"><img src="/media/_versions/dancing_brasil_xuxa_meneghel_leandro_lima_series_pequena_100x.jpg" alt="Xuxa e Leandro Lima como Daenerys Targaryen e Jon Snow, personagens de Game of Thrones - Divulgação/RecordTV" class="side_100x"></a>
+				<div class="texto_100x" style="width:210px !important;"> 
+					<a href="/noticia/audiencias/com-xuxa-de-mae-dos-dragoes-dancing-brasil-tem-pior-ibope-da-temporada-19531">
+					<p class="chapeu s4">Audiências de 14/3/2018</p>
+					<p class="titulo preline">Com Xuxa de mãe dos dragões, Dancing Brasil tem o pior ibope do ano</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-2">
+			<div class="wrapper_chamada_quadrada">
+				<a href="/noticia/audiencias/apos-um-ano-na-lideranca-jornal-hoje-sofre-setima-derrota-para-record-19514"><img src="/media/_versions/jornal_hoje_dony_de_nuccio_1303_pequena_100x.jpg" alt="O âncora Dony De Nuccio na edição de ontem (13) do Jornal Hoje, que perdeu para a Record - Reprodução/Globo" class="side_100x"></a>
+				<div class="texto_100x" style="width:210px !important;"> 
+					<a href="/noticia/audiencias/apos-um-ano-na-lideranca-jornal-hoje-sofre-setima-derrota-para-record-19514">
+					<p class="chapeu s4">Audiências de 13/3/2018</p>
+					<p class="titulo preline">Jornal Hoje sofre a sétima derrota para
+ a Record na história</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+
+
+	<div class="mb20">
+<script type="text/javascript">
+	var banners_1000 = [
+		['/static/img/banners/1000x80_facebook.png', 'https://www.facebook.com/noticiasdatvoficial'],
+		['/static/img/banners/1000x80_twitter.png', 'https://twitter.com/danielkastro']
+		];
+	// var banners_1000 = [
+	// 	['/media/uploads/banners/banner_vaga.gif', '/contato'],
+	// 	['/media/uploads/banners/banner_vaga.gif', '/contato']
+	// 	];
+	document.write(selectBanner(banners_1000,1000,80));</script>
+</div>
+</div>
+
+<div class="xcontainer"> 
+	<div class="xrow">
+		<div class="fl main">
+			<!-- bloco 4 -->
+
+
+
+
+
+	
+<h3 class="bloco s3">
+	<a href="/canal/series-3" class="s3">Séries</a>
+</h3>
+
+
+
+	<div class="row">
+		<div class="col-md-3 mb20">
+			<a href="/noticia/series/documentos-revelam-conta-secreta-da-amazon-usada-para-avaliar-series--19542">
+			<img src="/media/_versions/_versions/the_man_in_the_high_castle_rufus_sewell_amazon_free_big_fixed_medium.jpg" alt="Rufus Sewell em The Man in the High Castle; série sobrevive graças a novos assinantes - Divulgação/Amazon" class="img-responsive mb20">
+			<p class="chapeu s3">Prime Video</p>
+			<p class="titulo preline">Documentos revelam conta secreta da Amazon usada para avaliar séries </p>
+			
+			</a>
+		</div>
+		<div class="col-md-3">
+		
+			<div class="wrapper_chamada_quadrada">
+				<a href="/noticia/series/serie-sobre-lava-jato-fala-com-o-mundo-inteiro-diz-chefao-da-netflix--19527"><img src="/media/_versions/_versions/o_mecanismo_ted_sarandos_reed_hastings_pequena_free_big_100x.jpg" alt="Selton Mello vive o policial Marco Ruffo em O Mecanismo, série sobre a Operação Lava Jato - Karima Shehata/Netflix" class="side_100x"></a>
+				<div class="texto_100x">
+					<a href="/noticia/series/serie-sobre-lava-jato-fala-com-o-mundo-inteiro-diz-chefao-da-netflix--19527">
+					<p class="chapeu s3">O MECANISMO</p>
+					<p class="titulo preline">Série sobre a Lava Jato fala com o mundo inteiro, diz chefão da Netflix</p>
+					</a>
+				</div>
+			</div>
+		
+			<div class="wrapper_chamada_quadrada">
+				<a href="/noticia/series/saiba-onde-ver-atores-de-game-thrones-em-ano-sabatico-da-serie--19440"><img src="/media/_versions/_versions/gunpowder_kit_harington_got_sabatico_pequena_free_big_100x.jpg" alt="O ator Kit Harington, o Jon Snow de Game of Thrones, em cena da minissérie Gunpowder - Divulgação/BBC" class="side_100x"></a>
+				<div class="texto_100x">
+					<a href="/noticia/series/saiba-onde-ver-atores-de-game-thrones-em-ano-sabatico-da-serie--19440">
+					<p class="chapeu s3">Fique Ligado</p>
+					<p class="titulo preline">Saiba onde ver atores de Game of Thrones no ano sabático da série</p>
+					</a>
+				</div>
+			</div>
+		
+			<div class="wrapper_chamada_quadrada">
+				<a href="/noticia/series/idolo-em-big-bang-theory-stephen-hawking-causou-desmaio-e-ganhou-imitacao-19515"><img src="/media/_versions/_versions/the_big_bang_theory_stephen_hawking_jim_parsons_pequena_free_big_100x.jpg" alt="O cientista Stephen Hawking ao lado do ator Jim Parson em gravação de The Big Bang Theory - Imagens: Divulgação/CBS" class="side_100x"></a>
+				<div class="texto_100x">
+					<a href="/noticia/series/idolo-em-big-bang-theory-stephen-hawking-causou-desmaio-e-ganhou-imitacao-19515">
+					<p class="chapeu s3">Adeus de um gênio</p>
+					<p class="titulo preline">Ídolo em Big Bang Theory, Stephen Hawking causou desmaio e ganhou imitação</p>
+					</a>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+
+
+
+		</div>
+		<div class="fr side">
+			
+			
+
+
+
+<div class="bg15 mb20" style="height: 400px;">
+	<h3 class="bloco s15" style="padding: 0 30px;"><a href="/canal/videos-15" class="s15">Vídeos</a></h3>
+	<a href="/noticia/videos/o-outro-lado-do-paraiso-clara-escapa-da-morte-e-desvenda-farsa-de-renato-19463">
+		
+		<div style="">
+			<div style="position:relative; height: 142px; margin-bottom: 10px;">
+				<img src="/media/_versions/_versions/o_outro_lado_do_paraiso_renato_calara_casamento_josafa_beth_free_big_fixed_medium.jpg" alt="Renato (Rafael Cardoso) será desmascarado por Clara (Bianca Bin) no altar na novela - Fotos: Raquel Cunha/TV Globo" class="img-responsive mb10" style="position: absolute;">
+				<img src="/static/img/site/play_foreground_home.png" alt="" style="width:300px; height: auto; position: absolute;">
+			</div>
+		</div>
+		
+			
+		
+		
+		
+			<p class="chapeu" style="color: #fff; padding: 0 30px; font-size: 15px; font-weight: normal;">O que tá pegando?</p>
+		
+		
+			<p class="titulo mb10" style="color: #fff; padding: 0 30px; font-size: 22px; line-height: 24px;">O Outro Lado do Paraíso: Clara escapa da morte e desvenda farsa de Renato </p>		
+		
+		
+			
+			<br>
+		
+	</a>
+</div>
+
+
+		</div>
+	</div>
+</div>
+
+<div class="xcontainer"> 
+	<div class="xrow">
+		<div class="fl main">
+			<!-- bloco 4 -->
+
+
+
+
+
+	
+<h3 class="bloco s5">
+	<a href="/canal/celebridades-5" class="s5">Celebridades</a>
+</h3>
+
+
+
+	<div class="row">
+		<div class="col-md-3 mb20">
+			<a href="/noticia/celebridades/namorado-de-sasha-meneghelrevela-medo-de-conhecer-xuxa-nervoso-19517">
+			<img src="/media/_versions/_versions/o-outro_lado_do_paraiso_bruno_montaleone__free_big_fixed_medium.jpg" alt="O ator Bruno Montaleone entrou nesta semana em O Outro Lado do Paraíso como Johnny  - Raquel Cunha/TV Globo " class="img-responsive mb20">
+			<p class="chapeu s5">Bruno Montaleone</p>
+			<p class="titulo preline">Namorado de Sasha Meneghel revela medo de conhecer a sogra: ‘Nervoso’</p>
+			
+			</a>
+		</div>
+		<div class="col-md-3">
+		
+			<div class="wrapper_chamada_quadrada">
+				<a href="/noticia/celebridades/em-entrevista-geraldo-luis-naldo-admite-ter-atirado-garrafa-e-batido-na-mulher-19541"><img src="/media/_versions/_versions/naldo_ellen_cardoso_geraldo_luis_domingo_show_record_pequena_free_big_100x.jpg" alt="Geraldo Luís entrevista Naldo Benny e Ellen Cardoso para o programa Domingo Show - DIVULGAÇÃO/RECORD TV" class="side_100x"></a>
+				<div class="texto_100x">
+					<a href="/noticia/celebridades/em-entrevista-geraldo-luis-naldo-admite-ter-atirado-garrafa-e-batido-na-mulher-19541">
+					<p class="chapeu s5">CASO DE POLÍCIA</p>
+					<p class="titulo preline">Em entrevista a Geraldo Luís, Naldo admite ter atirado garrafa na mulher</p>
+					</a>
+				</div>
+			</div>
+		
+			<div class="wrapper_chamada_quadrada">
+				<a href="/noticia/celebridades/na-quinta-vila-consecutiva-alessandra-negrini-diz-que-fazer-mocinha-e-muito-chato--19482"><img src="/media/_versions/_versions/orgulho_e_paixao_alessandra_negrini_pequena_free_big_100x.jpg" alt="Alessandra Negrini como a vilã Susana, grande antagonista da novela Orgulho e Paixão - Reprodução/TV Globo" class="side_100x"></a>
+				<div class="texto_100x">
+					<a href="/noticia/celebridades/na-quinta-vila-consecutiva-alessandra-negrini-diz-que-fazer-mocinha-e-muito-chato--19482">
+					<p class="chapeu s5">GOSTO PELA MALDADE</p>
+					<p class="titulo preline">Na sexta vilã, Alessandra Negrini diz que fazer mocinha é muito chato</p>
+					</a>
+				</div>
+			</div>
+		
+			<div class="wrapper_chamada_quadrada">
+				<a href="/noticia/celebridades/atriz-entrevista-30-prostitutas-e-treina-pole-dance-para-viver-stripper-em-serie--19484"><img src="/media/_versions/rua_augusta_fiorella_mattheis_1203_2_pequena_100x.jpg" alt="A atriz Fiorella Mattheis em cena como a stripper Mika de Rua Augusta, série do canal TNT - Divulgação/TNT" class="side_100x"></a>
+				<div class="texto_100x">
+					<a href="/noticia/celebridades/atriz-entrevista-30-prostitutas-e-treina-pole-dance-para-viver-stripper-em-serie--19484">
+					<p class="chapeu s5">Fiorella Mattheis</p>
+					<p class="titulo preline">Atriz entrevista 30 prostitutas e treina pole dance para viver stripper</p>
+					</a>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+
+
+
+		</div>
+		<div class="fr side mb10"> 
+			
+		
+		<!-- poll_box 20180317 07:13 None --><h3 class="bloco s0 poll_h3_hidden">Enquete</h1><div class="poll_pergunta mb20">Luciana Gimenez deve continuar na RedeTV!?</div><div class="poll_respostas"><form method="get" action="/polls/cast_vote" id="poll_133" class="poll_form"><div class="poll_resposta"><label><input type="radio" name="poll_reposta" value="533">
+					
+					Não, ela tem cacife para trabalhar em emissoras maiores.
+					</label></div><div class="poll_resposta"><label><input type="radio" name="poll_reposta" value="534">
+					
+					Não, já acumulou muita fortuna com publicidade e pensões.
+					</label></div><div class="poll_resposta"><label><input type="radio" name="poll_reposta" value="535">
+					
+					Sim, ela é a maior estrela da RedeTV!
+					</label></div><div class="poll_resposta"><label><input type="radio" name="poll_reposta" value="536">
+					
+					Luciana Gimenez ainda está no ar?
+					</label></div><input type="hidden" name="poll_id" value="133"><input type='hidden' name='csrfmiddlewaretoken' value='dfbtdomIdjM6ByYs0ecPNvCDRDcqm8DH' /><p align="right" style="margin: 0;"><button class="enquete_btn" type="submit" value="Vota">Votar</button></p></form></div><script src="/static/js/polls_vote_20151015.min.js" type="text/javascript" charset="utf-8" async></script>
+		
+		</div>
+	</div>
+</div>
+
+
+<div class="xcontainer"> 
+	<div class="xrow">
+		<div class="fl main">
+			<div class="row">
+				<div class="col-md-3 mb20"><!-- bloco 5 -->
+
+
+
+
+
+	
+	<div class="patrocinio_bloco_canal">
+		<p class="patrocinio_canal">Oferecimento &nbsp;<a href="http://www.zapimoveis.com.br/?utm_source=uol&utm_medium=logotipo&utm_campaign=home-imoveis_novologo" target="_blank"><img src="/media/uploads/patrocinios/zap.png" alt=""></a></p>
+	</div>
+	
+<h3 class="bloco s12">
+	<a href="/canal/mulher-12" class="s12">Mulher</a>
+</h3>
+
+
+
+	<a href="/noticia/mulher/nutricionista-revela-dieta-que-fez-ellen-rocche-secar-12-kg-em-tres-meses--19100">
+	<img src="/media/_versions/ellen_rocche_1502_fixed_medium.jpg" alt="Ellen Rocche durante o ensaio técnico da escola de samba Rosas de Ouro, em São Paulo - Divulgação/Rosas de Ouro" class="img-responsive mb20">
+	<p class="chapeu s12">Saúde</p>
+	<p class="titulo preline" style="margin-bottom:35px;">Nutricionista revela dieta que fez Ellen Rocche secar 12 kg em três meses</p>
+	
+	</a>
+	<!-- <br> -->
+	
+		<div class="wrapper_chamada_quadrada">
+			<a href="/noticia/mulher/trancas-de-marina-ruy-barbosa-e-penteados-romanticos-estao-em-alta-aprenda--18887"><img src="/media/_versions/deus_salve_o_rei_marina_ruy_barbosa_sergio_zalis_3101_pq_100x.jpg" alt="Trança em formato de tiara usada por Marina Ruy Barbosa em Deus Salve o Rei é tendência - Sergio Zalis/TV Globo" class="side_100x"></a>
+			<div class="texto_100x">
+				<a href="/noticia/mulher/trancas-de-marina-ruy-barbosa-e-penteados-romanticos-estao-em-alta-aprenda--18887">
+				<p class="chapeu s12">Cabelos</p>
+				<p class="titulo preline">Tranças de Marina Ruy Barbosa e penteados românticos estão em alta</p>
+				</a>
+			</div>
+		</div>
+	
+
+</div>
+				<div class="col-md-3"><!-- bloco 5 -->
+
+
+
+
+
+	
+<h3 class="bloco s10">
+	<a href="/canal/opiniao-10" class="s10">Opinião</a>
+</h3>
+
+
+
+	<a href="/noticia/opiniao/agradavel-everything-sucks-e-vitima-de-comentarios-negativos-em-excesso--19217">
+	<img src="/media/_versions/_versions/everything_sucks_peyton_kennedy_jahi_diallo_winston_criticas_free_big_fixed_medium.jpg" alt="Peyton Kennedy e Jahi Winston em cena de Everything Sucks!, nova comédia da Netflix - Divulgação/Netflix" class="img-responsive mb20">
+	<p class="chapeu s10">Análise</p>
+	<p class="titulo preline" style="margin-bottom:35px;">Agradável, Everything Sucks! é vítima de comentários negativos em excesso </p>
+	
+	</a>
+	<!-- <br> -->
+	
+		<div class="wrapper_chamada_quadrada">
+			<a href="/noticia/opiniao/analise-no-carnaval-de-salvador-sbt-troca-axe-poresquetes-sem-graca-19047"><img src="/media/_versions/_versions/sbt_folia_tiago_barnabe_sandra_airbag_pequena_free_big_100x.jpg" alt="O comediante Tiago Barnabé como Sandra Airbag em quadro de humor do SBT Folia - Reprodução/SBT" class="side_100x"></a>
+			<div class="texto_100x">
+				<a href="/noticia/opiniao/analise-no-carnaval-de-salvador-sbt-troca-axe-poresquetes-sem-graca-19047">
+				<p class="chapeu s10">FOLIA PARA QUEM?</p>
+				<p class="titulo preline">Análise: No Carnaval de Salvador, SBT troca axé por esquetes sem graça</p>
+				</a>
+			</div>
+		</div>
+	
+
+</div>
+			</div>
+		</div>
+		<div class="fr side"> 
+			<!-- bloco 6 -->
+
+
+
+
+
+	
+<h3 class="bloco s8">
+	<a href="/canal/mercado-8" class="s8">Mercado</a>
+</h3>
+
+
+
+	
+		<div class="wrapper_chamada_quadrada">
+			<a href="/noticia/mercado/irmao-de-sonia-abrao-pede-demissao-da-redetv-volta-atras-pela-2-vez--19510"><img src="/media/_versions/_versions/redetv_elias_abrao_pequena_free_big_100x.jpg" alt="Elias Abrão, irmão da apresentadora Sonia Abrão, que pediu demissão pela segunda vez - Divulgação" class="side_100x"></a>
+			<div class="texto_100x" style="width:190px;">
+				<a href="/noticia/mercado/irmao-de-sonia-abrao-pede-demissao-da-redetv-volta-atras-pela-2-vez--19510">
+				<p class="chapeu s8">Gente Confusa</p>
+				<p class="titulo preline">Irmão de Sonia Abrão pede demissão da RedeTV! e volta atrás pela 2ª vez</p>
+				</a>
+			</div>
+		</div>
+	
+		<div class="wrapper_chamada_quadrada">
+			<a href="/noticia/mercado/emissoras-britanicas-se-unem-para-bater-de-frente-com-netflix-e-amazon--19423"><img src="/media/_versions/_versions/sherlock_benedict_cumberbatch_martin_freeman_free_big_100x.jpg" alt="O ator Benedict Cumberbatch em cena de Sherlock, série da BBC disponível na Netflix - Divulgação/BBC" class="side_100x"></a>
+			<div class="texto_100x" style="width:190px;">
+				<a href="/noticia/mercado/emissoras-britanicas-se-unem-para-bater-de-frente-com-netflix-e-amazon--19423">
+				<p class="chapeu s8">GUERRA DE GIGANTES</p>
+				<p class="titulo preline">Emissoras britânicas se unem para bater de frente com Netflix e Amazon</p>
+				</a>
+			</div>
+		</div>
+	
+
+
+
+			<!-- bloco 6 -->
+
+
+
+
+
+	
+<h3 class="bloco s7">
+	<a href="/canal/tecnologia-7" class="s7">Tecnologia</a>
+</h3>
+
+
+
+	
+		<div class="wrapper_chamada_quadrada">
+			<a href="/noticia/tecnologia/tv-digital-e-adiada-pela-terceira-vez-no-interior-de-sp-porto-alegre-tambem-atrasa-18866"><img src="/media/_versions/_versions/antenistas_porto_alegre_rbs_senai_q_free_big_100x.png" alt="Antenistas em curso para instalação de TV digital promovido pelo Senai em Porto Alegre - Reprodução/RBSTV" class="side_100x"></a>
+			<div class="texto_100x" style="width:190px;">
+				<a href="/noticia/tecnologia/tv-digital-e-adiada-pela-terceira-vez-no-interior-de-sp-porto-alegre-tambem-atrasa-18866">
+				<p class="chapeu s7">Apagão Analógico</p>
+				<p class="titulo preline">TV digital é adiada pela terceira vez no 
+interior de SP; Porto Alegre também atrasa</p>
+				</a>
+			</div>
+		</div>
+	
+
+
+
+		</div>
+	</div>
+</div>
+
+
+<div class="xcontainer"> 
+	<div class="xrow">
+		<div class="fl main">
+			<!-- bloco 7 -->
+
+
+
+
+
+	
+<h3 class="bloco s14">
+	<a href="/canal/filmes-na-tv-14" class="s14">Filmes na TV</a>
+</h3>
+
+
+
+	<div class="row">
+		
+		<div class="col-md-2">
+			<a href="/noticia/filmes-na-tv/de-robo-boca-suja-princesa-sensual-dez-causos-que-voce-desconhece-de-star-wars-19501">
+			<img src="/media/_versions/_versions/star_wars_daisy_ridley_free_big_fixed_small.jpg" alt="A atriz Daisy Ridley é a estrela de Os Últimos Jedi, filme mais recente da franquia Star Wars - Fotos: Divulgação/LucasArts" class="img-responsive mb20">
+			<p class="chapeu s14">EM UMA GALÁXIA DISTANTE</p>
+			<p class="titulo preline">De robô boca suja a princesa sensual: dez causos de Star Wars</p>
+			</a>
+		</div>
+		
+		<div class="col-md-2">
+			<a href="/noticia/filmes-na-tv/destemidas-ousadas-e-geniais-mulheres-que-quebram-tudo-no-cinema-e-na-tv--19405">
+			<img src="/media/_versions/mulheres_inspiradoras_capa_1_fixed_small.jpg" alt="Nicole Kidman, Gal Gadot e Taraji P. Henson interpretam mulheres fortes no cinema e na TV - Divulgação" class="img-responsive mb20">
+			<p class="chapeu s14">Elas no comando</p>
+			<p class="titulo preline">Destemidas e ousadas: Mulheres que quebram tudo no cinema e na TV</p>
+			</a>
+		</div>
+		
+		<div class="col-md-2">
+			<a href="/noticia/filmes-na-tv/ver-vencedores-do-oscar-em-casa-sai-mais-barato-que-pipoca-e-refri-no-cinema--19380">
+			<img src="/media/_versions/_versions/oscar_dunkirk_tom_hardy_free_big_fixed_small.jpg" alt="Tom Hardy em cena do filme Dunkirk, ganhador de três Oscars e já disponível na TV paga - Divulgação/Warner Bros." class="img-responsive mb20">
+			<p class="chapeu s14">LONGAS QUE VALEM OURO</p>
+			<p class="titulo preline">Ver vencedores do Oscar em casa sai mais barato que pipoca no cinema</p>
+			</a>
+		</div>
+		
+	</div>
+
+
+			<div class="row">
+				<div class="col-md-3">
+					<!-- include_banners_async ad:300x250-3 on:True -->
+
+	<div id="banner-300x250-3-area">
+        <script>
+            window.uolads && window.uolads.push({ id: "banner-300x250-3-area" });
+        </script>
+	</div>
+
+				</div>
+				<div class="col-md-3">
+					<!-- include_banners_async ad:300x250-4 on:True -->
+
+	<div id="banner-300x250-4-area">
+        <script>
+            window.uolads && window.uolads.push({ id: "banner-300x250-4-area" });
+        </script>
+	</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="fr side">
+			
+	<h3 class="bloco s0">Redes sociais</h3>
+	
+	<!-- facebook_config True -->
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '195771197530491',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/pt_BR/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+	<div class="fb-page" data-stream="false" data-small-header="false" data-show-posts="true" data-hide-cover="false" data-width="300" data-href="http://www.facebook.com/noticiasdatvoficial" data-adapt-container-width="true" data-show-facepile="true" data-height="400"><div class="fb-xfbml-parse-ignore"><blockquote cite="http://www.facebook.com/noticiasdatvoficial"><a href="http://www.facebook.com/noticiasdatvoficial"></a></blockquote></div></div>
+	<a class="twitter-timeline" href="https://twitter.com/DanielKastro" data-widget-id="630861054285901824">Tweets de @DanielKastro</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	
+		</div>
+	</div>
+</div>
+
+
+
+
+	<div id="banner-1x1-area"><script>window.uolads && window.uolads.push({ id: "banner-1x1-area" });</script></div>
+
+
+
+
+
+<!-- up20160802-1200 -->
+
+
+
+  <!-- block:footer -->
+  
+
+
+
+<footer>
+	<div class="xcontainer bg_footer"> 
+		<div class="xrow">
+			<div class="fl bg_fb" style="width:500px; height: 78px; margin-bottom: 20px;">
+				<p class="likes">188.001 curtidas</p>
+				
+				<div style="float:right;margin-right:9px;margin-top:-12px;"><div class="fb-like" data-href="https://www.facebook.com/noticiasdatvoficial" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div></div>
+			</div>
+			<div class="fr bg_tw" style="width:500px; height: 78px; margin-bottom: 20px;">
+				<p class="likes">456.824 seguidores</p>
+				<p class="likes_button">
+					<a href="https://twitter.com/DanielKastro" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @DanielKastro</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					
+				</p>
+			</div>
+		</div>
+		<div class="xrow">
+			<div class="fl" style="width:230px; margin-right:115px;"><a href="/"><img src="/static/img/logo.png" alt="Notícias da TV" class="img-responsive"></a></div>
+			<div class="fl" style="width:280px; margin-right:80px;">
+				<p class="fhe">Canais</p>
+				<div class="row">
+	<div class="col-md-3">
+	
+		
+		
+			<a class="fooi" href="/canal/televisao-1">Televisão</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/novelas-6">Novelas</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/celebridades-5">Celebridades</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/audiencias-4">Audiências</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/series-3">Séries</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/bloco-de-notas-11">Bloco de Notas</a>
+		
+	
+		
+			<a class="fooi" href="/recomenda/">Recomendamos</a>
+		
+		
+			<a class="fooi" href="/noticia/photo-celeb/rafinha-bastos-fotografa-para-seu-novo-programa-do-multishow-10921">Photo Celeb</a>
+		
+	
+		
+		</div><div class="col-md-3">
+		
+		
+			<a class="fooi" href="/canal/mulher-12">Mulher</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/mercado-8">Mercado</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/opiniao-10">Opinião</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/filmes-na-tv-14">Filmes na TV</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/tecnologia-7">Tecnologia</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/videos-15">Vídeos</a>
+		
+	
+		
+		
+			<a class="fooi" href="/canal/quiz-17">Quiz</a>
+		
+	
+	</div>
+</div>
+
+			</div>
+			<div class="fl" style="width:200px;">
+				<p class="fhe">Institucional</p>
+				<a class="fooi" href="/quemsomos">Quem somos</a>
+				<a class="fooi" href="/comoanunciar">Como anunciar</a>
+				<a class="fooi" href="/contato">Contato</a>
+			</div>
+			<div class="fr" style="width:50px;margin-top:230px;">
+				
+
+<div style="max-width:50px;">
+<a href="https://www.amdb.com.br/power.html" target="_blank" title="Cria&ccedil;&atilde;o e Manuten&ccedil;&atilde;o por AMDB">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9700 8364" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><defs><style>.fil3{fill:#fefefe;fill-rule:nonzero}.fil4{fill:#373435}.fil0,.fil1,.fil2,.fil4{fill-rule:nonzero}.fil2{fill:#ffcc29}.fil1{fill:#b4d342}.fil0{fill:#00adbe}</style></defs><g id="Camada_x0020_1"><path class="fil0" d="M1977 33c514 88 1014 172 1497 254 467 80 923 157 1363 232 206 35 408 108 598 208 196 104 378 237 537 390s298 330 408 521c107 186 188 386 231 590 49 235 100 473 150 714 52 246 104 495 157 748 48 226 52 444 20 648-33 216-108 410-219 572-113 166-266 303-452 399-184 94-395 146-628 146H2343c-297 0-589-60-864-171-288-117-551-286-771-495C271 4376 0 3820 0 3238V1447c0-248 56-475 160-674 106-203 258-371 446-497 183-122 400-207 644-248 225-38 469-38 727 5z"/><path class="fil1" d="M2343 433c485 77 955 152 1410 224 443 71 872 139 1290 206 291 46 571 201 792 413 220 213 385 486 443 776 45 224 90 451 136 679 47 232 94 468 143 708 65 324 4 615-149 826-159 217-416 349-738 339-460-14-934-28-1426-43-507-15-1034-31-1578-48-400-12-782-186-1068-458-288-272-473-636-486-1018-10-283-19-561-29-834-9-269-18-534-27-794-12-340 127-621 370-797 229-167 547-238 917-179z"/><path class="fil2" d="M2757 772c434 65 858 128 1269 190 400 60 790 119 1170 177 369 55 724 394 795 766 39 203 79 409 119 618 41 211 82 425 124 641 80 416-171 736-569 713-407-23-828-46-1258-71-445-25-904-50-1377-77-490-27-927-442-957-910-16-246-32-490-47-728-16-236-31-469-45-697-28-419 294-695 776-622z"/><path class="fil3" d="M3254 1114c357 51 704 100 1044 148 332 47 657 93 976 139 107 15 212 72 294 151s143 182 162 289c64 343 129 694 195 1052 21 115-4 216-62 288-59 72-153 111-264 103-335-26-677-52-1026-79-359-28-726-56-1103-85-131-10-256-71-352-163-96-91-161-212-173-338-36-393-72-776-107-1150-10-116 32-214 109-278-1 0-1 0-1-1 76-63 184-93 308-76z"/><path class="fil4" d="M2423 8325c0-256 43-744 96-999l261-1309c-169-58-435-106-706-106-1060 0-1408 1004-1408 1724 0 410 169 729 546 729 192 0 429-136 597-416h19c-5 126-10 251-14 377h609zm-571-1144c-82 415-197 598-327 598-144 0-164-140-164-309 0-275 178-1038 520-1038 24 0 68 5 116 15l-145 734zm1364 1144l231-1236c82-444 256-608 343-608 82 0 111 62 111 154 0 97-14 208-38 328l-261 1362h685l242-1236c91-463 241-608 338-608 77 0 120 53 120 135 0 96-14 212-38 347l-261 1362h705l265-1381c39-203 63-405 63-497 0-328-149-536-454-536-284 0-516 150-661 343-39-203-183-343-406-343-284 0-502 126-656 343h-10l20-304h-609c-38 241-77 507-125 758l-309 1617h705zm4084-3341l-183 966c-53-20-121-39-203-39-748 0-1202 859-1202 1699 0 449 198 754 560 754 193 0 420-136 570-377h9l-29 338h580c33-251 72-507 120-758l493-2583h-715zm-449 2467c-58 159-135 328-260 328-126 0-174-106-174-294 0-353 193-1043 492-1043 48 0 92 15 121 39l-179 970zm1343-2467l-478 2462c-15 77-39 217-39 357 0 382 213 561 662 561 840 0 1361-807 1361-1767 0-223-58-686-502-686-241 0-420 140-550 338h-10l261-1265h-705zm318 1936c39-193 165-406 309-406 145 0 145 145 145 319 0 304-169 1019-439 1019-111 0-150-82-150-208 0-77 10-149 29-236l106-488z"/></g></svg>
+</a>
+</div>
+
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+  
+
+  <!-- Hotjar Tracking Code for http://noticiasdatv.uol.com.br -->
+  <script>
+      (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:220341,hjsv:5};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+      })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+  
+  
+
+<script src="/static/amdbcp.min.js"></script>
+<script>
+AMDBCP.init(".xcontainer, .container");
+</script>
+
+</body>
+</html>

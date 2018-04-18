@@ -1,0 +1,1702 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no"/>
+	<meta http-equiv="Expires" content="0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+	<title>SBS : 함께만드는기쁨</title>
+	<meta name="viewport" content="width=1200">
+	<link href="http://image.sbs.co.kr/sbs/common/favicon.ico" type="image/x-icon" rel="shortcut icon">
+	<meta name="keywords" content="SBS, 서울방송, 에스비에스, www.sbs.co.kr, sbs.co.kr, Seoul Broadcasting System, 지상파, VOD 무료, SBS 드라마 무료, 고릴라, 라디오, TV, RADIO">
+	<meta name="description" content="SBS 방송 TV, 드라마, 예능, 교양정보, 라디오 프로그램 정보 제공, 뉴스, VOD 무료, SBS 드라마 무료, 연예뉴스 정보 제공, 고릴라 동영상 및 커뮤니케이션 서비스 제공">
+	<meta name="msapplication-task" content="name=SBS;action-uri=http://www.sbs.co.kr/;icon-uri=http://image.sbs.co.kr/sbs/common/.ico" />
+	<meta name="msapplication-task" content="name=TV;action-uri=http://tv.sbs.co.kr/;icon-uri=http://image.sbs.co.kr/sbs/common/.ico" />
+	<meta name="msapplication-task" content="name=뉴스;action-uri=http://news.sbs.co.kr/;icon-uri=http://image.sbs.co.kr/sbs/common/.ico" />
+	<meta name="msapplication-task" content="name=라디오;action-uri=http://radio.sbs.co.kr;icon-uri=http://image.sbs.co.kr/sbs/common/.ico" />
+	<meta property="og:type" content="website" />
+	<meta property="og:locale" content="ko_KR" />
+	<meta property="og:site_name" content="SBS" />
+	<meta property="og:title" content="함께 만드는 기쁨 SBS" />
+	<meta property="og:url" content="http://www.sbs.co.kr"/>
+	<meta property="og:image" content="http://image.sbs.co.kr/sbs/4n/favicon.png" />
+	<meta property="og:description" content="" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="SBS" />
+	<meta name="twitter:url" content="http://www.sbs.co.kr" />
+	<meta name="twitter:image" content="http://image.sbs.co.kr/sbs/4n/favicon.png" />
+	<meta name="twitter:title" content="함께 만드는 기쁨 SBS" />
+	<meta name="twitter:description" content="" />
+	<meta name="nate:site_name" content="SBS" />
+	<meta name="nate:url" content="http://www.sbs.co.kr" />
+	<meta name="nate:image" content="http://image.sbs.co.kr/sbs/4n/favicon.png" />
+	<meta name="nate:title" content="함께 만드는 기쁨 SBS" />
+	<meta name="nate:description" content="" />
+	<meta name="google-site-verification" content="A8FPDPyVe4prPCljbqy_eRyq3iQazgtIMtjwMHz8Em4"/>
+	<link rel="stylesheet" type="text/css" href="http://image.sbs.co.kr/sbs/css/sbs_header.css?ver=20170221" media="all">
+	<link rel="stylesheet" type="text/css" href="http://image.sbs.co.kr/sbs/css/sbs_main.css?ver=20170221" media="all">
+	<link rel="stylesheet" type="text/css" href="http://static.cloud.sbs.co.kr/common/css/sbs-gnb-1.0.0.min.css" />
+	<script type="text/javascript" src="http://static.cloud.sbs.co.kr/common/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="http://image.sbs.co.kr/sbs/js/sbs_util.js"></script>
+	<script type="text/javascript" src="http://static.cloud.sbs.co.kr/common/js/sbs-gnb-1.0.0.min.js"></script>
+	<script type="text/javascript" src="/javascripts/handlebars-v4.0.4.js"></script>
+	<script type="text/javascript" src="/javascripts/json2.js"></script><!-- for ie7 -->
+	<script src="//developers.kakao.com/sdk/js/kakao.min.js" onload="Kakao.init('8104f869a398857e1736c348f0dad3cb');"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            mainDrawLayoutBookMark();		// 메인 draw 관련 이벤트 북마크(1순위)
+            gnbTimeSet();
+        });
+
+    document.domain = 'sbs.co.kr';
+
+    var noticeStatus  = false;			// 공지사항 로딩여부
+
+    var mainTabCount	   = 0
+        , existFlagArr	   = []
+        , pickTabExistFlag = false		// pick탭 데이타 존재여부
+        , spotTabExistFlag = false      // spot탭 데이타 존재여부
+        , promTabExistFlag = false;     // prom탭 데이타 존재여부
+
+    var sbsGnbContainer = {};			// GNB 객체 생성 영역
+
+    // 메인 draw 관련 이벤트 북마크
+    function mainDrawLayoutBookMark(){
+        var indexInfo = {
+            gnbLayout : function(){		// gnb 레이아웃 관련 이벤트
+                drawBanner();	// 2017추석 특집 배너 드로잉(타이머).
+                //drawMainGnbContents();	//	- 메인 GNB html 드로잉
+            },
+            bodyLayout : function(){	// body 레이아웃 관련 이벤트
+                setMainContents();      //  - 메인 콘텐츠 데이터 바인딩 및 html 드로잉
+                setNotice();			//	- 메인 공지사항 데이터 바인딩 및 html 드로잉
+            },
+            footerLayout : function(){	// footer 레이아웃 관련 이벤트
+            }
+        };
+
+        indexInfo.gnbLayout();
+        indexInfo.bodyLayout();
+
+    }
+
+    //start : 2017 추석특집 페이지 배너노출을 위해 생성.
+    function drawBanner() {
+
+        var originBannerOption = {	//기본옵션
+            title: '',
+            isOpen: true,
+            url: {
+                image: '',
+                link: ''
+            }
+        };
+
+        var chuseokBannerOption = {	//추석옵션
+            title: 'SBS 2017년 추석 특집 페이지',
+            isOpen: true,
+            url: {
+                image: 'http://img.sbs.co.kr/event/2017_chooseok/@bnr_2017chooseok.jpg',
+                link: 'http://tv.sbs.co.kr/2017chuseok/index.jsp'
+            }
+        };
+
+		var d = new Date();
+        var today = d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2);
+        if(today > 20170929 && today < 20171010) {
+            drawMainGnbContents(chuseokBannerOption);	//	- 메인 GNB html 드로잉
+        }else{
+            drawMainGnbContents(originBannerOption);
+		}
+    }
+    //end : 2017 추석특집 페이지 배너노출을 위해 생성.
+
+    // 메인 GNB html 드로잉
+    function drawMainGnbContents(bannerOption){
+
+        sbsGnbContainer = new SbsGnbContainer({
+            render: 'server',  // server, browser
+            charset : 'utf8',
+            root: '',
+            header: {
+                id: 'header',
+                service: '',
+                type: 'normal',      // normal, simple
+                layout: 'normal',    // wide, normal, narrow
+                /*banner: {
+                    title: '',
+                    isOpen: true,
+                    url: {
+                        image: '',
+                        link: ''
+                    }
+                }*/
+                banner : bannerOption
+            },
+            footer: {
+                id: 'footer',
+                type: 'normal',      // normal, simple
+                layout: 'normal'    // wide, normal, narrow
+            }
+
+        });
+
+        sbsGnbContainer.initialize();
+        sbsGnbContainer.render();
+    }
+
+    // 메인 레이아웃 이벤트 북마크(footer까지 포함)
+    function mainLayoutBookMark(){
+        var indexInfo = {
+            layoutEvent : function(){						                // 레이아웃 관련 이벤트
+            },
+            dynamicEvent : function(){										// 동적 관련 이벤트
+                redirectDevice();                                           //  - 모바일 디바이스로 접근시 리다이렉트 처리
+                setMainTabEvent();						                    //	- 메인 탭 이벤트 셋팅
+                setMainSubTab();							                //	- 메인 pick탭 pdNote/Clip 탭 이벤트 셋팅
+                setMainBannerIndic('#promotionBannerLeft');	                //	- 메인 좌측 프로모션 배너 좌, 우 이동기능
+                setMainBannerIndic('#promotionBannerRight');                //	- 메인 우측 프로모션 배너 좌, 우 이동기능
+                setMainBannerIndic('#groupLogoBanner');		                //	- 구룹사 로고배너 좌, 우 이동기능
+                setMainBannerIndic('#groupPromotionBanner');                //	- 구룹사 홍보베너 좌, 우 이동기능
+                setNewsTabEvent('.mnn_tab_list');							//	- 비디오 머그/스브스 뉴스 탭 전환 기능
+                setFooterSelectBanner('.sfms_inner_family .sfms_title');	// 	- 패밀리 사이트 셀렉트 박스 ON/OFF
+                setFooterSelectBanner('.sfms_inner_area .sfms_title');		//	- 지역민영방송 셀렉트 박스 ON/OFF
+                setScrollEvent();											//	- GNB 스크롤 이벤트
+            }
+        };
+
+        indexInfo.dynamicEvent();
+    }
+
+    // 메인 콘텐츠 데이터 바인딩 및 html 드로잉
+    function setMainContents(){
+        var mainTabContents      = null
+            , mainPdNoteContents = null
+            , mainClipContents	 = null
+            , promBannerLeft     = null
+            , promBannerRight    = null
+            , groupPromBanner    = null
+            , groupLogoBanner    = null
+            , mainNewsContents	 = null;
+
+        $.ajax({
+            url: '/json/newMain.js',
+            type: 'get',
+            dataType: 'json',
+            success: function(data){
+                mainTabContents		= data.HashMap.newAllMainDisplays.newAllMainDisplayList[0].mainTabContents;
+                mainPdNoteContents	= data.HashMap.newAllMainDisplays.newAllMainDisplayList[0].mainPdNoteContents;
+                mainClipContents	= data.HashMap.newAllMainDisplays.newAllMainDisplayList[0].mainClipContents;
+                promBannerLeft		= data.HashMap.newAllMainDisplays.newAllMainDisplayList[0].promotionLeft;
+                promBannerRight		= data.HashMap.newAllMainDisplays.newAllMainDisplayList[0].promotionRight;
+                groupPromBanner		= data.HashMap.newAllMainDisplays.newAllMainDisplayList[0].groupPromotion;
+                groupLogoBanner		= data.HashMap.newAllMainDisplays.newAllMainDisplayList[0].groupLogo;
+                mainNewsContents	= data.HashMap.newAllMainDisplays.newAllMainDisplayList[0].mainNewsContents;
+
+                drawMainTabContents(mainTabContents);                            	// 메인 탭 html 출력
+                drawMainPdNoteContents(mainPdNoteContents, "#mainPdNoteContents");	// 메인 피디노트 순위 html 출력
+                drawMainClipContents(mainClipContents, "#mainClipContents");		// 메인 클립 순위 html 출력
+                drawMainBannerList(promBannerLeft, '#promotionBannerLeft');        	// 메인 프로모션 좌측 html 출력
+                drawMainBannerList(promBannerRight, '#promotionBannerRight');      	// 메인 프로모션 우측 html 출력
+                drawMainBannerList(groupPromBanner, '#groupPromotionBanner');      	// 구룹사 홍보 배너 html 출력
+                drawMainBannerList(groupLogoBanner, '#groupLogoBanner');           	// 구룹사 로고 배너 html 출력
+                drawMainNewsContents(mainNewsContents);
+
+            },
+            complete : function(){
+                mainLayoutBookMark();		// 메인 layout 이벤트 북마크(footer까지 포함)
+                $('#container').show();
+            },
+            error: function (xhr, status, error) {
+            }
+        });
+    }
+
+    // 메인 탭 html 출력
+    function drawMainTabContents(obj){
+        var mainTabContents = obj
+            , templateType  = ''
+            , tabNum        = ''
+            , title         = ''
+            , contents      = ''
+            , lnkUrl        = ''
+            , lnkUseYn      = ''
+            , newWindowYn   = ''
+            , imgUrl        = ''
+            , imgDsc        = ''
+            , pcYn          = ''
+            , etc1          = ''
+            , etc2          = ''
+            , etc3          = ''
+            , repreTitle    = ''
+            , repreImgUrl   = ''
+            , repreImgDsc   = ''
+            , orderNum		= ''
+            , randomFlag	= true		// true:고정, false:미고정
+            , tabUseYn		= 'N'
+            , templateOrdNum = ''
+            , templateOrderArr = new Array()
+            , templateOrderFixArr = new Array();
+
+        var pickTimeStr				= ''
+            , pickContentsStr		= ''
+            , pickSubContentsStr	= ''
+            , pickTimeObj			= $('.matl_cont_pick .matl_program_list')			// Pick 프로그램 시간표
+            , pickContentsObj		= $('.main_rinner_pick .mr_pick_l')					// Pick 메인 콘텐츠
+            , pickSubContentsObj	= $('.main_rinner_pick .mr_pick_r .mr_pick_list')	// Pick 서브 콘텐츠
+            , pickRandomFlag		= true;		// pick 탭 위치 랜덤여부(true:고정, false:미고정)
+
+        var spotTimeStr			= ''
+            , spotContentsStr	= ''
+            , spotTimeObj		= $('.matl_cont_spor .matl_program_list')				// Spotlight 프로그램 시간표
+            , spotContentsObj	= $('.mr_sportlight_inner .mrsl_list')					// Spotlight 메인 콘텐츠
+            , spotRepreObj		= $('.main_right_spor')									// Spotlight 배경
+            , spotRepreTitleObj	= $('.mr_sportlight_inner .mr_sportlight_title')		// Spotlight 배경 타이틀
+            , spotRandomFlag	= true;		// spot탭 위치 랜덤 여부(true:고정, false:미고정)
+
+        var promTimeStr			= ''
+            , promContentsStr	= ''
+            , promBannerStr		= ''
+            , promTimeObj		= $('.matl_cont_prom .matl_program_list')				// Promotion 프로그램 시간표
+            , promContentsObj	= $('.mr_promotion_inner .mprm_list')					// Promotion 메인 콘텐츠
+            , promBannerObj		= $('.mprm_bnr_list')									// Promotion 배너
+            , promRandomFlag	= true;		// prom탭 위치 랜덤 여부(true:고정, false:미고정)
+
+        var randomTabObj		= $('.main_acodientab_list')
+            , randomTabLiObj	= $('.main_acodientab_list > li')
+            , randomTabArr 		= randomTabLiObj
+            , randomFlagArr     = []
+            , reSetTabArr		= []
+            , randomTabName = '';
+
+        if(mainTabContents.length > 0){
+            for(var ii=0; ii<mainTabContents.length; ii++){
+                templateType = mainTabContents[ii].templateType;
+                tabNum       = mainTabContents[ii].tabNum;
+                title        = isNull(mainTabContents[ii].title) ? '' : mainTabContents[ii].title;
+                contents     = isNull(mainTabContents[ii].contents) ? '' : mainTabContents[ii].contents;
+                lnkUrl       = mainTabContents[ii].lnkUrl;
+                lnkUseYn     = mainTabContents[ii].lnkUseYn;
+                newWindowYn  = mainTabContents[ii].newWindowYn;
+                imgUrl       = mainTabContents[ii].imgUrl;
+                imgDsc       = mainTabContents[ii].imgDsc;
+                pcYn         = mainTabContents[ii].pcYn;
+                etc1         = mainTabContents[ii].etc1;
+                etc2         = mainTabContents[ii].etc2;
+                etc3         = mainTabContents[ii].etc3;
+                repreTitle   = isNull(mainTabContents[ii].repreTitle) ? '' : mainTabContents[ii].repreTitle;
+                repreImgUrl  = mainTabContents[ii].repreImgUrl;
+                repreImgDsc  = mainTabContents[ii].repreImgDsc;
+                orderNum	 = mainTabContents[ii].ord;
+                randomFlag	 = mainTabContents[ii].displayRandomYn;
+                tabUseYn	 = mainTabContents[ii].tabPcUseYn;
+                templateOrdNum = mainTabContents[ii].templateOrdNum;
+
+                if(pcYn == 'N') templateType = 'ignore';
+                if(lnkUseYn == 'N') lnkUrl = 'javascript:;';
+                if(newWindowYn == 'Y'){ newWindowYn = '_blank'; }else{ newWindowYn = '_self'; }
+                if(randomFlag == '01'){ randomFlag = true; }else{ randomFlag = false; }
+
+                if(tabUseYn == 'Y'){
+                    if(templateType == '01'){		// Pick 일 경우
+                        pickTabExistFlag = true;
+
+                        if(orderNum == '1'){
+                            templateOrderArr['pick'] = (templateOrdNum-1);
+                            //templateOrderArr.push(templateOrdNum-1);
+                        }
+
+                        if(pickTabExistFlag){
+                            pickRandomFlag	 = randomFlag;
+
+                            if(tabNum == '1'){			//	- 프로그램 편성표
+                                pickTimeStr += '<li class="matl_pl_cont">\n';
+                                pickTimeStr += '    <a href="' + lnkUrl + '" class="matl_pl_link" target="' + newWindowYn + '">\n';
+                                pickTimeStr += '		<span class="matl_logo">\n';
+                                pickTimeStr += '	    	<img src="' + imgUrl + '" alt="' + imgDsc + '" width="64" height="64">\n';
+                                pickTimeStr += '			<span class="matl_logo_mask"></span>\n';
+                                pickTimeStr += '		</span>\n';
+                                pickTimeStr += '	    <span class="matl_pl_text">' + title + '</span>\n';
+                                pickTimeStr += '	</a>\n';
+                                pickTimeStr += '</li>\n';
+
+                            }else if(tabNum == '2'){	//	- 메인 콘텐츠
+                                pickContentsStr += '<a href="' + lnkUrl + '" class="mr_pick_link" target="' + newWindowYn + '">\n';
+                                pickContentsStr += '    <strong class="matl_title">' + title + '</strong>\n';
+                                pickContentsStr += '    <img src="' + imgUrl + '" alt="' + imgDsc + '" class="matl_thumb" width="410" height="520">\n';
+                                pickContentsStr += '    <span class="text_gra_dim"></span>\n';
+                                pickContentsStr += '</a>\n';
+
+                            }else{						//	- 서브 콘텐츠(tabnum :3, 4, 5)
+                                if(tabNum == '3'){			//	- 서브 콘텐츠
+                                    pickSubContentsStr += '<li class="mrpl_cont">\n';
+                                    pickSubContentsStr += '	<a href="' + lnkUrl + '" class="mrpl_link" target="' + newWindowYn + '">\n';
+                                    pickSubContentsStr += '    	<strong class="mrpl_title">\n';
+
+                                    if(etc1 == 'Y'){
+                                        pickSubContentsStr += 	'    		<span class="mnicn mrpl_label">Global</span>\n';
+                                    }
+
+                                    pickSubContentsStr += '    		<span class="mrpl_tit">' + title + '</span>\n';
+                                    pickSubContentsStr += '		</strong>\n';
+                                    pickSubContentsStr += '		<img src="' + imgUrl + '" alt="' + imgDsc + '" width="300" height="170" class="mrpl_thumb">\n';
+                                    pickSubContentsStr += '    </a>\n';
+                                    pickSubContentsStr += '</li>\n';
+
+                                    if(orderNum == '1'){
+                                        pickSubContentsStr += '<li class="mrpl_cont_even">\n';
+                                        pickSubContentsStr += '</li>\n';
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if(templateType == '02'){		// Spotlight 일 경우
+                        spotTabExistFlag = true;
+
+                        if(orderNum == '1'){
+                            templateOrderArr['spot'] = (templateOrdNum-1);
+                            //templateOrderArr.push(templateOrdNum-1);
+                        }
+
+                        if(spotTabExistFlag){
+                            spotRandomFlag	 = randomFlag;
+
+                            if(tabNum == '1'){			//	- 프로그램 편성표
+                                spotTimeStr += '<li class="matl_pl_cont">\n';
+                                spotTimeStr += '    <a href="' + lnkUrl + '" class="matl_pl_link" target="' + newWindowYn + '">\n';
+                                spotTimeStr += '		<span class="matl_logo">\n';
+                                spotTimeStr += '	    	<img src="' + imgUrl + '" alt="' + imgDsc + '" width="64" height="64">\n';
+                                spotTimeStr += '			<span class="matl_logo_mask"></span>\n';
+                                spotTimeStr += '		</span>\n';
+
+                                if(orderNum == '1'){
+                                    spotTimeStr += '	    <span class="matl_pl_text">' + title + '</span>\n';
+                                    spotTimeStr += '	</a>\n';
+                                    spotTimeStr += '</li>\n';
+                                }
+                            }
+
+                            if(tabNum == '2'){			//	- 콘텐츠 영역
+                                spotRepreObj.css('background-image', 'url("' + repreImgUrl + '")');
+                                spotRepreTitleObj.html(repreTitle);
+
+                                if(orderNum == '2'){
+                                    spotContentsStr += '<li class="mrsl_cont_img">\n';
+                                }else{
+                                    if(etc3 == '01'){
+                                        spotContentsStr += '<li class="mrsl_cont_vod">\n';
+                                    }else{
+                                        spotContentsStr += '<li class="mrsl_cont_txt">\n';
+                                    }
+                                }
+
+                                spotContentsStr += '    <a href="' + lnkUrl + '" class="mrsl_link" target="' + newWindowYn + '">\n';
+                                spotContentsStr += '    	<strong class="mrsl_text_w">\n';
+                                spotContentsStr += '    		<span class="mrsl_pro_value">' + title + '</span>\n';
+                                spotContentsStr += '			<span class="mrsl_info_txt">' + contents + '</span>\n';
+                                spotContentsStr += '   		</strong>\n';
+
+                                if(orderNum == '2'){
+                                    spotContentsStr += '    	<img src="' + imgUrl + '" alt="' + imgDsc + '" class="mrsl_thumb">\n';
+                                    spotContentsStr += '		<span class="text_gra_dim"></span>\n';
+                                }else{
+                                    if(etc3 == '01'){
+                                        if(etc2 == 'Y'){
+                                            spotContentsStr += '    	<span class="btn_mnplay"><span class="mnicn icon_mnplay"><i class="ir">play</i></span></span>"\n';
+                                        }
+
+                                        spotContentsStr += '    	<img src="' + imgUrl + '" alt="' + imgDsc + '" class="mrsl_thumb">\n';
+                                    }
+
+                                    if(etc3 == '02'){
+                                        spotContentsStr += '    	<span class="full_dim"></span>\n';
+                                        spotContentsStr += '    	<span class="txt_align"></span>\n';
+                                    }
+                                }
+
+                                spotContentsStr += '    </a>\n';
+                                spotContentsStr += '</li>\n';
+                            }
+                        }
+                    }
+
+                    if(templateType == '03'){		// Promotion 일 경우
+                        promTabExistFlag = true;
+
+                        if(orderNum == '1'){
+                            templateOrderArr['prom'] = (templateOrdNum-1);
+                        }
+
+                        if(promTabExistFlag){
+                            promRandomFlag 	 = randomFlag;
+
+                            if(tabNum == '1'){			//	- 프로그램 편성표
+                                promTimeStr += '<li class="matl_pl_cont">\n';
+                                promTimeStr += '    <a href="' + lnkUrl + '" class="matl_pl_link" target="' + newWindowYn + '">\n';
+                                promTimeStr += '		<span class="matl_logo">\n';
+                                promTimeStr += '	    	<img src="' + imgUrl + '" alt="' + imgDsc + '" width="64" height="64">\n';
+                                promTimeStr += '			<span class="matl_logo_mask"></span>\n';
+                                promTimeStr += '		</span>\n';
+                                promTimeStr += '	    <span class="matl_pl_text">' + title + '</span>\n';
+                                promTimeStr += '	</a>\n';
+                                promTimeStr += '</li>\n';
+                            }
+
+                            if(tabNum == '2'){			//	- 콘텐츠 영역
+                                promContentsStr += '<li class="mprm_cont_l">\n';
+                                promContentsStr += '    <a href="' + lnkUrl + '" class="mprm_link" target="' + newWindowYn + '">\n';
+                                promContentsStr += '    	<strong class="mprm_text_w">\n';
+                                promContentsStr += '    		<span class="mprm_label">' + title + '</span>\n';
+                                promContentsStr += '    		<span class="mprm_title">' + contents + '</span>\n';
+                                promContentsStr += '		</strong>\n';
+                                promContentsStr += '		<img src="' + imgUrl + '" alt="' + imgDsc + '" class="mprm_thumb" wid;th="355" height="520">\n';
+                                promContentsStr += '    	<span class="text_gra_dim"></span>\n';
+                                promContentsStr += '    </a>\n';
+                                promContentsStr += '</li>\n';
+                            }
+
+                            if(tabNum == '3'){			//	- 배너 영역
+                                promBannerStr += '<li class="mprm_blcont_top">\n';
+                                promBannerStr += '    <a href="' + lnkUrl + '" class="mprm_bl_link" target="' + newWindowYn + '">\n';
+                                promBannerStr += '    	<img src="' + imgUrl + '" alt="' + imgDsc + '" class="mprm_thumb" width="300" height="260">\n';
+                                promBannerStr += '    </a>\n';
+                                promBannerStr += '</li>\n';
+                            }
+                        }
+                    }
+                }
+            }
+
+            if(pickTabExistFlag){		// pick 탭을 사용 할 경우
+                $('.matl_cont_pick').show();
+                pickTimeObj.html(pickTimeStr);
+                pickContentsObj.prepend(pickContentsStr);
+                pickSubContentsObj.prepend(pickSubContentsStr);
+
+                if(!pickRandomFlag){
+                    randomFlagArr.push('pick');
+                }
+
+                existFlagArr.push(pickTabExistFlag);
+            }
+
+            if(spotTabExistFlag){		// spot 탭을 사용 할 경우
+                $('.matl_cont_spor').show();
+                spotTimeObj.html(spotTimeStr);
+                spotContentsObj.prepend(spotContentsStr);
+
+                if(!spotRandomFlag){
+                    randomFlagArr.push('spor');
+                }
+
+                existFlagArr.push(spotTabExistFlag);
+            }
+
+            if(promTabExistFlag){		// prom 탭을 사용 할 경우
+                $('.matl_cont_prom').show();
+                promTimeObj.html(promTimeStr);
+                promContentsObj.prepend(promContentsStr);
+                promBannerObj.html(promBannerStr);
+
+                if(!promRandomFlag){
+                    randomFlagArr.push('prom');
+                }
+
+                existFlagArr.push(promTabExistFlag);
+            }
+
+            var xCount = 0;
+
+            for(var ii=0; ii<3; ii++){
+                if(ii == 0){
+                    if(templateOrderArr['pick'] != null){
+                        templateOrderFixArr.push(templateOrderArr['pick']);
+                    }else{
+                        templateOrderFixArr.push('x');
+                        xCount++;;
+                    }
+                }else if(ii == 1){
+                    if(templateOrderArr['spot'] != null){
+                        templateOrderFixArr.push(templateOrderArr['spot']);
+                    }else{
+                        templateOrderFixArr.push('x');
+                        xCount++;;
+                    }
+                }else{
+                    if(templateOrderArr['prom'] != null){
+                        templateOrderFixArr.push(templateOrderArr['prom']);
+                    }else{
+                        templateOrderFixArr.push('x');
+                        xCount++;;
+                    }
+                }
+            }
+
+            for(var jj=0; jj<templateOrderFixArr.length; jj++){
+                for(var kk=0; kk<3; kk++){
+                    if(xCount < 2){
+                        if(templateOrderFixArr[jj] == kk){
+                            reSetTabArr[kk] = randomTabArr[jj];
+
+                            if(templateOrderFixArr[jj] == 'x'){
+                                reSetTabArr[kk] = '';
+                            }
+                        }
+                    }else{
+                        if(templateOrderFixArr[jj] == 'x'){
+                            reSetTabArr[jj] = '';
+                        }else{
+                            reSetTabArr[jj] = randomTabArr[kk];
+                        }
+                    }
+                }
+            }
+
+            if((3-xCount) > 1 && randomFlagArr.length > 1){
+                randomFlagArr = drawRandomTabContents(randomFlagArr);
+            }
+
+            randomTabObj.html(reSetTabArr);
+
+            for(var kk=0; kk<reSetTabArr.length; kk++){
+                if(!isNull(reSetTabArr[kk])){
+                    randomTabName = $(reSetTabArr[kk]).attr('class');
+
+                    if(randomTabName.match(randomFlagArr[0])){
+                        $(reSetTabArr[kk]).addClass('current');
+
+                        $('.main_right_pick').removeClass('current');
+                        $('.main_right_spor').removeClass('current');
+                        $('.main_right_prom').removeClass('current');
+
+                        if(randomTabName.match('pick')) $('.main_right_pick').addClass('current');		// 탭 영역별 활성화 (Pick)
+                        if(randomTabName.match('spor')) $('.main_right_spor').addClass('current');      // 탭 영역별 활성화 (Spor)
+                        if(randomTabName.match('prom')) $('.main_right_prom').addClass('current');      // 탭 영역별 활성화 (Prom)
+                        break;
+                    }
+                }
+            }
+
+            mainTabCount = existFlagArr.length;		// 활성화 메뉴 수
+
+        }
+    }
+
+    // 메인 탭 랜덤 기능
+	/*
+	 *	배열의 수 만큼 선택 할 탭 영역 정보를 넣음
+	 */
+    function drawRandomTabContents(obj){
+        var randomArr        = obj
+            , dummyObject    = []
+            , probabilityArr = []
+            , returnObject   = []
+            , addProbability = 10;
+
+        if(randomArr.length > 2){
+            probabilityArr = [60, 40, 0];
+
+        }else{
+            probabilityArr = [100, 0];
+        }
+
+        for(var ii=0; ii<probabilityArr.length; ii++){
+            if(randomArr[ii].indexOf('spot') > -1){
+                probabilityArr[ii] += addProbability;
+            }else{
+                if(randomArr.length < 2){
+                    probabilityArr[ii] -= addProbability/2;
+                }
+            }
+
+            for(var jj=0; jj<probabilityArr[ii]; jj++){
+                dummyObject.push(randomArr[ii]);
+            }
+        }
+
+        returnObject.push(dummyObject[Math.floor(Math.random()*100)]);
+
+        return returnObject;
+    }
+
+    // 메인 피디노트 순위 html 출력
+    function drawMainPdNoteContents(obj1, obj2){
+        var contentsList = obj1
+            , targetObj	 = $(obj2)
+            , htmlStr	 = ''
+            , noteSeq	 = ''
+            , notePgmId	 = ''
+            , notePgmNm	 = ''
+            , noteId	 = ''
+            , noteCode	 = ''
+            , noteTitle	 = ''
+            , noteImgUrl = ''
+            , noteImgAlt = ''
+            , noteOrd	 = ''
+            , lnkUrl	 = '';
+
+        if(contentsList.length > 0){
+            for(var ii=0; ii<contentsList.length; ii++){
+                noteSeq		= contentsList[ii].seq;
+                notePgmNm   = contentsList[ii].pgmNm;
+                notePgmId   = contentsList[ii].pgmId;
+                noteId      = contentsList[ii].noteId;
+                noteCode    = contentsList[ii].noteCode;
+                noteTitle   = isNull(contentsList[ii].noteTitle) ? '' : contentsList[ii].noteTitle;
+                noteImgUrl  = contentsList[ii].noteImgUrl;
+                noteImgAlt   = isNull(contentsList[ii].noteImgAlt) ? '' : contentsList[ii].noteImgAlt;
+                noteOrd     = contentsList[ii].ord;
+
+                lnkUrl = 'http://program.sbs.co.kr/pdNote/pdNoteEnd.do?';
+                lnkUrl += 'pgm_id=' + notePgmId;
+                lnkUrl += '&noteCode=' + noteCode;
+                lnkUrl += '&noteId=' + noteId;
+                lnkUrl += '&pdnote_div=p_realrank1';
+
+                htmlStr += '<li class="mrpl_tsl_cont">\n';
+                htmlStr += '    <a href="' + lnkUrl + '" class="mrpl_tsl_link">\n';
+                htmlStr += '    	<span class="mnicn mrpl_num0' + (ii+1) + '"><i class="ir">' + (ii+1) + '</i></span>\n';
+                htmlStr += '    	<span class="icon_emotion"><img src="' + noteImgUrl + '" alt="' + noteImgAlt + '" width="44" height="55"/></span>\n';
+                htmlStr += '    	<strong class="mrpl_tsl_text"><span class="mrpl_tslt">' + noteTitle + '</span><span class="textalign_middle"></span></strong>\n';
+                htmlStr += '	</a>\n';
+                htmlStr += '</li>\n';
+            }
+        }
+
+        targetObj.html(htmlStr);
+    }
+
+    // 메인 클립 순위 html 출력
+    function drawMainClipContents(obj1, obj2){
+        var contentsList = obj1
+            , targetObj	 = $(obj2)
+            , htmlStr	 = ''
+            , clipTitle	 = ''
+            , progTitle	 = ''
+            , clipImgUrl = ''
+            , clipLnkUrl = ''
+            , ordNum	 = '';
+
+        if(contentsList.length > 0){
+            for(var ii=0; ii<contentsList.length; ii++){
+                clipTitle  = isNull(contentsList[ii].clipTitle) ? '' : contentsList[ii].clipTitle;
+                progTitle  = isNull(contentsList[ii].progTitle) ? '' : contentsList[ii].progTitle;
+                clipImgUrl = contentsList[ii].clipImgUrl;
+                clipLnkUrl = contentsList[ii].clipLnkUrl;
+                ordNum	   = contentsList[ii].ord;
+
+                htmlStr += '<li class="mrpl_tsl_cont">\n';
+                htmlStr += '    <a href="' + clipLnkUrl + '" class="mrpl_tsl_link">\n';
+                htmlStr += '    <span class="mnicn mrpl_num0' + ordNum + '"><i class="ir">' + ordNum + '</i></span>\n';
+                htmlStr += '    <strong class="mrpl_tsl_text"><span class="mrpl_tslt">' + clipTitle + '</span><span class="textalign_middle"></span></strong>\n';
+                htmlStr += '	</a>\n';
+                htmlStr += '</li>\n';
+            }
+
+            targetObj.html(htmlStr);
+        }
+    }
+
+    // 배너영역 공통 html 출력
+    function drawMainBannerList(obj1, obj2){
+        var contentsList   = obj1
+            , eventType     = obj2
+            , targetObj     = null
+            , htmlStr       = ''
+            , displayStr    = ''
+            , taragetWidth	= 0
+            , listCount		= 0
+            , styleStr		= ''
+            , itmId         = ''
+            , imgUrl        = ''
+            , imgDsc        = ''
+            , lnkUrl        = ''
+            , windowType	= '_blank';
+
+        if(eventType == '#promotionBannerLeft'){              // 메인 프로모션 좌측 html 출력
+            targetObj = $('.mnpb_w_l .mnpb_list');
+            styleStr  = 'width="540" height="250"';
+            taragetWidth = 540;
+            windowType	= '_self';
+
+        }else if(eventType == '#promotionBannerRight'){       // 메인 프로모션 우측 html 출력
+            targetObj = $('.mnpb_w_r .mnpb_list');
+            styleStr  = 'width="280" height="250"';
+            taragetWidth = 280;
+            windowType	= '_self';
+
+        }else if(eventType == '#groupPromotionBanner'){       // 구룹사 홍보 배너 html 출력
+            targetObj = $('.mn_btm_bnr .mnb_bnr_list');
+            styleStr  = 'width="528" height="190"';
+            taragetWidth = 528;
+
+        }else if(eventType == '#groupLogoBanner'){            // 구룹사 로고 배너 html 출력
+            targetObj = $('.mnb_etc_inner .mnb_etc_list');
+            styleStr  = 'width="136" height="56"';
+            taragetWidth = 284;
+        }
+
+        if(eventType == '#groupLogoBanner'){
+            if(contentsList.length < 7) {
+                $(eventType).hide();
+            }
+        }else{
+            if(contentsList.length < 2){
+                $(eventType).hide();
+            }
+        }
+
+        if(contentsList.length > 0){
+            for(var ii=0; ii<contentsList.length; ii++){
+                itmId = contentsList[ii].itmId;
+                imgUrl = contentsList[ii].imgUrl;
+                imgDsc = contentsList[ii].imgDsc;
+                lnkUrl = contentsList[ii].lnkUrl;
+
+                if(lnkUrl.indexOf('?') > -1){
+                    lnkUrl = lnkUrl + '&itm_id=' + itmId;
+                }else{
+                    lnkUrl = lnkUrl + '?itm_id=' + itmId;
+                }
+
+                lnkUrl += '&div=eventFlag' + (ii + 1);
+
+                taragetWidth += taragetWidth;
+
+                if(eventType != '#groupLogoBanner'){        // 구룹사 로고 배너가 아닐 경우
+                    if(ii > 0){
+                        displayStr = ' style="display:none;"';
+                    }
+
+                    htmlStr += '<li class="mnpb_cont"' + displayStr + '>\n';
+                    htmlStr += '    <a href="' + lnkUrl + '" class="mnpb_link" target="' + windowType + '">\n';
+                    htmlStr += '        <img src="' + imgUrl + '" alt="' + imgDsc + '" ' + styleStr + '>\n';
+                    htmlStr += '    </a>\n';
+                    htmlStr += '</li>\n';
+                }else{                                      // 구룹사 로고 배너 일 경우
+                    if(ii > 6){
+                        displayStr = ' style="display:none;"';
+                    }
+
+                    if((ii+1) == 1 || (ii+1) == 7 || (ii+1) == 14){
+                        htmlStr += '<li class="mnb_el_cont">\n';
+                        htmlStr += '    <ul class="mnb_elc_list">\n';
+                    }
+
+                    htmlStr += '        <li class="mnb_elc_cont">\n';
+                    htmlStr += '            <a href="' + lnkUrl + '" class="mnpb_link" target="_blank">\n';
+                    htmlStr += '                <img src="' + imgUrl + '" alt="' + imgDsc + '" ' + styleStr + '>\n';
+                    htmlStr += '            </a>\n';
+                    htmlStr += '        </li>\n';
+
+                    if((ii+1) == 6 || (ii+1) == 12 || (ii+1) == 18){
+                        htmlStr += '    </ul>\n';
+                        htmlStr += '</li>\n';
+                    }
+                }
+            }
+
+            if(eventType != '#groupLogoBanner') {
+                listCount = contentsList.length;
+            }else{
+                listCount = contentsList.length/6;
+                listCount = listCount+(1-(listCount%1))%1;
+            }
+
+            $(eventType).find('.mncb_num_all').html('/' + listCount);
+            targetObj.css('width', taragetWidth);
+            targetObj.html(htmlStr);
+        }
+    }
+
+    // 메인 뉴스 콘텐츠 html 출력
+    function drawMainNewsContents(obj){
+        var contentsList	= obj
+            , pickHtmlStr	= ''
+            , headHtmlStr	= ''
+            , videoHtmlStr	= ''
+            , sbsNewsHtmlStr = ''
+            , issueHtmlStr	= ''
+            , styleStr		= ''
+            , contentsNum	= ''
+            , contentsType	= ''
+            , ord			= ''
+            , title			= ''
+            , imgUrl		= ''
+            , imgDsc		= ''
+            , lnkUrl		= ''
+            , issueTitle	= ''
+            , issueImgUrl	= '';
+
+        var newsPickTargetObj		= $('.mrpl_cont_even')
+            , newsHeadTargetObj 	= $('.mn_news_hline .mnh_inner .mnh_list')
+            , newsVideoTargetObj	= $('.mnnt_inner_mug .mnnt_cont_list')
+            , newsSbsNewsTargetObj	= $('.mnnt_inner_news .mnnt_cont_list')
+            , newsIssueTargetObj	= $('.mn_news_issue .mnni_inner_w');
+
+        if(contentsList.length > 0){
+            for(var ii=0; ii<contentsList.length; ii++){
+                contentsNum		= Number(contentsList[ii].contentsNum);
+                contentsType	= contentsList[ii].contentsType;
+                ord				= Number(contentsList[ii].ord);
+                title			= isNull(contentsList[ii].title) ? '' : contentsList[ii].title;
+                imgUrl			= contentsList[ii].imgUrl;
+                imgDsc			= contentsList[ii].imgDsc;
+                lnkUrl			= contentsList[ii].lnkUrl;
+                issueTitle		= isNull(contentsList[ii].issueTitle) ? '' : contentsList[ii].issueTitle;
+                issueImgUrl		= contentsList[ii].issueImgUrl;
+
+                // Pick 뉴스 영역
+                if(contentsNum == 1){
+                    pickHtmlStr += '<a href="' + lnkUrl + '" class="mrpl_link">\n';
+                    pickHtmlStr += '    <strong class="mrpl_title">\n';
+                    pickHtmlStr += '	    <span class="mrpl_tit">' + title + '</span>\n';
+                    pickHtmlStr += '    </strong>\n';
+                    pickHtmlStr += '    <img src="' + imgUrl + '" alt="' + imgDsc + '" width="300" height="170" class="mrpl_thumb">\n';
+                    pickHtmlStr += '</a>\n';
+                }
+
+                // 메인 헤드라인 영역
+                if(contentsNum >= 2 && contentsNum <= 4){
+                    if(contentsNum == 2){
+                        styleStr = 'width="528" height="265"';
+                        headHtmlStr += '<li class="mnhl_cont_big">\n';
+                    }else{
+                        styleStr = 'width="254" height="143"';
+                        headHtmlStr += '<li class="mnhl_cont">\n';
+                    }
+
+                    headHtmlStr += '	<a href="' + lnkUrl + '" class="mnhl_link">\n';
+                    headHtmlStr += '		<strong class="mnhl_text">' + title + '</strong>\n';
+                    headHtmlStr += '		<img src="' + imgUrl + '" alt="' + imgDsc + '" class="mnh_thumb" '+ styleStr + '>\n';
+                    headHtmlStr += '	</a>\n';
+                    headHtmlStr += '</li>\n';
+                }
+
+                // 비디오 머그, 스브스 뉴스 영역
+                if(contentsNum == 5 || contentsNum == 6){
+                    if(contentsNum == 5){
+                        videoHtmlStr += '<li class="mnnt_cont">\n';
+                        videoHtmlStr += '    <a href="' + lnkUrl + '" class="mnnt_link">\n';
+                        videoHtmlStr += '	    <span class="mnnt_text">' + title + '</span>\n';
+                        videoHtmlStr += '	</a>\n';
+                        videoHtmlStr += '</li>\n';
+                    }
+
+                    if(contentsNum == 6){
+                        sbsNewsHtmlStr += '<li class="mnnt_cont">\n';
+                        sbsNewsHtmlStr += '    <a href="' + lnkUrl + '" class="mnnt_link">\n';
+                        sbsNewsHtmlStr += '    	<span class="mnnt_text">' + title + '</span>\n';
+                        sbsNewsHtmlStr += '	</a>\n';
+                        sbsNewsHtmlStr += '</li>\n';
+                    }
+                }
+
+                // 이슈 영역
+                if(contentsNum == 7){
+                    if(ord == 1){
+                        newsIssueTargetObj.css('background-image', 'url("' + issueImgUrl + '")');
+                        newsIssueTargetObj.children('.mnni_title').html(issueTitle);
+                    }
+
+                    issueHtmlStr += '<li class="mnni_cont">\n';
+                    issueHtmlStr += '    <a href="' + lnkUrl + '" class="mnni_link">' + title + '</a>\n';
+                    issueHtmlStr += '</li>\n';
+                }
+            }
+
+            newsPickTargetObj.html(pickHtmlStr);
+            newsHeadTargetObj.html(headHtmlStr);
+            newsVideoTargetObj.html(videoHtmlStr);
+            newsSbsNewsTargetObj.html(sbsNewsHtmlStr);
+            newsIssueTargetObj.children('.mnni_list').html(issueHtmlStr);
+        }
+
+    }
+
+    // 메인 공지사항 데이터 바인딩 및 html 드로잉
+    function setNotice(){
+        if(noticeStatus) return;
+
+        var noticeContents = null;
+
+        $.ajax({
+            url : '/json/notice.js',
+            type : 'get',
+            dataType : 'json',
+            beforeSend : function() {
+                noticeStatus = true;		//로딩
+            },
+            success : function(data) {
+                noticeContents = data.contentList;
+
+                drawMainNotice(noticeContents, '#mainNotice');		// 메인 공지사항 html 출력
+            },
+            complete : function() {
+                noticeStatus = false;
+            },
+            error : function(jqXHR, txtstatus, error) {
+            }
+        });
+    }
+
+    // 메인 공지사항 html 출력
+    function drawMainNotice(obj1, obj2){
+        var htmlStr			= ''
+            , noticeContents = obj1
+            , targetObj 	= $(obj2)
+            , noticeNo		= ''
+            , noticeTitle	= ''
+            , noticeUrl		= '';
+
+        if(noticeContents.length > 0){
+            noticeNo		= noticeContents[0].no;
+            noticeTitle		= isNull(noticeContents[0].title) ? '' : noticeContents[0].title;
+
+            noticeUrl = 'http://w3.sbs.co.kr/cs/endPage.do?';
+            noticeUrl += 'contNo=' + noticeNo + '&tpye=pc_noticecont';
+
+            htmlStr += '<li class="mnbn_cont">\n';
+            htmlStr += '	<a href="' + noticeUrl + '" class="mnbn_link">' + noticeTitle + '</a>\n';
+            htmlStr += '</li>\n';
+
+            targetObj.html(htmlStr);
+        }
+    }
+
+    // 메인 프로모션 배너 각각의 인디게이터
+    function setMainBannerIndic(obj){
+        var indicObj			= $(obj)						// 좌, 우측 인디게이터 오브젝트
+            , indicClassName	= obj							// 좌, 우측 인디게이터 클래스명
+            , targetObj			= null							// 좌, 우측 프로모션 배너 li 오브젝트
+            , indicNumObj		= indicObj.find('.mncb_num')	// 인디게이터 현재 위치번호 오브젝트
+            , indicNum			= Number(indicNumObj.text())	// 인디게이터 현재 위치번호
+            , indicAllNumObj	= indicObj.find('.mncb_num_all')	// 인디게이터 총 갯수 오브젝트
+            , indicAllNum		= Number(indicAllNumObj.text().replace('/', ''))	// 인디게이터 총 갯수
+            , leftArrowObj		= indicObj.find('.mncb_arrow_l')	// 좌측 화살표 오브젝트
+            , rightArrowObj		= indicObj.find('.mncb_arrow_r');	// 우측 화살표 오브젝트
+
+        if(indicClassName == '#promotionBannerLeft')  targetObj = $('.mnpb_w_l .mnpb_list .mnpb_cont');				// 1. 메인 프로모션 좌측일 경우
+        if(indicClassName == '#promotionBannerRight') targetObj = $('.mnpb_w_r .mnpb_list .mnpb_cont');				// 2. 메인 프로모션 우측일 경우
+        if(indicClassName == '#groupPromotionBanner') targetObj = $('.mn_btm_bnr .mnb_bnr_list .mnpb_cont');		// 3. 구룹사 홍보 배너일 경우
+        if(indicClassName == '#groupLogoBanner')	  targetObj = $('.mnb_etc_inner .mnb_etc_list .mnb_el_cont');	// 4. 구룹사 로고일 경우
+
+        // 좌측 버튼 클릭 시
+        leftArrowObj.on('click', function(){
+            indicNumObj = indicObj.find('.mncb_num');
+            indicNum	= Number(indicNumObj.text());
+
+            if(indicNum > 1){
+                targetObj.eq(indicNum-1).hide();
+                targetObj.eq(indicNum-2).show();
+                indicNumObj.text(indicNum-1);
+            }
+        });
+
+        // 우측 버튼 클릭 시
+        rightArrowObj.on('click', function(){
+            indicNumObj = indicObj.find('.mncb_num');
+            indicNum	= Number(indicNumObj.text());
+
+            if(indicNum < indicAllNum){
+                targetObj.eq(indicNum-1).hide();
+                targetObj.eq(indicNum).show();
+                indicNumObj.text(indicNum+1);
+            }
+        });
+    }
+
+    // 메인 탭 이벤트 셋팅
+    function setMainTabEvent(){
+        var randomTabObj			= $('.main_acodientab_list')
+            , randomTabLiObj		= $('.main_acodientab_list > li')
+            , selectRandomTabObj	= null
+            , selectRandomTabName	= ''
+            , pickContentsObj		= $('.main_right_pick')
+            , spotContentsObj		= $('.main_right_spor')
+            , promContentsObj		= $('.main_right_prom');
+
+        // 탭 클릭 이벤트
+        randomTabLiObj.click(function(){
+            selectRandomTabObj	 = $(this);
+            selectRandomTabName = selectRandomTabObj.attr('class');
+
+            // 탭과 관련된 모든 current 클래스 삭제
+            randomTabObj.children('li').removeClass('current');
+            pickContentsObj.removeClass('current');
+            spotContentsObj.removeClass('current');
+            promContentsObj.removeClass('current');
+
+            // 선택한 탭에 대한 current 클래스 추가
+            selectRandomTabObj.addClass('current');
+            if(selectRandomTabName.match('pick')) pickContentsObj.addClass('current');
+            if(selectRandomTabName.match('spor')) spotContentsObj.addClass('current');
+            if(selectRandomTabName.match('prom')) promContentsObj.addClass('current');
+        });
+    }
+
+    // 메인 pick탭 pdNote/Clip 탭 이벤트 셋팅
+    function setMainSubTab(){
+        $('a[name="pickSubBtn"]').click(function(){
+            $('.mrpl_lasttab_list > li').removeClass('current');
+            $(this).parent().parent().addClass('current');
+        });
+    }
+
+    // 비디오 머그/스브스 뉴스 텝 전환 기능
+    function setNewsTabEvent(obj){
+        $(obj).children('li').click(function(){
+            $(obj).children('li').removeClass('current');
+            if($(this).hasClass('current')){
+                $(this).removeClass('current');
+            }else{
+                $(this).addClass('current');
+            }
+        });
+    }
+
+    // 푸터 페밀리 사이트, 지역민영방송 셀렉트 ON/OFF
+    function setFooterSelectBanner(obj){
+        $(obj).click(function(){
+            if($(this).parent().hasClass('current')){
+                $(this).parent().removeClass('current');
+            }else{
+                $(this).parent().addClass('current');
+            }
+        });
+    }
+
+    function setScrollEvent(){
+// 		$('.right_sub_mask.scrollbar-inner').scrollbar();
+        //$('.scrollbar-inner').scrollbar();
+    }
+
+    function redirectDevice(){
+        if(navigator.userAgent.indexOf("iPad") != -1 || !navigator.userAgent.match(/Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/))
+        { //alert("pc");//태블릿,PC에서만 실행 될 스크립트
+        } else { location.href = "http://m.sbs.co.kr"; 	}
+    }
+
+    function isNull(obj){
+        return (typeof obj != 'undefined' && obj != null && obj != '') ? false : true;
+    }
+
+    function dailySnsShare(shareType){
+        var url = ""
+            , title = ""
+            , date	= new Date()
+            , year	= date.getFullYear()
+            , month = addZeros(date.getMonth() + 1, 2)
+            , day	= addZeros(date.getDate(), 2)
+            , today = year + month + day;
+
+        title = year + '.' + month + '.' + day + ' SBS Daily Conpick';
+
+        title = title.replace(/replace-quotes-072/g, "\"");
+        title = title.replace(/replace-one-quotes-282/g, "'");
+
+        url = "http://w3.sbs.co.kr/dailySnsPage.do?searchDate=" + today;
+
+        var kakaoTitle = title;
+        title = encodeURIComponent(title);
+
+        var kakaoUrl = url;
+        url = encodeURIComponent(url);
+
+        switch (shareType){
+            // Facebook
+            case 'F':
+                url = "http://www.facebook.com/sharer.php?u=" + url;
+                break;
+            // Twitter
+            case 'T':
+                url = "http://www.twitter.com/home?status="
+                    + title
+                    + "%0A" + url;
+                break;
+            // kakao
+            case 'K':
+                Kakao.Story.share({
+                    url: kakaoUrl,
+                    text: kakaoTitle
+                });
+                break;
+            // BAND
+            case 'B':
+                url = "http://share.naver.com/web/shareView.nhn?url=" + url + "&title=" + title;
+                break;
+            default:
+                break;
+        }
+
+        if(shareType != 'K'){
+            window.open(url, 'ShareonSNS', 'width=510, height=500, scrollbars=no, resizeadble=no');
+        }
+    }
+
+    function addZeros(n, digits){
+        var zero = '';
+
+        n = n.toString();
+
+        if(n.length < digits){
+            for(var ii=0; ii<digits - n.length; ii++){
+                zero += '0';
+            }
+        }
+
+        return zero+n;
+    }
+
+	/*
+	 * 설정된 시간에 맞추어 메인에 GNB를 드로잉한다.
+	 */
+    function gnbTimeSet(){
+
+				var mainTopBannerList      = null
+						, cnrId = null
+						, pcImgUrl = null
+						, pcImgAlt = null
+						, pcCloseImgUrl = null
+						, closeImgAlt = null
+						, bgColor = null
+						, pcLnkUrl = null
+						, itmBegDt = null
+						, itmEndDt = null
+						, svcYn = null;
+
+				$.ajax({
+						url: 'http://ccapi.sbs.co.kr/openapi/rest/main/TopBannerList',
+						type: 'get',
+						dataType: 'jsonp',
+						success: function (data) {
+								mainTopBannerList = data[0];
+								cnrId = mainTopBannerList.cnrId;
+								pcImgUrl = mainTopBannerList.pcImgUrl;
+								pcImgAlt = mainTopBannerList.pcImgAlt;
+								pcCloseImgUrl = mainTopBannerList.pcCloseImgUrl;
+								closeImgAlt = mainTopBannerList.closeImgAlt;
+								bgColor = mainTopBannerList.bgColor;
+								pcLnkUrl = mainTopBannerList.pcLnkUrl;
+								itmBegDt = mainTopBannerList.itmBegDt;
+								itmEndDt = mainTopBannerList.itmEndDt;
+								svcYn = mainTopBannerList.svcYn;
+
+								var bYear = itmBegDt.substring(0,4);
+                var bMonth = itmBegDt.substring(4,6)-1;
+                var bDay = itmBegDt.substring(6,8);
+                var bHours = itmBegDt.substring(8,10);
+                var bMinutes = itmBegDt.substring(10,12);
+                var bSeconds = "00";
+
+                var eYear = itmEndDt.substring(0,4);
+                var eMonth = itmEndDt.substring(4,6)-1;
+                var eDay = itmEndDt.substring(6,8);
+                var eHours = itmEndDt.substring(8,10);
+                var eMinutes = itmEndDt.substring(10,12);
+                var eSeconds = "00";
+
+                var nowDate = new Date()
+									, bDate = new Date(bYear, bMonth, bDay, bHours, bMinutes, bSeconds)       		// 시작 날짜(year, month, day, hours, minutes, seconds, milliseconds)
+									, eDate = new Date(eYear, eMonth, eDay, eHours, eMinutes, eSeconds);        	// 종료 날짜(year, month, day, hours, minutes, seconds, milliseconds)
+
+                var htmlStr = '';
+
+                if(nowDate > bDate && nowDate < eDate){
+                    htmlStr += '<div class="bigevent_bnr_w" style="background:none; background-color:#'+bgColor+';">';
+                    htmlStr += '    <div class="bigevt_bnr"><a href=\"'+pcLnkUrl+'\"><img src=\''+pcImgUrl+'\' alt=\''+pcImgAlt+'\' /></a></div>';
+                    htmlStr += '        <button type="button" class="bigevt_closed" style="background-image:url(\''+pcCloseImgUrl+'\');"><i class="ir">닫기</i></button>';
+                    htmlStr += '</div>';
+
+                    if(svcYn == 'Y'){
+                        $('body').prepend(htmlStr);
+
+                        $('.bigevt_closed').click(function(){
+                            $(this).parent('.bigevent_bnr_w').css('display','none');
+                        });
+										}
+                }
+						},
+						error: function (xhr, status, error) {
+						}
+				});
+	  }
+	</script>
+	<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-78171429-1', 'auto');
+        ga('send', 'pageview');
+        ga('require', 'displayfeatures');
+	</script>
+</head>
+<body>
+<!-- skip_nav:20170605 개편id값적용-->
+<ul id="skip_nav">
+	<li><a href="#sbs_common_gnb">메인메뉴 바로가기</a></li>
+	<li><a href="#container">본문 바로가기</a></li>
+	<li><a href="#sbs_common_footer">하단메뉴 바로가기</a></li>
+</ul>
+<!--//end:skip_nav -->
+<div id="wrap" >
+	<div id="header"></div>
+	<!--script type="text/javascript" src="http://www.sbs.co.kr/vobos/common/js/common_header.js?ver=20170221"></script-->
+	<div id="container" class="" style="display:none;">
+		<!-- section main -->
+		<div class="sbs_tv_wsection">
+			<!-- 좌측영역 -->
+			<div class="sbs_renewalmain_wrap">
+				<div class="sbs_renewalmain_w">
+
+					<div class="main_box_tab">
+						<ul class="main_acodientab_list">
+							<li class="matl_cont_pick" style="display:none;">
+								<a href="javascript:;" class="matl_btn">
+									<span class="matl_tab_pick">Pick</span>
+								</a>
+								<ul class="matl_program_list">
+								</ul>
+							</li>
+							<li class="matl_cont_spor" style="display:none;">
+								<a href="javascript:;" class="matl_btn">
+									<span class="matl_tab_spor">Spotlight</span>
+								</a>
+								<ul class="matl_program_list" style="background-image:url('http://image.sbs.co.kr/sbs/4n/hd_sport_character.png');">
+								</ul>
+							</li>
+							<li class="matl_cont_prom" style="display:none;">
+								<a href="javascript:;" class="matl_btn">
+									<span class="matl_tab_prom">Promotion</span>
+								</a>
+								<ul class="matl_program_list">
+								</ul>
+							</li>
+						</ul>
+
+						<div class="main_right_pick current">
+							<h4 class="blind">Pick</h4>
+							<div class="main_rinner_pick">
+								<div class="mr_pick_l">
+									<ul class="mcont_sns_list">
+										<li class="mcsl_cont">
+											<a href="javascript:;" onclick="javascript:dailySnsShare('F');" class="mcsl_link">
+												<span class="mnicn micon_sns_fb"><i class="ir">facebook</i></span>
+											</a>
+										</li>
+										<li class="mcsl_cont">
+											<a href="javascript:;" onclick="javascript:dailySnsShare('T');" class="mcsl_link">
+												<span class="mnicn micon_sns_tw"><i class="ir">tweeter</i></span>
+											</a>
+										</li>
+										<li class="mcsl_cont">
+											<a href="javascript:;" onclick="javascript:dailySnsShare('K');" class="mcsl_link">
+												<span class="mnicn micon_sns_cs"><i class="ir">cacaostory</i></span>
+											</a>
+										</li>
+										<li class="mcsl_cont">
+											<a href="javascript:;" onclick="javascript:dailySnsShare('B');" class="mcsl_link">
+												<span class="mnicn micon_sns_nv"><i class="ir">naver</i></span>
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="mr_pick_r">
+									<ul class="mr_pick_list">
+										<li class="mrpl_cont_last">
+											<strong class="mnicn micon_hit"><i class="ir">Hit</i></strong>
+											<ul class="mrpl_lasttab_list">
+												<li class="mrpl_tabcont current">
+													<strong class="mrpl_tab_title"><a name="pickSubBtn" href="javascript:;">PD노트</a></strong>
+													<ul id="mainPdNoteContents" class="mrpl_tabsub_list">
+													</ul>
+												</li>
+
+												<li class="mrpl_tabcont_clip">
+													<strong class="mrpl_tab_title"><a name="pickSubBtn" href="javascript:;">Clip</a><span class="hd_txt_bar"></span></strong>
+													<ul id="mainClipContents" class="mrpl_tabsub_list">
+													</ul>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="main_right_spor" style="background-image:url('http://image.sbs.co.kr/sbs/4n/@img/@img_mnsportlight.jpg');">
+							<h4 class="blind">Sportlight</h4>
+							<div class="mr_sportlight_inner">
+								<strong class="mr_sportlight_title"></strong>
+								<ul class="mrsl_list">
+								</ul>
+							</div>
+
+							<ul class="mcont_sns_list">
+								<li class="mcsl_cont">
+									<a href="javascript:;" onclick="javascript:dailySnsShare('F');" class="mcsl_link">
+										<span class="mnicn micon_sns_fb"><i class="ir">facebook</i></span>
+									</a>
+								</li>
+								<li class="mcsl_cont">
+									<a href="javascript:;" onclick="javascript:dailySnsShare('T');" class="mcsl_link">
+										<span class="mnicn micon_sns_tw"><i class="ir">tweeter</i></span>
+									</a>
+								</li>
+								<li class="mcsl_cont">
+									<a href="javascript:;" onclick="javascript:dailySnsShare('K');" class="mcsl_link">
+										<span class="mnicn micon_sns_cs"><i class="ir">cacaostory</i></span>
+									</a>
+								</li>
+								<li class="mcsl_cont">
+									<a href="javascript:;" onclick="javascript:dailySnsShare('B');" class="mcsl_link">
+										<span class="mnicn micon_sns_nv"><i class="ir">naver</i></span>
+									</a>
+								</li>
+							</ul>
+							<span class="full_dim"></span>
+						</div>
+
+						<div class="main_right_prom">
+							<h4 class="blind">Promotion</h4>
+							<div class="mr_promotion_inner">
+								<ul class="mprm_list">
+								</ul>
+								<ul class="mprm_bnr_list">
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="main_box_probnr">
+						<div class="mnpb_w_l">
+							<ul class="mnpb_list">
+							</ul>
+							<div id="promotionBannerLeft" class="mn_contbtn_w">
+								<span class="mncb_list">
+									<span class="mncb_cont">
+										<span class="blind">전체 콘텐츠 갯수</span>
+										<span class="mncb_num_all">/1</span>
+										<span class="blind">현재 콘텐츠 위치</span>
+										<span class="mncb_num">1</span>
+									</span>
+									<span class="mncb_arrow">
+										<a href="javascript:;" class="mncb_arrow_l"><span class="mnicn"><i class="ir">이전 콘텐츠</i></span></a>
+										<a href="javascript:;" class="mncb_arrow_r"><span class="mnicn"><i class="ir">다음 콘텐츠</i></span></a>
+									</span>
+								</span>
+							</div>
+						</div>
+						<div class="mnpb_w_r">
+							<ul class="mnpb_list">
+							</ul>
+							<div id="promotionBannerRight" class="mn_contbtn_w">
+								<span class="mncb_list">
+									<span class="mncb_cont">
+										<span class="blind">전체 콘텐츠 갯수</span>
+										<span class="mncb_num_all">/1</span>
+										<span class="blind">현재 콘텐츠 위치</span>
+										<span class="mncb_num">1</span>
+									</span>
+									<span class="mncb_arrow">
+										<a href="javascript:;" class="mncb_arrow_l"><span class="mnicn"><i class="ir">이전 콘텐츠</i></span></a>
+										<a href="javascript:;" class="mncb_arrow_r"><span class="mnicn"><i class="ir">다음 콘텐츠</i></span></a>
+									</span>
+								</span>
+							</div>
+						</div>
+						<div class="mnpb_w_add">
+							<!--
+							<a href="javascript:;" target="_blank" class="mnpb_add_link"><img src="http://image.sbs.co.kr/sbs/4n/@img/@300250_1.jpg" alt="광고영역" width="100%" height="100%"></a>
+							-->
+							<script type="text/javascript" src="http://ad.smartmediarep.com/NetInsight/js/sbsbanner/sbshomepage/main_web@main_top_web"></script>
+						</div>
+					</div>
+
+					<div class="main_box_news">
+						<div class="mn_news_hline">
+							<div class="mnh_inner">
+								<h4 class="news_hline_title">뉴스</h4>
+								<ul class="mnh_list">
+								</ul>
+							</div>
+						</div>
+
+						<div class="mn_news_vmug">
+							<h4 class="blind">비디오머그/스브스뉴스 목록</h4>
+							<ul class="mnn_tab_list">
+								<li class="mnnt_inner_mug current">
+									<a href="javascript:;" class="mnnt_title">
+										비디오머그
+									</a>
+									<ul class="mnnt_cont_list">
+									</ul>
+								</li>
+								<li class="mnnt_inner_news">
+									<a href="javascript:;" class="mnnt_title">
+										스브스뉴스
+									</a>
+									<ul class="mnnt_cont_list">
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<div class="mn_news_issue">
+							<h4 class="mnnt_title">이슈</h4>
+							<div class="mnni_inner_w">
+								<strong class="mnni_title"> </strong>
+								<ul class="mnni_list">
+								</ul>
+								<span class="full_dim"></span>
+							</div>
+							<span class="btn_more_news"><a href="http://news.sbs.co.kr/news/newsHotIssue.do?plink=ISSUE&cooper=SBSNEWSMAIN" class="bmn_text">더 보기</a></span>
+						</div>
+					</div>
+
+					<div class="main_box_bottom">
+						<div class="mn_btm_inner">
+							<div class="mn_btm_bnr">
+								<ul class="mnb_bnr_list">
+								</ul>
+
+								<div id="groupPromotionBanner" class="mn_contbtn_w">
+									<span class="mncb_list">
+										<span class="mncb_cont">
+											<span class="blind">전체 콘텐츠 갯수</span>
+											<span class="mncb_num_all">/1</span>
+											<span class="blind">현재 콘텐츠 위치</span>
+											<span class="mncb_num">1</span>
+										</span>
+										<span class="mncb_arrow">
+											<a href="javascript:;" class="mncb_arrow_l"><span class="mnicn"><i class="ir">이전 콘텐츠</i></span></a>
+											<a href="javascript:;" class="mncb_arrow_r"><span class="mnicn"><i class="ir">다음 콘텐츠</i></span></a>
+										</span>
+									</span>
+								</div>
+							</div>
+							<div class="mn_btm_etc">
+								<div class="mnb_etc_inner">
+									<ul class="mnb_etc_list">
+									</ul>
+								</div>
+
+								<div id="groupLogoBanner" class="mn_contbtn_w">
+									<span class="mncb_list">
+										<span class="mncb_cont">
+											<span class="blind">전체 콘텐츠 갯수</span>
+											<span class="mncb_num_all">
+												/1
+											</span>
+											<span class="blind">현재 콘텐츠 위치</span>
+											<span class="mncb_num">1</span>
+										</span>
+										<span class="mncb_arrow">
+											<a href="javascript:;" class="mncb_arrow_l"><span class="mnicn"><i class="ir">이전 콘텐츠</i></span></a>
+											<a href="javascript:;" class="mncb_arrow_r"><span class="mnicn"><i class="ir">다음 콘텐츠</i></span></a>
+										</span>
+									</span>
+								</div><li class="mnbn_cont">
+								<a href="http://w3.sbs.co.kr/cs/endPage.do?contNo=&tpye=pc_noticecont" class="mnbn_link"></a>
+							</li>
+							</div>
+							<div class="mnb_notice_w">
+								<div class="mnb_notice_inner">
+									<strong class="mnbn_title">
+										<a href="http://w3.sbs.co.kr/cs/customerNotice.do?div=pc_noticelist">공지사항</a>
+										<span class="hd_txt_bar"></span></strong>
+									<ul id="mainNotice" class="mnbn_list">
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="mn_btm_add">
+							<script type="text/javascript" src="http://ad.smartmediarep.com/NetInsight/js/sbsbanner/sbshomepage/main_web@main_low_web"></script>
+							<!--
+							<a href="javascript:;" target="_blank" class="mnpb_add_link"><img src="http://image.sbs.co.kr/sbs/4n/@img/@300250_2.jpg" alt="광고영역" width="100%" height="100%"></a>
+							-->
+						</div>
+					</div>
+					<span class="hd_btm_character"><img src="http://image.sbs.co.kr/sbs/4n/hd_bttom_character.png" alt="캐릭터"></span>
+				</div>
+			</div>
+		</div>
+		<!-- 우측날개광고추가 : 20140916 이현국 -->
+		<div class="sbs_rwad">
+		</div>
+	</div>
+	<div id="footer"></div>
+	<!--
+	<div class="sbs_footer_w">
+		<div class="sfooter_inner">
+			<div class="sfoot_etcsite_w">
+				<h3 class="blind">SBS 관련사이트</h3>
+				<ul class="sfoot_connect_list">
+					<li class="sfcl_cont_first"><a href="http://sbspr.sbs.co.kr?div=pc_pr">SBS PR</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://sbsir.sbs.co.kr?div=pc_ir">SBS IR</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="https://recruit.sbs.co.kr:994/_service/sbs2/apply_site/apply/index.asp?div=pc_apply">채용정보</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://w3.sbs.co.kr/cs/customerRulesSbs.do?div=pc_customerrule">이용약관</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://w3.sbs.co.kr/cs/endPage.do?contNo=8&bbsCd=com_cs0001&backUrl=http%3A%2F%2Fw3.sbs.co.kr%2Fcs%2FcustomerNotice.do&div=pc_schedulerule">SBS 방송편성규약</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://w3.sbs.co.kr/cs/customerPrivacy.do?div=pc_privacy"><strong>개인정보처리방침</strong></a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://w3.sbs.co.kr/cs/customerTeenager.do?div=pc_privacy">청소년보호정책</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://tv.sbs.co.kr/committee/index.html?div=pc_committee">시청자위원회</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://www.sbs.co.kr/new/family/sellmulti/main.html?div=pc_sellmulti">영상판매</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://www.sbs.co.kr/vobos/ad/index.html?div=pc_ad">웹광고</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://tv.sbs.co.kr/sbs_ad/?div=pc_sponsor">SBS 제작협찬</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont_first"><a href="http://sbstechpr.sbs.co.kr/?loganal1=others&loganal2=SBS%20%EB%B0%A9%EC%86%A1%EA%B8%B0%EC%88%A0&div=pc_tech">SBS 방송기술</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://sbsshow.sbs.co.kr?div=pc_sbsshow">SBS 문화사업</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://artcollection.sbs.co.kr/main.html?div=pc_artcollection">SBS Prism Tower 아트컬렉션</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://w3.sbs.co.kr/cs/customerMain.do?div=pc_cs">고객센터</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://w3.sbs.co.kr/cs/daliyViewerReport.do?div=pc_cs">일일 시청자 의견</a><span class="hd_txt_bar"></span></li>
+					<li class="sfcl_cont"><a href="http://w3.sbs.co.kr/site/sitemap.do?div=pc_sitemap">사이트맵</a><span class="hd_txt_bar"></span></li>
+				</ul>
+
+				<div class="sfoot_viewer_w">
+					<h3 class="sfoot_viewer_title">시청자참여<span class="hd_txt_bar"></span></h3>
+					<ul class="sfoot_viewer_list">
+						<li class="sfcl_cont"><a href="http://news.sbs.co.kr/news/inform.do?div=pc_newinform">뉴스제보</a></li>
+						<li class="sfcl_cont"><a href="http://tv.sbs.co.kr/gochung/rev/01_gochung_info.html?div=pc_gochung">고충처리인(방송피해신고)</a></li>
+						<li class="sfcl_cont"><a href="http://program.sbs.co.kr/builder/programMainList.do?pgm_id=00000010105&div=pc_opentv">열린TV시청자세상</a></li>
+						<li class="sfcl_cont"><a href="http://www.redwhistle.org/report/reportNew.asp?organ=7553">윤리경영신고</a></li>
+						<li class="sfcl_cont"><a href="https://member.sbs.co.kr/member/withholdingReqAgree.do">원천징수영수증발급신청</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="sfoot_familysite_w">
+				<div class="sfms_inner_family">
+					<h3 class="sfms_title"><a href="javascript:;">SBS Family</a></h3>
+					<div id="sbsFamilySite" class="sfms_list_box">
+						<ul class="sfms_list">
+							<li class="sfms_cont"><a href="http://www.sbsmedia.co.kr" target="_blank" title="SBS 미디어홀딩스">SBS 미디어홀딩스</a></li>
+							<li class="sfms_cont"><a href="http://www.sbscontentshub.co.kr" target="_blank" title="SBS 콘텐츠허브">SBS 콘텐츠허브</a></li>
+							<li class="sfms_cont"><a href="http://sbsplus.sbs.co.kr" target="_blank" title="SBS Plus">SBS Plus</a></li>
+							<li class="sfms_cont"><a href="http://sbssports.sbs.co.kr" target="_blank" title="SBS Sports">SBS Sports</a></li>
+							<li class="sfms_cont"><a href="http://golf.sbs.co.kr" target="_blank" title="SBS Golf">SBS Golf</a></li>
+							<li class="sfms_cont"><a href="http://sbscnbc.sbs.co.kr" target="_blank" title="SBS CNBC">SBS CNBC</a></li>
+							<li class="sfms_cont"><a href="http://sbsfune.sbs.co.kr" target="_blank" title="SBS funE">SBS funE</a></li>
+							<li class="sfms_cont"><a href="http://www.mtv.co.kr" target="_blank" title="SBS MTV">SBS MTV</a></li>
+							<li class="sfms_cont"><a href="http://www.nick.co.kr" target="_blank" title="니켈로디언코리아">니켈로디언코리아</a></li>
+							<li class="sfms_cont"><a href="http://www.sbs-int.com" target="_blank" title="SBS 인터내셔널">SBS 인터내셔널</a></li>
+							<li class="sfms_cont"><a href="http://www.sbsant.co.kr" target="_blank" title="SBS A&amp;T">SBS A&amp;T</a></li>
+							<li class="sfms_cont"><a href="http://www.mediacreate.co.kr" target="_blank" title="SBS 미디어크리에이트">SBS 미디어크리에이트</a></li>
+							<li class="sfms_cont"><a href="http://foundation.sbs.co.kr/culture.cmd?act=index" target="_blank" title="SBS 문화재단">SBS 문화재단</a></li>
+							<li class="sfms_cont"><a href="http://foundation.sbs.co.kr/seoam.cmd?act=index" target="_blank" title="서암학술장학재단">서암학술장학재단</a></li>
+							<li class="sfms_cont"><a href="http://sbseng.sbs.co.kr" target="_blank" title="SBS 기술인협회">SBS 기술인협회</a></li>
+							<li class="sfms_cont"><a href="http://ann.sbs.co.kr" target="_blank" title="SBS 아나운서">SBS 아나운서</a></li>
+							<li class="sfms_cont"><a href="http://www.thestoryworks.co.kr?div=pc_thestoryworks_f" target="_blank" title="더스토리웍스">더스토리웍스</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="sfms_inner_area">
+					<h3 class="sfms_title"><a href="javascript:;">지역민영방송</a></h3>
+					<div id="sbsLocalTv" class="sfms_list_box">
+						<ul class="sfms_list">
+							<li class="sfms_cont"><a href="http://www.g1tv.co.kr/" target="_blank" title="강원 민방">강원 민방</a></li>
+							<li class="sfms_cont"><a href="http://www.ikbc.co.kr/" target="_blank" title="광주 방송">광주 방송</a></li>
+							<li class="sfms_cont"><a href="http://www.tbc.co.kr/" target="_blank" title="대구 방송">대구 방송</a></li>
+							<li class="sfms_cont"><a href="http://www.tjb.co.kr/" target="_blank" title="대전 방송">대전 방송</a></li>
+							<li class="sfms_cont"><a href="http://www.knn.co.kr/" target="_blank" title="부산 방송">부산 방송</a></li>
+							<li class="sfms_cont"><a href="http://www.ubc.co.kr/" target="_blank" title="울산 방송">울산 방송</a></li>
+							<li class="sfms_cont"><a href="http://www.jtv.co.kr/" target="_blank" title="전주 방송">전주 방송</a></li>
+							<li class="sfms_cont"><a href="http://www.cjb.co.kr/" target="_blank" title="청주 방송">청주 방송</a></li>
+							<li class="sfms_cont"><a href="http://www.jibstv.co.kr/" target="_blank" title="제주 방송">제주 방송</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="sfoot_info_w">
+			<h3 class="blind">SBS 및 SBS콘텐츠허브 정보</h3>
+			<div class="sfoot_info_inner">
+				<strong class="hdicn sfoot_logo_sbs"><span class="ir">SBS</span></strong>
+				<h4 class="blind">주소 및 연락처</h4>
+				<address class="sfoot_sbs_addr">
+					<ul class="sfoot_addr_list">
+						<li class="sfcl_cont_first">서울특별시 양천구 목동서로 161<span class="hd_txt_bar"></span></li>
+						<li class="sfcl_cont">대표이사 박정훈<span class="hd_txt_bar"></span></li>
+						<li class="sfcl_cont">방송관련문의 02)2061-0006<span class="hd_txt_bar"></span></li>
+						<li class="sfcl_cont"><a href="javascript:;" onclick="window.open('http://w3.sbs.co.kr/commPopup/map.html?div=pc_map','sbsMap','width=520,height=830,resizable=no,scrollbars=no');">찾아오시는 길</a><span class="hd_txt_bar"></span></li>
+					</ul>
+				</address>
+			</div>
+			<div class="sfoot_info_inner">
+				<strong class="hdicn sfoot_logo_hub"><span class="ir">SBS 콘텐츠허브</span></strong>
+				<h4 class="blind">주소 및 연락처</h4>
+				<address class="sfoot_sbs_addr">
+					<ul class="sfoot_addr_list">
+						<li class="sfcl_cont_first">서울특별시 마포구 상암산로 82<span class="hd_txt_bar"></span></li>
+						<li class="sfcl_cont">SBS프리즘타워 15, 16층<span class="hd_txt_bar"></span></li>
+						<li class="sfcl_cont">대표이사 유종연<span class="hd_txt_bar"></span></li>
+						<li class="sfcl_cont_first">홈페이지 이용문의 02)2001-6600<span class="hd_txt_bar"></span></li>
+						<li class="sfcl_cont_email"><a href="https://member.sbs.co.kr/member/cs/email.do?div=pc_cs" title="메일클라이언트가 실행됩니다"><span class="hdicn icon_emial"></span>Email<span class="hd_txt_bar"></span></a></li>
+						<li class="sfcl_cont">사업자 번호 116-81-76255<span class="hd_txt_bar"></span></li>
+						<li class="sfcl_cont">통신 판매업 신고번호 양천 제 41호<span class="hd_txt_bar"></span></li>
+						<li class="sfcl_cont">부가통신사업 신고번호 2566호<span class="hd_txt_bar"></span></li>
+					</ul>
+				</address>
+			</div>
+			<p class="sfoot_copyright">ⓒ <em>SBS&amp;SBS Contents Hub.</em></p>
+		</div>
+	</div>
+	-->
+</div>
+<script type="text/javascript">
+    var set_genre="";
+    var tot_top_cnt=0,
+        tot_left_cnt=0,
+        tot_left2_cnt= 0,
+        tot_menu_under_cnt=0;
+    var top_multi_on=false;
+    left_multi_on=false,
+        left2_multi_on=false,
+        menu_under_multi_on=false;
+    Handlebars.registerHelper('equal',function(lval,rval,options){
+        if(lval===rval){
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+    Handlebars.registerHelper("count",function(index,who){
+        if(who=="top"){ tot_top_cnt++; 	return tot_top_cnt;}
+        if(who=="left"){tot_left_cnt++;return tot_left_cnt;}
+        if(who=="left2"){tot_left2_cnt++;return tot_left2_cnt;}
+        if(who=="menu_under"){tot_menu_under_cnt++;return tot_menu_under_cnt;}});
+    function big_close(){document.getElementById("promotionB_top").style.display="none";}
+    function random_display(rnum,id){
+        var set_id=id+rnum;
+        if(document.getElementById(set_id)!=null){
+            document.getElementById(set_id).style.display="block";}
+    }
+    $(document).ready(function(){
+    });
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+        var nl = document.createElement('script'); nl.type = 'text/javascript';
+        nl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.sbs.co.kr/javascripts/wl6.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(nl, s);
+        var done = false;
+        nl.onload = nl.onreadystatechange = function() {
+            if ( !done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") ) {
+                done = true;
+                _n_sid = "WEB";
+                _n_uid_cookie = "SBS_ID";
+                n_logging();
+                nl.onload = nl.onreadystatechange = null;
+            }}})();
+</script>
+</body>
+</html>
+
+<input type="hidden" id="transaction" value="1" />

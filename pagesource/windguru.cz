@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Windguru</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Robots" content="index,follow" />
+
+<link rel="manifest" href="/manifest.json">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Windguru">
+<meta name="apple-mobile-web-app-title" content="Windguru">
+<meta name="msapplication-navbutton-color" content="#333333">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Windguru">
+<meta name="msapplication-starturl" content="/">
+
+<meta name="theme-color" content="#333333">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" type="image/png" sizes="192x192" href="/img/windguru-icon-192x192.png">
+<link rel="apple-touch-icon" type="image/png" sizes="192x192" href="/img/windguru-icon-192x192.png">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1"><meta name="description" content="Special wind and weather forecasts for windsurfing, kitesurfing and other wind related sports. Forecasts for any location on planet Earth!">
+<meta name="keywords" content="wind forecast, windsurfing, kitesurfing, kiteboarding, snowkiting, sailing, paragliding, wave, meteorology, numeric model, wind speed">
+<meta name="google-signin-client_id" content="902500120979-b876d301np6vmv1hlcu9kn1rvgg8097o.apps.googleusercontent.com">
+<link rel="apple-touch-icon-precomposed" href="https://www.windguru.net/img/apple-touch-icon-precomposed.png">
+<link rel="icon" href="https://www.windguru.net/img/windguru-icon-196x196.png">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-messaging.js"></script>
+ 
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDwc6isuJ-h__wL8NbBgRvIYuJ_IoG1ubM",
+    authDomain: "windguru-1091.firebaseapp.com",
+    databaseURL: "https://windguru-1091.firebaseio.com",
+    projectId: "windguru-1091",
+    storageBucket: "windguru-1091.appspot.com",
+    messagingSenderId: "902500120979"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-885239-4', 'auto');
+  ga('set', 'anonymizeIp', true);
+  
+ga(function(tracker) {
+  window['WGGA_cid'] = tracker.get('clientId');
+  window['WGGA_tid'] = tracker.get('trackingId');
+});  
+  //ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">
+var WgLang = {"legend":{"SMER":"Wind direction","TMP":"Temperature","WINDSPD":"Wind speed","MWINDSPD":"Modif. wind","APCP":"Rain (mm\/3h)","TCDC":"Cloud cover (%)","HTSGW":"Wave","WAVESMER":"Wave direction","RATING":"Windguru rating","PERPW":"Wave period (s)","APCP1":"Rain (mm\/1h)","GUST":"Wind gusts","SLP":"<span class=\"helpinfhpa\">*Pressure (hPa)<\/span>","RH":"Humidity (%)","FLHGT":"<span class=\"helpinffl\">*0\u00b0 isotherm (m)<\/span>","CDC":"Cloud cover (%)<br\/>high \/ mid \/ low","TMPE":"<span class=\"helpinftmp\">*Temperature <\/span>","WCHILL":"Wind chill","APCPs":"<span class=\"helpinfsnow\">*Precip. (mm\/3h)<\/span>","APCP1s":"<span class=\"helpinfsnow\">*Precip. (mm\/1h)<\/span>","WVHGT":"Wind wave","WVPER":"Wind wave per.(s)","WVDIR":"Wind wave dir.","SWELL1":"Swell","SWPER1":"Swell period (s)","SWDIR1":"Swell direction","SWELL2":"2.Swell","SWPER2":"2.Swell period (s)","SWDIR2":"2.Swell dir.","DIRPW":"Wave direction","WAVEDIR":"Wave direction"},"tooltip":{"TMPE":"Temperature at 2 meters above surface adjusted to real altitude of the spot. More info in Help\/FAQ section.","SLP":"Sea level pressure in hPa, values above 1000 hPa are printed <b>as x-1000<\/b>","FLHGT":"Freezing level height in meters","sst":"Sea surface temperature based on satellite data. Valid for oceans and large lakes, more info in help\/FAQ","APCP1s":"Precipitation in milimeters. Bold blue numbers indicate snowfall.","APCPs":"Precipitation in milimeters. Bold blue numbers indicate snowfall."},"dir":["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"],"weekday":["Su","Mo","Tu","We","Th","Fr","Sa"],"txt":{"archive":"Archive","tides":"Tides","detail":"Detail \/ Map","link":"Link","timezone":"Timezone","help":"Help","options":"Options","choose_m":"Choose wind modification","loading":"Loading forecast...","delayed":"12 hours delayed forecast. Latest WRF forecasts are only available to Windguru PRO subscribers. <a href='help_index.php?sec=pro'>Click for more info.<\/a>","delayed_short":"12 hours delayed forecast. Latest WRF forecasts are only available to Windguru PRO subscribers.","custom_onlypro":"WRF forecasts for custom spots are only available to Windguru PRO users","lastupdated":"Last updated","nextexpected":"Next update expected","timeleft":"Time left"},"tab":{"forecast":"Forecast","graph":"<img src=\"\/images\/gricon.png\" width=\"15\" height=\"10\"\/>","2d":"2D","2d_t":"Temperature (0 ... 5000 m)","2d_w":"Wind (0 ... 5000 m)","2d_t_l":"Temperature (alt ... +2000 m)","2d_w_l":"Wind (alt ... +2000 m)","map":"Map","webcams":"Webcams","reports":"Wind reports","accommodation":"Accommodation","schools":"Schools\/Rentals","shops":"Shops","other":"Other...","directory":"Links","fcst_graph":"<img src=\"\/img\/gricon.png\"\/>","more":"<span class=\"butt-txt\">More<\/span>","statistic":"Statistics","archive":"Archive"},"units":{"kmh":"km\/h","mph":"mph","ms":"m\/s","msd":"m\/s","knots":"knots","bft":"Bft","c":"&deg;C","f":"&deg;F","m":"m","ft":"ft"},"maps":{"windspd":"Wind","t2m":"Temperature","press":"Pressure","tcdc_apcp3":"Rain \/ clouds","tcdc_apcp1":"Rain \/ clouds"},"mapsi":{"windspd":"wind","t2m":"temperature","press":"pressure","tcdc_apcp3":"precipitation","tcdc_apcp1":"precipitation"},"gmap":{"link_f":"Forecast","link_a":"Archive","link_d":"Detail","link_add":"Add to favourites","link_s":"Select"},"spotmenu":{"sel_zeme":"SELECT COUNTRY","sel_spot":"SELECT SPOT","num_spot":"spots","num_reg":"regions","num_zeme":"countries","sel_all":"ALL","qs_hint":"Type spot name (min. 3 characters)"},"langdir":{"dir":"int"}};
+
+</script>
+<script type="text/javascript" src="https://beta.windguru.net/js/pak/bs.min.000013.js?WGNOEXP"></script>
+<script type="text/javascript" src="https://beta.windguru.net/js/pak/wg.min.000043.js?WGNOEXP"></script>
+<script type="text/javascript" src="https://beta.windguru.net/js/min/WG.Ads.min.000007.js?WGNOEXP"></script>
+<link rel="stylesheet" href="https://beta.windguru.net/css/min/index.min.000027.css?WGNOEXP" type="text/css">
+<script type="text/javascript">
+WG.cdn = 'https://www.windguru.net';WG.user = new WG.User();
+
+WG.camblacklist = [1427387412]
+WG._user_properties = {"id_user":0,"email":null,"username":"","wj":"knots","tj":"c","waj":"m","odh":3,"doh":22,"wrap":40,"fhours":240,"limit1":10.63,"limit2":15.57,"limit3":19.41,"tlimit":10,"vt":"forecast","directory":0,"wrapnew":null,"cellsize":null,"default_set":0,"default_id_spot":53,"pro":false,"news_id":14,"news_pulse":1};
+WG.ads.on = true;
+WG.ads.ajax = true;
+
+</script>
+<! --- Ads By SnigelWeb Services ---> 
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/22152718/Windguru_incontent_leaderboard_1', [728, 90], 'div-gpt-ad-1504865072186-0').addService(googletag.pubads());
+    googletag.defineSlot('/22152718/Windguru_incontent_leaderboard_2', [970, 90], 'div-gpt-ad-1504865142807-0').addService(googletag.pubads());
+    googletag.defineSlot('/22152718/windguru_incontent_336x380',       [336, 280],'div-gpt-ad-1506513058084-0').addService(googletag.pubads());
+    googletag.defineSlot('/22152718/windguru_mobile_top',              [320, 50], 'div-gpt-ad-1506519722774-0').addService(googletag.pubads());
+    googletag.defineSlot('/22152718/windguru_desktop_banner_1',        [468, 60], 'div-gpt-ad-1506520429922-0').addService(googletag.pubads());
+    googletag.defineSlot('/22152718/windguru_desktop_banner_2',        [468, 60], 'div-gpt-ad-1506520576452-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.enableServices();
+  });
+</script>
+<script>
+    window.cookieconsent_options = {
+        learnMore: 'More info',
+        domain: 'windguru.cz',
+        expiryDays: 3650,
+        message: 'This website uses cookies to work properly, collect statistics and serve advertising.',
+        theme: '/css/src/cookie-consent.css',
+        link: 'https://www.windguru.cz/help.php?sec=terms'
+    };
+</script><script language="JavaScript" type="text/javascript" src="/js/min/cookieconsent.min.js"></script>
+<script type="text/javascript">
+if(navigator.serviceWorker) {
+  navigator.serviceWorker.register('/sw.php').catch(function(err) {
+    console.error('Unable to register service worker.', err);
+  });
+}
+
+</script>
+<script type="text/javascript" src="https://beta.windguru.net/js/min/main.min.000033.js?WGNOEXP"></script>
+<script>
+$(function(){
+     if(WG.isRunningiOSStandalone()) {
+         WG.gae('standalone','ios');
+     }
+     if(WG.isRunningAndroidStandalone()) {
+         WG.gae('standalone','android');
+     }
+});    
+</script>
+</head>
+<body id="body" class="with-nested-nicescroll content-bottom-menu">
+<div class="nsr" style=""><div class="nsrr"></div></div>    
+<header id="header"> <!-- Horní lišta s logen a větou -->
+    
+<nav id="nav-windguru"><!-- Navigační lišta s levým a pravým menu -->
+    
+<a id="menu-button" class="main-mini-menu-icon"><svg class="icon light"><use xlink:href="#ico_menu"></use></svg>&nbsp;</a>
+<a id="menu-button-news" class="menu-news main-mini-menu-icon" style="" href="javascript:void(0)"><svg class="icon light"><use xlink:href="#ico_new"></use></svg></a>
+
+<div id="div_search_top"><!-- Autocomplete-->
+<a href="/"><div class="logoleft"></div></a> 
+<div class="search_placeholder">&nbsp;search spots...</div>
+<input class="wg-guide" data-guide-priority="1" data-guide-src="qsearch.php" type="search" tabindex="-1" placeholder="" name="searchspot" id="searchspot">
+</div>
+
+<ul id="wg-main-menu" class="wg-main-menu sm sm-simple sm-simple-collapsible">
+        
+  <li class="wg-guide wg-guide-global hide_touch_bm_mobile" data-guide-priority="20" data-guide-src="maps-menu.php"><a href="javascript:void(0)" class="mainmenu" id="showmap"><svg class="icon light"><use xlink:href="#ico_map"></use></svg><span class="small-tablet-hide collapsed-show"> Maps</span></a>
+    <ul>
+          <li><a data-navig="showMapFcst"><svg class="icon"><use xlink:href="#ico_forecast_map"></use></svg><span class=""> Forecasts</span></a>
+          </li>
+          <li><a data-navig="showMapSpots"><svg class="icon"><use xlink:href="#ico_spot_map"></use></svg><span class=""> Spots</span></a>
+          </li>
+          <li><a data-navig="showMapStations"><svg class="icon"><use xlink:href="#ico_station_map"></use></svg><span class=""> Stations</span></a>
+          </li>
+    </ul>  
+  </li>
+  <li><a href="javascript:void(0)" class="mainmenu"><svg class="icon light"><use xlink:href="#ico_menu"></use></svg><span class="tablet-hide collapsed-show"> More...</span></a>
+    <ul>
+       <li><a href="/top.php" data-ajax="1"><svg class="icon"><use xlink:href="#ico_top_forecast"></use></svg> Top forecasts</a></li>
+      <li><a href="/archive.php" data-ajax="1" data-addclass="menusize-1"><svg class="icon"><use xlink:href="#ico_archive"></use></svg> Archive</a></li>
+      <li><a href="/archive-stats.php" data-ajax="1" data-addclass="menusize-1"><svg class="icon"><use xlink:href="#ico_statistic"></use></svg> Statistics</a></li>
+      <li><a href="/archive-top.php" data-ajax="1" data-addclass="menusize-1"><svg class="icon"><use xlink:href="#ico_top_forecast"></use></svg> Top spots</a></li>
+      <li><a href="/tides.php" data-ajax="1"><svg class="icon"><use xlink:href="#ico_tide"></use></svg> Tides</a></li>
+      <li><a href="https://old.windguru.cz"><svg class="icon"><use xlink:href="#ico_left"></use></svg> Old Windguru</a></li>
+        <li class="min-small-tablet-hide collapsed-hide"><a href="/pro.php" data-ajax="1" data-addclass="hcenter vcenter"><svg class="icon"><use xlink:href="#ico_wg"></use></svg><span class=""> Windguru PRO</span></a>
+        </li>
+        <li class="min-small-tablet-hide collapsed-hide"><a href="/apps.php" data-ajax="1" data-addclass="hcenter vcenter" data-showurl="/apps.php"><svg class="icon"><use xlink:href="#ico_phone"></use></svg><span class=""> Mobile Apps</span></a>
+        </li>
+        <li class="min-small-tablet-hide collapsed-hide"><a href="/directory.php?utm_source=menu" data-ajax="1" data-addclass="hcenter vcenter" data-showurl="/directory.php"><svg class="icon"><use xlink:href="#ico_center"></use></svg><span class=""> Windguru Directory</span></a>
+        </li>
+        <li class="min-small-tablet-hide collapsed-hide"><a href="http://stations.windguru.cz"><svg class="icon"><use xlink:href="#ico_station_map"></use></svg><span class=""> Windguru Station</span></a>
+        </li>
+   </ul>  
+  </li>
+  <li class="small-tablet-hide collapsed-show" ><a href="javascript:void(0)" class="mainmenu" id=""><svg class="icon light"><use xlink:href="#ico_wg"></use></svg><span class="tablet-hide collapsed-show"> PROducts</span></a>
+    <ul>
+        <li><a href="/pro.php" data-ajax="1" data-addclass="hcenter vcenter"><svg class="icon"><use xlink:href="#ico_wg"></use></svg><span class=""> Windguru PRO</span></a>
+        </li>
+        <li><a href="/apps.php" data-ajax="1" data-addclass="hcenter vcenter"><svg class="icon"><use xlink:href="#ico_phone"></use></svg><span class=""> Mobile Apps</span></a>
+        </li>
+        <li><a href="/directory.php?utm_source=menu" data-ajax="1" data-addclass="hcenter vcenter" data-showurl="/directory.php"><svg class="icon"><use xlink:href="#ico_center"></use></svg><span class=""> Windguru Directory</span></a>
+        </li>
+        <li><a href="http://stations.windguru.cz"><svg class="icon"><use xlink:href="#ico_station_map"></use></svg><span class=""> Windguru Station</span></a>
+        </li>
+    </ul>  
+  </li>
+  <li class="collapsed-show"><a class="mainmenu"><svg class="icon light"><use xlink:href="#ico_help"></use></svg><span class="small-screen-hide collapsed-show"> Help</span></a>
+    <ul>
+        <li><a class="click-menu-hide" data-navig="showGuide"><svg class="icon"><use xlink:href="#ico_help"></use></svg> Quick guide</a>
+        </li>
+        <li><a href="/help.php" data-ajax="1" data-addclass="hcenter vcenter"><svg class="icon"><use xlink:href="#ico_model_selection"></use></svg><span class=""> Help section</span></a>
+        </li>
+        <li><a  class="click-menu-hide" data-navig="keyboardShortcuts"><svg class="icon"><use xlink:href="#ico_more_02"></use></svg><span class=""> Keyboard shortcuts</span></a>
+        </li>
+        <li><a href="/upgrade.php" data-ajax="1" data-addclass="hcenter vcenter"><svg class="icon"><use xlink:href="#ico_new"></use></svg><span class=""> Windguru upgraded!</span></a>
+        </li>
+        <li><a href="/index.php?s=76&intro=1"><svg class="icon"><use xlink:href="#ico_info"></use></svg><span class=""> New site intro</span></a>
+        </li>
+    </ul>       
+  </li>
+</ul>
+
+<a href="/" class="medium-screen-hide"><svg class="logoright" src=""></svg></a>  
+
+<ul id="wg-main-menu2" class="wg-main-menu sm sm-simple sm-simple-collapsible" style="float: right;">
+  <li class="menu-news" id="menu-button-news2"><a class="mainmenu" href="javascript:void(0)"><svg class="icon light"><use xlink:href="#ico_new"></use></svg><span class="small-screen-hide collapsed-show"> News</span></a></li>
+
+  <li><a class="mainmenu modal-form" id="wg-options" data-q="set_options" data-title="Options" href="/forms/options.php"><svg class="icon light"><use xlink:href="#ico_options"></use></svg><span class="big-tablet-hide collapsed-show"> Options</span></a></li>
+  <li class="wg-guide wg-guide-global" data-guide-priority="2" data-guide-src="login.php">
+    <a class="mainmenu modal-form" data-q="wg_login" data-title="Login" href="/forms/login.php"><svg class="icon light"><use xlink:href="#ico_account"></use></svg><span class="tablet-hide collapsed-show"> Login</span></a>
+  </li>  
+  <li class="small-mobile-hide collapsed-show"><a href="javascript:void(0)" class="mainmenu"><img class="langflag w480-hide collapsed-show" src="https://www.windguru.net/img/flags/en.png"><span class="small-mobile-hide collapsed-show">en</span></a>
+    <ul><li><a href="/switchlang.php?lang=baq"><img class="langflag" src="https://www.windguru.net/img/flags/baq.png" alt="baq"/>Basque</a></li>
+<li><a href="/switchlang.php?lang=bg"><img class="langflag" src="https://www.windguru.net/img/flags/bg.png" alt="bg"/>Bulgarian</a></li>
+<li><a href="/switchlang.php?lang=cat"><img class="langflag" src="https://www.windguru.net/img/flags/cat.png" alt="cat"/>Catalan</a></li>
+<li><a href="/switchlang.php?lang=cz"><img class="langflag" src="https://www.windguru.net/img/flags/cz.png" alt="cz"/>Czech</a></li>
+<li><a href="/switchlang.php?lang=dk"><img class="langflag" src="https://www.windguru.net/img/flags/dk.png" alt="dk"/>Danish</a></li>
+<li><a href="/switchlang.php?lang=nl"><img class="langflag" src="https://www.windguru.net/img/flags/nl.png" alt="nl"/>Dutch</a></li>
+<li><a href="/switchlang.php?lang=en"><img class="langflag" src="https://www.windguru.net/img/flags/en.png" alt="en"/>English</a></li>
+<li><a href="/switchlang.php?lang=ee"><img class="langflag" src="https://www.windguru.net/img/flags/ee.png" alt="ee"/>Estonian</a></li>
+<li><a href="/switchlang.php?lang=fi"><img class="langflag" src="https://www.windguru.net/img/flags/fi.png" alt="fi"/>Finnish</a></li>
+<li><a href="/switchlang.php?lang=fr"><img class="langflag" src="https://www.windguru.net/img/flags/fr.png" alt="fr"/>French</a></li>
+<li><a href="/switchlang.php?lang=gl"><img class="langflag" src="https://www.windguru.net/img/flags/gl.png" alt="gl"/>Galician</a></li>
+<li><a href="/switchlang.php?lang=de"><img class="langflag" src="https://www.windguru.net/img/flags/de.png" alt="de"/>German</a></li>
+<li><a href="/switchlang.php?lang=hu"><img class="langflag" src="https://www.windguru.net/img/flags/hu.png" alt="hu"/>Hungarian</a></li>
+<li><a href="/switchlang.php?lang=it"><img class="langflag" src="https://www.windguru.net/img/flags/it.png" alt="it"/>Italian</a></li>
+<li><a href="/switchlang.php?lang=lv"><img class="langflag" src="https://www.windguru.net/img/flags/lv.png" alt="lv"/>Latvian</a></li>
+<li><a href="/switchlang.php?lang=lt"><img class="langflag" src="https://www.windguru.net/img/flags/lt.png" alt="lt"/>Lithuanian</a></li>
+<li><a href="/switchlang.php?lang=pl"><img class="langflag" src="https://www.windguru.net/img/flags/pl.png" alt="pl"/>Polish</a></li>
+<li><a href="/switchlang.php?lang=pt"><img class="langflag" src="https://www.windguru.net/img/flags/pt.png" alt="pt"/>Portuguese</a></li>
+<li><a href="/switchlang.php?lang=ro"><img class="langflag" src="https://www.windguru.net/img/flags/ro.png" alt="ro"/>Romanian</a></li>
+<li><a href="/switchlang.php?lang=ru"><img class="langflag" src="https://www.windguru.net/img/flags/ru.png" alt="ru"/>Russian</a></li>
+<li><a href="/switchlang.php?lang=es"><img class="langflag" src="https://www.windguru.net/img/flags/es.png" alt="es"/>Spanish</a></li>
+<li><a href="/switchlang.php?lang=se"><img class="langflag" src="https://www.windguru.net/img/flags/se.png" alt="se"/>Swedish</a></li>
+<li><a href="/switchlang.php?lang=tr"><img class="langflag" src="https://www.windguru.net/img/flags/tr.png" alt="tr"/>Turkish</a></li>
+</ul>  
+  </li>  
+</ul>
+
+</nav>
+  
+</header>
+
+<div id="minimap" class=""></div>
+<div id="news-div" class=""></div>
+
+<div id="forecasts-page" class="subsection content hide">
+    <div id="forecasts-page-content"></div><div class="end"></div><div id="forecasts-page-fmenu"></div>
+    <div id="bottom-menu-forecasts" class="forecasts-page-include menu fixed bottom higher dark subsection">
+        <a class="menu-button" onclick="WGA.goSearch();"><svg class="icon light"><use xlink:href="#ico_search"></use></svg><span class=""> Search</span></a>
+        <a class="menu-button showfavo" ><svg class="icon light"><use xlink:href="#ico_favourite"></use></svg><span class=""> Favourites</span></a>
+        <a href="javascript:void(0)" class="menu-button"  data-navig="showMapFcst" id="showmap"><svg class="icon light"><use xlink:href="#ico_map"></use></svg><span class="small-tablet-hide collapsed-show"> Maps</span></a>
+        <a class="menu-button" onclick="WGA.options();"><svg class="icon light"><use xlink:href="#ico_options"></use></svg><span class="big-tablet-hide collapsed-show"> Options</span></a>    </div>     
+</div>    
+
+<div id="main-page" class="subsection content">
+    <div id="main-page-content"></div>
+    <div id="bottom-menu-main" class="main-page-include menu fixed bottom higher dark subsection">
+        <a class="menu-button" onclick="WGA.showHome();"><svg class="icon light"><use xlink:href="#ico_accommodation"></use></svg><span class=""> Home </span></a>
+        <a href="javascript:void(0)" class="menu-button"  data-navig="showMapFcst" id="showmap"><svg class="icon light"><use xlink:href="#ico_map"></use></svg><span class="small-tablet-hide collapsed-show"> Maps</span></a>
+        <a class="menu-button" onclick="WGA.options();"><svg class="icon light"><use xlink:href="#ico_options"></use></svg><span class="big-tablet-hide collapsed-show"> Options</span></a>    </div>     
+</div>    
+
+<div id="home-page" class="subsection content hide">
+    <div class="home-lists">
+        <div class="list-header">Last used:<a id="last-more" onclick="WGA.moreLast();" class=""> more <svg class="icon more-more"><use xlink:href="#ico_down"></use></svg></a></div>
+    <div class="home-list" id="last-list"></div>
+    <div class="list-header">Favourites:</div>
+    <div class="home-list" id="favourite-list"></div>
+    </div>
+    <div id="bottom-menu-home" class="home-page-include menu fixed bottom higher dark subsection">
+        <a class="menu-button" onclick="WGA.goSearch();"><svg class="icon light"><use xlink:href="#ico_search"></use></svg><span class=""> Search</span></a>
+        <a class="menu-button showfavo" ><svg class="icon light"><use xlink:href="#ico_favourite"></use></svg><span class=""> Favourites</span></a>
+        <a href="javascript:void(0)" class="menu-button"  data-navig="showMapFcst" id="showmap"><svg class="icon light"><use xlink:href="#ico_map"></use></svg><span class="small-tablet-hide collapsed-show"> Maps</span></a>
+        <a class="menu-button" onclick="WGA.options();"><svg class="icon light"><use xlink:href="#ico_options"></use></svg><span class="big-tablet-hide collapsed-show"> Options</span></a>    </div>    
+</div>
+
+<div id="wgmap-page" class="subsection content content-max menusize-1 hide">
+    <div class="reklamy-map" data-row="0" id="reklamy-map-0"></div>
+    <div id="wgmap-menu-fcst" class="menu subsection fixed">
+        <ul class="sm sm-simple sm-wg-inline">
+          <li><a class="" id="wgmap-model"><svg class="icon"><use xlink:href="#ico_model_selection"></use></svg> Model</a>
+            <ul id="wgmap-model-menu" class="wg-map-model">
+            </ul>  
+          </li>
+          <li><a class="" id="wgmap-type"><svg class="icon"><use xlink:href="#ico_more_02"></use></svg><span class="small-tablet-hide"> Type</span></a>
+            <ul id="wgmap-type-menu">
+            </ul>  
+          </li>
+          <li><a data-navig="showMapSpots" class="hide_touch_bm_mobile"><svg class="icon"><use xlink:href="#ico_spot_map"></use></svg><span class="small-tablet-hide"> Spots</span></a>
+          </li>
+          <li><a data-navig="showMapStations" class="hide_touch_bm_mobile"><svg class="icon"><use xlink:href="#ico_station_map"></use></svg><span class="small-tablet-hide"> Stations</span></a>
+          </li>
+        </ul><div id="timeslider-menu-wrapper" class="bottom"><div id="timeslider-menu"></div></div><ul id="wgmap-time-menu" class="sm sm-simple sm-wg-inline">
+            <li><a id="prevhr" ><svg class="icon"><use xlink:href="#ico_left"></use></svg></a><li>
+            <li><a id="wgmap-time" class="currdate">Time...</a>
+              <ul id="wgmap-tz-menu">
+                <li><a class="settz" data-tz="UTC"><svg class="icon"><use xlink:href="#ico_timezone"></use></svg> UTC</a></li>
+                <li><a id="picktz"><svg class="icon"><use xlink:href="#ico_timezone"></use></svg> Pick timezone from map</a></li>
+              </ul>  
+            </li>
+            <li><a id="nexthr"><svg class="icon"><use xlink:href="#ico_right"></use></svg></a><li>
+        </ul>
+    </div>
+    <div id="wgmap-menu-spots" class="menu subsection fixed">
+        <ul class="sm sm-simple sm-wg-inline">
+          <li><a data-navig="showMapFcst"><svg class="icon"><use xlink:href="#ico_forecast_map"></use></svg> Forecasts</a>
+          </li>
+          <li><a data-navig="showMapSpots"><svg class="icon"><use xlink:href="#ico_spot_map"></use></svg> Spots</a>
+          </li>
+          <li><a data-navig="showMapStations"><svg class="icon"><use xlink:href="#ico_station_map"></use></svg> Stations</a>
+          </li>
+        </ul>
+    </div>
+    <div class="reklamy-map" id="reklamy-map"></div>
+   <div id="wgmap" class=""></div>
+    <div id="bottom-menu-wgmap" class="wgmap-page-include menu fixed bottom higher dark subsection">
+        <a class="menu-button" onclick="WGA.showHome();"><svg class="icon light"><use xlink:href="#ico_accommodation"></use></svg><span class=""> Home </span></a>
+        <a href="javascript:void(0)" class="menu-button"  data-navig="showMapFcst" ><svg class="icon light"><use xlink:href="#ico_forecast_map"></use></svg><span class="small-tablet-hide collapsed-show"> Forecasts</span></a>
+        <a href="javascript:void(0)" class="menu-button"  data-navig="showMapSpots" ><svg class="icon light"><use xlink:href="#ico_spot_map"></use></svg><span class="small-tablet-hide collapsed-show"> Spots</span></a>
+        <a href="javascript:void(0)" class="menu-button"  data-navig="showMapStations" ><svg class="icon light"><use xlink:href="#ico_station_map"></use></svg><span class="small-tablet-hide collapsed-show"> Stations</span></a>
+    </div>     
+ </div>    
+
+<div id="spot-page" class="subsection content hide">
+    <div class="reklamy-station" data-row="0" id="reklamy-station-0"></div>
+    <div id="spot-header" class="spot"><span class="wgs_station_name" style="float: left"></span><div id="station-name-icons" class="spotname-icons"><a class="spot-icon-link tooltip mobile2-hide favourite-station-add" title="Add or remove favourite"><svg class="icon"><use xlink:href="#ico_favourite"></use></svg></a></div></div>
+    <div id="spot-menu" class="menu subsection spot-include hide">
+        <ul class="sm sm-simple sm-wg-inline">
+          <li><a id="current_station_forecast_link"><svg class="icon"><use xlink:href="#ico_forecast_table"></use></svg><span class="small-tablet-hide"> Forecast</span></a>
+          </li>
+          <li><a id="current_station_map_link"><svg class="icon"><use xlink:href="#ico_map"></use></svg><span class="small-tablet-hide"> Map</span></a>
+          </li>
+                    <li><a>
+                <span id="graph-menu-type-wind"><svg class="icon"><use xlink:href="#ico_wind"></use></svg><span class="mobile-hide w480-hide"> Wind</span></span>
+                <span id="graph-menu-type-temp" style="display:none"><svg class="icon"><use xlink:href="#ico_temperature"></use></svg><span class="mobile-hide w480-hide"> Temperature</span></span>
+              </a>
+            <ul id="graph-type-menu">
+                <li><a data-id="windspd" data-navig="showStationGraphWind"  href="javascript:void(0);"><svg class="icon"><use xlink:href="#ico_wind"></use></svg> Wind</a></li>
+                <li><a data-id="t2m" data-navig="showStationGraphTemp" href="javascript:void(0);"><svg class="icon"><use xlink:href="#ico_temperature"></use></svg> Temperature</a></li>
+            </ul>  
+          </li>          
+          <li><a  class="" ><svg class="icon"><use xlink:href="#ico_options"></use></svg><span class="mobile-hide w480-hide"> Period</span></a>
+<ul id="spot-graph-hours"><li><a data-navig="stationSwitchHours" data-args="1"><svg class="icon"><use xlink:href="#ico_show_legend"></use></svg> 1 hour</a></li>
+<li><a data-navig="stationSwitchHours" data-args="3"><svg class="icon"><use xlink:href="#ico_show_legend"></use></svg> 3 hours</a></li>
+<li><a data-navig="stationSwitchHours" data-args="6"><svg class="icon"><use xlink:href="#ico_show_legend"></use></svg> 6 hours</a></li>
+<li><a data-navig="stationSwitchHours" data-args="12"><svg class="icon"><use xlink:href="#ico_show_legend"></use></svg> 12 hours</a></li>
+<li><a data-navig="stationSwitchHours" data-args="24"><svg class="icon"><use xlink:href="#ico_show_legend"></use></svg> 1 day</a></li>
+<li><a data-navig="stationSwitchHours" data-args="48"><svg class="icon"><use xlink:href="#ico_show_legend"></use></svg> 2 days</a></li>
+<li><a data-navig="stationSwitchHours" data-args="168"><svg class="icon"><use xlink:href="#ico_show_legend"></use></svg> 7 days</a></li>
+<li><a data-navig="stationSwitchHours" data-args="336"><svg class="icon"><use xlink:href="#ico_show_legend"></use></svg> 14 days</a></li>
+<li><a data-navig="stationSwitchHours" data-args="720"><svg class="icon"><use xlink:href="#ico_show_legend"></use></svg> 30 days</a></li>
+</ul> 
+          </li>
+          <li><a id="station_set_date" style="position:relative"><svg class="icon"><use xlink:href="#ico_calendar"></use></svg><input id="station_set_date_hidden" style="display: none;" name="station_set_date"/><span class="mobile-hide w480-hide"> Date</span></a></li>
+        </ul>
+        <div class="wgs_last_time"></div>
+    </div>
+    <div id="spot-map" class=""></div>
+    <div id="spot-graph" class=""></div>
+    <div id="spot-data" class="spot-data-current">
+        <div class="wgs-data wgs_wind_avg_color wgs_wind_dir"><div class="wgs_wind_dir_arrow"></div></div>
+        <div class="wgs-data wgs-wind-dir-txt wgs_wind_avg_color">
+            <span class="wgs_wind_avg_color wgs_wind_dir"><span class="wgs_wind_dir_value"></span></span>
+            <span class="wgs_wind_avg_color wgs_wind_avg"><span class="wgs_wind_dir_numvalue"></span></span>
+        </div>
+        <div data-navig="showStationGraphWind" class="wgs-data wgs-wind wgs_wind_avg_color wgs_wind_avg"><a class="wind prumer"><span class="wgs_wind_avg_value"></span> <span class="wgs_wind_units"></span></a></div>
+        <div data-navig="showStationGraphWind" class="wgs-data wgs-wind wgs_wind_max_color wgs_wind_max"><a class="wind max">max: <span class="wgs_wind_max_value"></span></a></div>
+        <div data-navig="showStationGraphWind" class="wgs-data wgs-wind wgs_wind_min_color wgs_wind_min"><a class="wind min">min: <span class="wgs_wind_min_value"></span></a></div>
+        <div data-navig="showStationGraphTemp" class="wgs-data wgs-temp wgs_temp_color wgs_temp"><a class="temp"><span class="wgs_temp_value"></span> <span class="wgs_temp_units"></span></a></div>
+        <div data-navig="showStationGraphTemp" class="wgs-data wgs-temp wgs_rh"><a class="temp">rh: <span class="wgs_rh_value"></span></a></div>
+    </div>
+    <div id="station-live" class="spot-live-div no-user-select hidden"></div>
+    <div id="bottom-menu-spot" class="spot-page-include menu fixed bottom higher dark subsection">
+        <a class="menu-button" onclick="WGA.showHome();"><svg class="icon light"><use xlink:href="#ico_accommodation"></use></svg><span class=""> Home </span></a>
+        <a class="menu-button" onclick="WGA.goSearch();"><svg class="icon light"><use xlink:href="#ico_search"></use></svg><span class=""> Search</span></a>
+        <a class="menu-button showfavo" ><svg class="icon light"><use xlink:href="#ico_favourite"></use></svg><span class=""> Favourites</span></a>
+        <a href="javascript:void(0)" class="menu-button"  data-navig="showMapFcst" id="showmap"><svg class="icon light"><use xlink:href="#ico_map"></use></svg><span class="small-tablet-hide collapsed-show"> Maps</span></a>
+        <a class="menu-button" onclick="WGA.options();"><svg class="icon light"><use xlink:href="#ico_options"></use></svg><span class="big-tablet-hide collapsed-show"> Options</span></a>    </div>   
+</div>   
+<footer class="">
+    <div class="social footerpart">
+        <a href="http://www.facebook.com/windguru.cz"><svg class="icon light"><use xlink:href="#ico_facebook"></use></svg><span class="small-tablet-hide"> Facebook</span></a>  
+        <a href="http://twitter.com/windgurucz"><svg class="icon light"><use xlink:href="#ico_twitter"></use></svg><span class="small-tablet-hide"> Twitter</span></a>  
+                <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#119;&#105;&#110;&#100;&#103;&#117;&#114;&#117;&#46;&#99;&#122;"><svg class="icon light"><use xlink:href="#ico_email"></use></svg><span class="small-tablet-hide"> Email</span></a>
+        <a class="modal-form" data-q="feedback" data-title="Feedback" data-ok="close" href="/forms/feedback.php"><svg class="icon light"><use xlink:href="#ico_new"></use></svg><span class=""> Feedback</span></a>  
+        
+    </div>
+    <div class="links footerpart">
+                <a href="/help.php" data-ajax="1" data-addclass="hcenter vcenter">Help</a> |
+        <a href="/help.php?sec=faq" data-ajax="1" data-addclass="hcenter vcenter">FAQ</a> |
+        <a href="/help.php?sec=terms" data-ajax="1" data-addclass="hcenter vcenter">Terms of use</a> |
+        <a href="/advertising.php" data-ajax="1" data-addclass="hcenter vcenter">Advertising</a> |
+        <a href="http://stations.windguru.cz">Stations</a>
+        <span class="w480-hide"> | <a href="http://old.windguru.cz">Old Windguru</a></span>
+    </div>
+    <div class="links footerpart">
+        &copy; 2018 Windguru
+    </div>
+</footer></body>
+</html>

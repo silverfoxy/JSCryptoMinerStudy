@@ -1,0 +1,1 @@
+The URL has moved <a href="http://a.wap.myapp.com">here</a>

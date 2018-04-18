@@ -1,0 +1,2212 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description"
+              content="Real-Time Hearthstone Stats and Meta Reports Generated using actual hearthstone games. Game data is collected using our plugins for Hearthstone Deck Tracker and TrackoBot. All stats are calculated using Knights of the Frozen Throne data.">
+        <meta name="author" content="AdnanC">
+        <meta property="og:image" content="http://metastats.net/logo.png">
+        <meta property="og:image:type" content="image/jpg">
+        <meta property="og:image:width" content="300">
+        <meta property="og:image:height" content="300">
+
+
+        <script src="/js/clipboard.min.js"></script>
+
+        <title>Hearthstone Meta Stats - Real-Time Hearthstone Stats</title>
+
+        <link rel="icon"
+              type="image/png"
+              href="/favicon.png">
+
+        <link href="/css/c3.min.css" rel="stylesheet" type="text/css">
+
+        
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+      integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+-->
+
+<link href="/css/theme.css" rel="stylesheet">
+<link href="/css/metastats.css?v=3" rel="stylesheet">
+<link href="/css/animate.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+        <style>
+            .c3-line {
+                stroke-width: 3px;
+            }
+
+            .tablearchetyperank {
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            .tablearchetyperank td {
+                padding: 5px;
+            }
+
+            .hover-img a {
+                position: relative;
+            }
+
+            .hover-img a div {
+                position: absolute;
+                display: none;
+                z-index: 99;
+                bottom: -110px;
+                right: -200px;
+            }
+
+            .hover-img a:hover div {
+                display: block;
+            }
+
+            #meta-nav {
+                text-align: center;
+                width: 100%;
+            }
+
+            #meta-nav li {
+                list-style-type: none;
+            }
+
+            #meta-nav li img {
+                width: 100%;
+            }
+
+            #meta-nav li a {
+                text-decoration: none;
+                float: left;
+                width: 70px;
+                height: 70px;
+                display: block;
+                text-align: center;
+                margin-bottom: 15px;
+                margin-right: 15px;
+                opacity: 0.5;
+                filter: alpha(opacity=50); /* For IE8 and earlier */
+            }
+
+            #meta-nav li a:hover {
+                opacity: 1.0;
+                filter: alpha(opacity=100); /* For IE8 and earlier */
+            }
+
+            #meta-nav li .active {
+                opacity: 1.0;
+                filter: alpha(opacity=100); /* For IE8 and earlier */
+            }
+
+            .activecard {
+                background-color: #faf2cc;
+            }
+
+            .decklist {
+                display: inline-table;
+                vertical-align: top;
+                border: 1px solid #cbcbcb;
+                margin: 10px;
+                padding: 5px;
+                box-sizing: border-box;
+
+            }
+
+            .card-list {
+                padding-left: 10px;
+                list-style: none;
+                margin-top: 0;
+                margin-bottom: 10px;
+
+            }
+
+            .card-list-item {
+                display: block;
+                height: 30px;
+                margin-bottom: 1px;
+                padding: 0;
+            }
+
+            .card-gem {
+                float: left;
+                background-color: black;
+                line-height: 30px;
+                color: #ffffff;
+                text-align: center;
+                padding-left: 5px;
+                background-position: center;
+                background-repeat: no-repeat;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-weight: 800;
+                background-size: 35px 30px;
+                font-size: 12px;
+                text-shadow: 1px 2px 3px rgba(0, 0, 0, 1);
+                width: 30px;
+            }
+
+            .card-name {
+                float: left;
+                background-color: black;
+                line-height: 30px;
+                color: white;
+                padding-left: 5px;
+                text-align: left;
+                background-position: right;
+                background-repeat: no-repeat;
+                background-size: contain;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-weight: 600;
+                font-size: 12px;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+                width: 150px;
+            }
+
+            .card-rarity {
+                float: left;
+                width: 10px;
+                height: 30px;
+                border-radius: 0 1px 1px 0;
+            }
+
+            .card-gem-free {
+                background-image: url('/images/gems/gem.png');
+            }
+
+            .card-gem-common {
+                background-image: url('/images/gems/gem_common.png');
+            }
+
+            .card-gem-rare {
+                background-image: url('/images/gems/gem_rare.png');
+            }
+
+            .card-gem-epic {
+                background-image: url('/images/gems/gem_epic.png');
+            }
+
+            .card-gem-legendary {
+                background-image: url('/images/gems/gem_legendary.png');
+            }
+
+            .card-free {
+                color: #0FAF03;
+            }
+
+            .card-common {
+                color: #ffffff;
+            }
+
+            .card-rare {
+                color: #198EFF;
+            }
+
+            .card-epic {
+                color: #B456F2;
+            }
+
+            .card-legendary {
+                color: #FF9300;
+            }
+
+            .card-quantity {
+                border-radius: 1px 0 0 1px;
+                float: left;
+                background-color: #3d3938;
+                font-size: 12px;
+                width: 20px;
+                color: #ffe603;
+                line-height: 30px;
+                text-align: center;
+                vertical-align: middle;
+                margin-right: 10px;
+                font-weight: 600;
+                text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
+            }
+
+            .deckwinrate {
+                display: inline;
+            }
+
+            .graphgridlines {
+
+            }
+
+            .graphgridlines text {
+                font-weight: bold;
+                fill: #36a6d3;
+            }
+        </style>
+
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-9673846611107075",
+                enable_page_level_ads: true
+            });
+        </script>
+    </head>
+
+    <body>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46938052-6', 'auto');
+    ga('send', 'pageview');
+
+</script>
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="font-size: 22px; font-weight: bold; color:#067eb5;">
+                <img src="/favicon.png" width="30px;"
+                     style="margin: 0; display: inline" alt="Logo">Hearthstone Meta Stats</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown ">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Meta Snapshots                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class=""><a
+                                    href="/snapshot/frozenthrone/7/">Knights of the Frozen Throne Meta Snapshot #7</a>
+                        </li>
+                        <li class=""><a
+                                    href="/snapshot/frozenthrone/6/">Knights of the Frozen Throne Meta Snapshot #6</a>
+                        </li>
+                        <li class=""><a
+                                    href="/snapshot/frozenthrone/5/">Knights of the Frozen Throne Meta Snapshot #5</a>
+                        </li>
+                        <li class=""><a
+                                    href="/snapshot/frozenthrone/4/">Knights of the Frozen Throne Meta Snapshot #4</a>
+                        </li>
+
+                        <!-- <li class=""><a href="/snapshot/live/">Standard Meta Snapshot (Live)</a></li>
+                        -->
+                        <li class="divider"></li>
+                        <li class=""><a style="color:#2840d3"
+                                                                                     href="/snapshot/wild/8/">Wild Meta Snapshot                                #8 (August)</a></li>
+                        <li class="">
+                            <a href="/snapshot/wild/7/">Wild Meta Snapshot                                #7 (June)</a></li>
+                        <li class=""><a
+                                    href="/snapshot/wild/6/">Wild Meta Snapshot #6 (May)</a></li>
+                        <li class=""><a
+                                    href="/snapshot/wild/5/">Wild Meta Snapshot #5 (April)</a></li>
+                        <li class=""><a
+                                    href="/snapshot/wild/4/">Wild Meta Snapshot #4 (March)</a></li>
+                    </ul>
+                </li>
+                <li class=""><a
+                            href="/archetype/matchup/">Deck Matchup</a></li>
+                <li class=""><a
+                            href="/archetypecards/">Deck Card Stats</a></li>
+                <li class=""><a
+                            href="/decksbyrank/">Best Standard Decks</a></li>
+
+                                <li class="dropdown ">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Find Decks                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu ">
+                            <a href="/decks/" class="dropdown-toggle" data-toggle="dropdown">Class Decks</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/decks/Druid/" style="color: #F0760A; font-weight: 600;"><img
+                                                src="/images/class/druid.png" width="30px"> Druid</a></li>
+                                <li><a href="/decks/Hunter/" style="color: #A3C96F; font-weight: 600;"><img
+                                                src="/images/class/hunter.png" width="30px"> Hunter</a></li>
+                                <li><a href="/decks/Mage/" style="color: #60D1E0; font-weight: 600;"><img
+                                                src="/images/class/mage.png" width="30px"> Mage</a></li>
+                                <li><a href="/decks/Paladin/" style="color: #F58CBA; font-weight: 600;"><img
+                                                src="/images/class/paladin.png" width="30px"> Paladin</a></li>
+                                <li><a href="/decks/Priest/" style="color: #BFBDBD; font-weight: 600;"><img
+                                                src="/images/class/priest.png" width="30px"> Priest</a></li>
+                                <li><a href="/decks/Rogue/" style="color: #E3D530; font-weight: 600;"><img
+                                                src="/images/class/rogue.png" width="30px"> Rogue</a></li>
+                                <li><a href="/decks/Shaman/" style="color: #2353EB; font-weight: 600;"><img
+                                                src="/images/class/shaman.png" width="30px"> Shaman</a></li>
+                                <li><a href="/decks/Warlock/" style="color: #9482CA; font-weight: 600;"><img
+                                                src="/images/class/warlock.png" width="30px"> Warlock</a></li>
+                                <li><a href="/decks/Warrior/" style="color: #C79C6E; font-weight: 600;"><img
+                                                src="/images/class/warrior.png" width="30px"> Warrior</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"></li>
+                        <li class=""><a
+                                    href="/decks/winrate/">Decks by Win Rates</a>
+                        <li class=""><a
+                                    href="/decksbycost/">Decks by Crafting Cost</a>
+                        <li class=""><a
+                                    href="/decksbycard/">Decks by Card</a>
+                    </ul>
+                </li>
+
+                                <li class="dropdown ">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">More Stats                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class=""><a
+                                    href="/classes/">Class Distribution</a></li>
+                        <li class=""><a
+                                    href="/cardhistory/">Card Popularity</a>
+                        <li class=""><a
+                                    href="/archetype/">Archetype Historical Graph</a>
+                        <li class=""><a
+                                    href="/animate/class/">Animate Class Frequency</a></li>
+                        <li class=""><a
+                                    href="/animate/archetypes/">Animate Deck Frequency</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown ">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Plugins                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class=""><a
+                                    href="/plugins/">MetaStats Plugin<br><small>Contribute Data</small></a></li>
+                        <li class="divider"></li>
+                        <li><a href="https://github.com/AdnanC/HDT.Plugins.MetaDetector"
+                               target="_blank">MetaDetector Plugin<br><small>Predicts Opponent's Deck</small></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" class="disabled" style="cursor: no-drop">Tournament Plugin<br><small>Coming Soon&trade;</small></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+
+
+        <div id="page-wrapper">
+            
+
+
+            <div class="row"
+                 style="background-image: url('/images/background/back.jpg'); background-position: center; background-repeat: no-repeat;">
+                <div class="col-lg-12"
+                     style="height: 150px; background-image: url('/images/background/hs.png'); background-position: center; background-repeat: no-repeat;">
+                    <h1 style="color: #ffffff;"></h1>
+                </div>
+                            </div>
+            <!-- /.row -->
+            <br><br>
+                        
+            <div class="row">
+                <div class="col-md-12">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- MetaStats Responsive -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-9673846611107075"
+                         data-ad-slot="3818128232"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="margin-top: 5px;">
+                    <div class="alert alert-warning" style="display: inline-block;" id="metastats-tips">
+
+                    </div>
+                </div>
+            </div>
+
+                        <div class="row">
+                <div class="col-lg-12">
+                    <div style="float: right;">
+                        Last Update: 3/23/2018 10:04 AM (-7 GMT)                    </div>
+                    <br>
+                    <small style="float: right;">All stats are updated hourly</small>
+                    <br><br>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-database fa-fw"></i> <span
+                                                    style="font-size: 14px; font-weight: 600;">Most Successful Deck Lists (Last 4 Days)</span><br>
+                                            Total Games: 98,270<br>
+                                            <small class="text-danger">Nerf Patch Data Only</small>
+                                        </div>
+                                        <div class="panel-body">
+                                            <table class='tablearchetyperank'>
+                            <thead>
+                            <tr>
+                            <th>#</th>
+                            <th width='250px;'>Deck</th>
+                            <!-- <th>Win Rate</th> -->
+</tr>
+                            
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>
+<div id='archetype' style='color: #9482CA'>
+<a href='/deck/e5ad4855-75b7-46d8-bbef-27c14db33132/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+data-archetype='Cube Warlock' data-deckid='e5ad4855-75b7-46d8-bbef-27c14db33132'>Cube Warlock <small>#4975</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>2</td>
+<td>
+<div id='archetype' style='color: #F58CBA'>
+<a href='/deck/b22fda8a-f6a3-42ef-acdc-e9d164d54ce3/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+data-archetype='Murloc Paladin' data-deckid='b22fda8a-f6a3-42ef-acdc-e9d164d54ce3'>Murloc Paladin <small>#5144</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>3</td>
+<td>
+<div id='archetype' style='color: #BFBDBD'>
+<a href='/deck/a047f254-2dc5-4217-b2da-4fe0b60ff04d/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+data-archetype='Spiteful Priest' data-deckid='a047f254-2dc5-4217-b2da-4fe0b60ff04d'>Spiteful Priest <small>#5368</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>4</td>
+<td>
+<div id='archetype' style='color: #BFBDBD'>
+<a href='/deck/09063dc9-2828-409b-a439-9009a395dfb2/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+data-archetype='Big Priest' data-deckid='09063dc9-2828-409b-a439-9009a395dfb2'>Big Priest <small>#5371</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>5</td>
+<td>
+<div id='archetype' style='color: #60D1E0'>
+<a href='/deck/383caf4c-a52a-4395-bbd3-15878323a140/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+data-archetype='Secret Mage' data-deckid='383caf4c-a52a-4395-bbd3-15878323a140'>Secret Mage <small>#5138</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>6</td>
+<td>
+<div id='archetype' style='color: #ABD473'>
+<a href='/deck/d05346e3-84c8-473a-bafa-84de81f3315d/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+data-archetype='Spell Hunter' data-deckid='d05346e3-84c8-473a-bafa-84de81f3315d'>Spell Hunter <small>#5195</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>7</td>
+<td>
+<div id='archetype' style='color: #F58CBA'>
+<a href='/deck/d828b9f3-5500-4a65-b578-d1dbb758c017/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+data-archetype='Aggro Paladin' data-deckid='d828b9f3-5500-4a65-b578-d1dbb758c017'>Aggro Paladin <small>#5340</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>8</td>
+<td>
+<div id='archetype' style='color: #ABD473'>
+<a href='/deck/b47db1b4-5f64-4078-bbbf-5169c37a67e4/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+data-archetype='Midrange Hunter' data-deckid='b47db1b4-5f64-4078-bbbf-5169c37a67e4'>Midrange Hunter <small>#5120</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>9</td>
+<td>
+<div id='archetype' style='color: #9482CA'>
+<a href='/deck/075eb9b8-1b8b-4a00-ba4e-1f0362bd2243/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+data-archetype='Control Warlock' data-deckid='075eb9b8-1b8b-4a00-ba4e-1f0362bd2243'>Control Warlock <small>#5426</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>10</td>
+<td>
+<div id='archetype' style='color: #9482CA'>
+<a href='/deck/444decc4-cb12-436e-ad3b-375a5877ffc5/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+data-archetype='Zoo Warlock' data-deckid='444decc4-cb12-436e-ad3b-375a5877ffc5'>Zoo Warlock <small>#5095</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr></tbody></table>
+                                            <div style="float: right">
+                                                <br>
+                                                <a href="/decksbyrank/">Find Top Decks By Rank</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-database fa-fw"></i> <span
+                                                    style="font-size: 14px; font-weight: 600;">Most Successful Archetypes (Last 4 Days)</span><br>
+                                            Total Games: 98,270<br>
+                                            <small class="text-danger">Nerf Patch Data Only</small>
+                                        </div>
+                                        <div class="panel-body">
+                                            <table class='tablearchetyperank'>
+                            <thead>
+                            <tr>
+                            <th>#</th>
+                            <th width='250px;'>Deck</th>
+                            <!-- <th>Win Rate</th> -->
+</tr>
+                            
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>
+<div id='archetype' style='color: #F58CBA'>
+<a href='/archetypedecks/Murloc-Paladin/last4/' target='_blank' style='text-decoration: none;color:inherit;'
+data-archetype='Murloc Paladin' data-deckid=''>Murloc Paladin</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>2</td>
+<td>
+<div id='archetype' style='color: #9482CA'>
+<a href='/archetypedecks/Cube-Warlock/last4/' target='_blank' style='text-decoration: none;color:inherit;'
+data-archetype='Cube Warlock' data-deckid=''>Cube Warlock</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>3</td>
+<td>
+<div id='archetype' style='color: #F58CBA'>
+<a href='/archetypedecks/Aggro-Paladin/last4/' target='_blank' style='text-decoration: none;color:inherit;'
+data-archetype='Aggro Paladin' data-deckid=''>Aggro Paladin</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>4</td>
+<td>
+<div id='archetype' style='color: #BFBDBD'>
+<a href='/archetypedecks/Big-Priest/last4/' target='_blank' style='text-decoration: none;color:inherit;'
+data-archetype='Big Priest' data-deckid=''>Big Priest</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>5</td>
+<td>
+<div id='archetype' style='color: #BFBDBD'>
+<a href='/archetypedecks/Spiteful-Priest/last4/' target='_blank' style='text-decoration: none;color:inherit;'
+data-archetype='Spiteful Priest' data-deckid=''>Spiteful Priest</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>6</td>
+<td>
+<div id='archetype' style='color: #60D1E0'>
+<a href='/archetypedecks/Secret-Mage/last4/' target='_blank' style='text-decoration: none;color:inherit;'
+data-archetype='Secret Mage' data-deckid=''>Secret Mage</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>7</td>
+<td>
+<div id='archetype' style='color: #9482CA'>
+<a href='/archetypedecks/Zoo-Warlock/last4/' target='_blank' style='text-decoration: none;color:inherit;'
+data-archetype='Zoo Warlock' data-deckid=''>Zoo Warlock</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>8</td>
+<td>
+<div id='archetype' style='color: #ABD473'>
+<a href='/archetypedecks/Midrange-Hunter/last4/' target='_blank' style='text-decoration: none;color:inherit;'
+data-archetype='Midrange Hunter' data-deckid=''>Midrange Hunter</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>9</td>
+<td>
+<div id='archetype' style='color: #BFBDBD'>
+<a href='/archetypedecks/Dragon-Priest/last4/' target='_blank' style='text-decoration: none;color:inherit;'
+data-archetype='Dragon Priest' data-deckid=''>Dragon Priest</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr><tr>
+<td>10</td>
+<td>
+<div id='archetype' style='color: #ABD473'>
+<a href='/archetypedecks/Spell-Hunter/last4/' target='_blank' style='text-decoration: none;color:inherit;'
+data-archetype='Spell Hunter' data-deckid=''>Spell Hunter</small></a>
+</div></td>
+<!-- <td>%</td> -->
+</tr></tbody></table>                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-table" aria-hidden="true"></i>
+                                    <span style="font-size: 14px; font-weight: 600;">Individual Deck List Win-Rate (Min 300 Games - Last 4 Days)                                        <br>
+                                    </span>
+                                    Total Games: 98,270<br>
+                                    <small class="text-danger">Nerf Patch Data Only</small>
+                                </div>
+                                <div class="panel-body">
+
+                                    <table class='tablearchetyperank table table-hover table-striped' style='width: 100%;'>
+                            <thead>
+                            <tr>
+                            <th class="sorter-false">#</th>
+                            <th>Deck #ID</th>
+                            <th>#Games<br>(Last 4 Days)</th>
+                            <th>Dust</th>
+                            <th>Bayesian<br>Win Rate</th>
+                            <th>Actual<br>Win Rate</th>
+                            
+</tr>
+                            
+</thead>
+<tbody><tr>
+                                <td>1</td>
+                                <td>
+                                <div id='archetype' style='color: #9482CA'>
+                                <a href='/deck/e5ad4855-75b7-46d8-bbef-27c14db33132/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Cube Warlock' data-deckid='e5ad4855-75b7-46d8-bbef-27c14db33132'><strong>Cube Warlock <small>#4975</small></strong></a>
+                                </div></td>
+                                <td>478</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>9160</span></td>
+                                <td><span style='color: #b102ae; font-weight: 600;'>58.88%</span></td>
+                                <td><span style='color: #b102ae; font-weight: 600;'>66.32%</span></td>
+                                </tr><tr>
+                                <td>2</td>
+                                <td>
+                                <div id='archetype' style='color: #F58CBA'>
+                                <a href='/deck/b22fda8a-f6a3-42ef-acdc-e9d164d54ce3/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Murloc Paladin' data-deckid='b22fda8a-f6a3-42ef-acdc-e9d164d54ce3'><strong>Murloc Paladin <small>#5144</small></strong></a>
+                                </div></td>
+                                <td>417</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>6480</span></td>
+                                <td><span style='color: #0049ff; font-weight: 600;'>57.65%</span></td>
+                                <td><span style='color: #b102ae; font-weight: 600;'>64.99%</span></td>
+                                </tr><tr>
+                                <td>3</td>
+                                <td>
+                                <div id='archetype' style='color: #BFBDBD'>
+                                <a href='/deck/a047f254-2dc5-4217-b2da-4fe0b60ff04d/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Spiteful Priest' data-deckid='a047f254-2dc5-4217-b2da-4fe0b60ff04d'><strong>Spiteful Priest <small>#5368</small></strong></a>
+                                </div></td>
+                                <td>707</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>4120</span></td>
+                                <td><span style='color: #0049ff; font-weight: 600;'>55.47%</span></td>
+                                <td><span style='color: #b102ae; font-weight: 600;'>58.56%</span></td>
+                                </tr><tr>
+                                <td>4</td>
+                                <td>
+                                <div id='archetype' style='color: #F58CBA'>
+                                <a href='/deck/53596e79-9ba6-438d-816b-c7a3f3497372/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Murloc Paladin' data-deckid='53596e79-9ba6-438d-816b-c7a3f3497372'><strong>Murloc Paladin <small>#5214</small></strong></a>
+                                </div></td>
+                                <td>4209</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>6300</span></td>
+                                <td><span style='color: #0049ff; font-weight: 600;'>55.13%</span></td>
+                                <td><span style='color: #0049ff; font-weight: 600;'>55.62%</span></td>
+                                </tr><tr>
+                                <td>5</td>
+                                <td>
+                                <div id='archetype' style='color: #9482CA'>
+                                <a href='/deck/8c03c8d7-f65e-4acd-beeb-e617940084f9/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Cube Warlock' data-deckid='8c03c8d7-f65e-4acd-beeb-e617940084f9'><strong>Cube Warlock <small>#4990</small></strong></a>
+                                </div></td>
+                                <td>1186</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>10720</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>54.79%</span></td>
+                                <td><span style='color: #0049ff; font-weight: 600;'>56.41%</span></td>
+                                </tr><tr>
+                                <td>6</td>
+                                <td>
+                                <div id='archetype' style='color: #BFBDBD'>
+                                <a href='/deck/6d13be77-5d91-4345-be48-fb8fc64a35d9/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Spiteful Priest' data-deckid='6d13be77-5d91-4345-be48-fb8fc64a35d9'><strong>Spiteful Priest <small>#5221</small></strong></a>
+                                </div></td>
+                                <td>315</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>3700</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>54.13%</span></td>
+                                <td><span style='color: #b102ae; font-weight: 600;'>59.37%</span></td>
+                                </tr><tr>
+                                <td>7</td>
+                                <td>
+                                <div id='archetype' style='color: #BFBDBD'>
+                                <a href='/deck/09063dc9-2828-409b-a439-9009a395dfb2/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Big Priest' data-deckid='09063dc9-2828-409b-a439-9009a395dfb2'><strong>Big Priest <small>#5371</small></strong></a>
+                                </div></td>
+                                <td>399</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>12420</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>54.07%</span></td>
+                                <td><span style='color: #b102ae; font-weight: 600;'>58.15%</span></td>
+                                </tr><tr>
+                                <td>8</td>
+                                <td>
+                                <div id='archetype' style='color: #60D1E0'>
+                                <a href='/deck/383caf4c-a52a-4395-bbd3-15878323a140/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Secret Mage' data-deckid='383caf4c-a52a-4395-bbd3-15878323a140'><strong>Secret Mage <small>#5138</small></strong></a>
+                                </div></td>
+                                <td>878</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>4560</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>53.99%</span></td>
+                                <td><span style='color: #0049ff; font-weight: 600;'>55.81%</span></td>
+                                </tr><tr>
+                                <td>9</td>
+                                <td>
+                                <div id='archetype' style='color: #ABD473'>
+                                <a href='/deck/d05346e3-84c8-473a-bafa-84de81f3315d/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Spell Hunter' data-deckid='d05346e3-84c8-473a-bafa-84de81f3315d'><strong>Spell Hunter <small>#5195</small></strong></a>
+                                </div></td>
+                                <td>380</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>5620</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>53.97%</span></td>
+                                <td><span style='color: #b102ae; font-weight: 600;'>58.16%</span></td>
+                                </tr><tr>
+                                <td>10</td>
+                                <td>
+                                <div id='archetype' style='color: #F58CBA'>
+                                <a href='/deck/d828b9f3-5500-4a65-b578-d1dbb758c017/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Aggro Paladin' data-deckid='d828b9f3-5500-4a65-b578-d1dbb758c017'><strong>Aggro Paladin <small>#5340</small></strong></a>
+                                </div></td>
+                                <td>5274</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>4740</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>53.75%</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>54.04%</span></td>
+                                </tr><tr>
+                                <td>11</td>
+                                <td>
+                                <div id='archetype' style='color: #ABD473'>
+                                <a href='/deck/b47db1b4-5f64-4078-bbbf-5169c37a67e4/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Midrange Hunter' data-deckid='b47db1b4-5f64-4078-bbbf-5169c37a67e4'><strong>Midrange Hunter <small>#5120</small></strong></a>
+                                </div></td>
+                                <td>1158</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>8440</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>53.15%</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>54.23%</span></td>
+                                </tr><tr>
+                                <td>12</td>
+                                <td>
+                                <div id='archetype' style='color: #F58CBA'>
+                                <a href='/deck/0cdc5e96-cfda-4d7b-824b-12e105514ac1/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Murloc Paladin' data-deckid='0cdc5e96-cfda-4d7b-824b-12e105514ac1'><strong>Murloc Paladin <small>#5398</small></strong></a>
+                                </div></td>
+                                <td>620</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>6300</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>53.04%</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>55.00%</span></td>
+                                </tr><tr>
+                                <td>13</td>
+                                <td>
+                                <div id='archetype' style='color: #9482CA'>
+                                <a href='/deck/075eb9b8-1b8b-4a00-ba4e-1f0362bd2243/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Control Warlock' data-deckid='075eb9b8-1b8b-4a00-ba4e-1f0362bd2243'><strong>Control Warlock <small>#5426</small></strong></a>
+                                </div></td>
+                                <td>401</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>9520</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>52.93%</span></td>
+                                <td><span style='color: #0049ff; font-weight: 600;'>55.86%</span></td>
+                                </tr><tr>
+                                <td>14</td>
+                                <td>
+                                <div id='archetype' style='color: #9482CA'>
+                                <a href='/deck/444decc4-cb12-436e-ad3b-375a5877ffc5/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Zoo Warlock' data-deckid='444decc4-cb12-436e-ad3b-375a5877ffc5'><strong>Zoo Warlock <small>#5095</small></strong></a>
+                                </div></td>
+                                <td>579</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>4720</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>52.50%</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>54.23%</span></td>
+                                </tr><tr>
+                                <td>15</td>
+                                <td>
+                                <div id='archetype' style='color: #BFBDBD'>
+                                <a href='/deck/0083552a-8f9d-47b9-b473-e02d1089e662/last4/' target='_blank' style='text-decoration: none;color:inherit;' class='showdecklist'
+                                data-archetype='Dragon Priest' data-deckid='0083552a-8f9d-47b9-b473-e02d1089e662'><strong>Dragon Priest <small>#5373</small></strong></a>
+                                </div></td>
+                                <td>330</td>
+                                <td><span class='dustneeded' style='background-image: url("/images/dust.png"); font-size: 12px;'>8680</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>52.05%</span></td>
+                                <td><span style='color: #0098fe; font-weight: 600;'>54.55%</span></td>
+                                </tr></tbody></table>                                    <div style="float: right">
+                                        <br><br>
+                                        <a href="/decks/winrate/">View Deck Win-Rates by Rank</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-database fa-fw"></i> <span
+                                            style="font-size: 14px; font-weight: 600;">Deck of the Day</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div style="text-align: center;">
+                                            
+            
+            <div class='decklist'>
+                <div>
+                <div style='float: right; display: block; margin-left: 25px; margin-top: 5px;'><a href='/deck/53596e79-9ba6-438d-816b-c7a3f3497372/last4' style='color: #F58CBA;' target='_blank' title='View Deck Stats' data-toggle="tooltip"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></div>
+                <h4 style='color: #F58CBA; font-weight: 600;'><a href='/deck/53596e79-9ba6-438d-816b-c7a3f3497372/last4' style='text-decoration: none; color: inherit;' target='_blank'>Murloc Paladin <small style='color: inherit;'>#5214</small></a> </h4>
+                             
+                
+                <div style='font-size: 11px; font-weight: 600;'>Crafting Cost: <span class='dustneeded' style='background-image: url("http://images.metastats.net/images/dust.png");'>6300</span></div>
+                
+                
+                
+                
+            </div>
+                <div>
+                    <h5 style='font-weight: 600;'></h5>
+                    <ul class='card-list'>
+            <li class='card-list-item'>
+            <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/grimscale-chum.png' width='200px' alt='Grimscale Chum'/></div>
+                <div class='card-gem card-gem-common'>1</div>
+                <div class='card-name card-common' style=" background-image: url('http://images.metastats.net/images/bars/CFM_650.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Paladin/Grimscale-Chum" target='_blank' style='color: inherit; text-decoration: none;'>Grimscale Chum
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+                <li class='card-list-item'>
+                <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/murloc-tidecaller.png' width='200px' alt='Murloc Tidecaller'/></div>
+                <div class='card-gem card-gem-rare'>1</div>
+                <div class='card-name card-rare' style=" background-image: url('http://images.metastats.net/images/bars/EX1_509.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Neutral/Murloc-Tidecaller" target='_blank' style='color: inherit; text-decoration: none;'>Murloc Tidecaller
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+            <li class='card-list-item'>
+            <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/righteous-protector.png' width='200px' alt='Righteous Protector'/></div>
+                <div class='card-gem card-gem-common'>1</div>
+                <div class='card-name card-common' style=" background-image: url('http://images.metastats.net/images/bars/ICC_038.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Paladin/Righteous-Protector" target='_blank' style='color: inherit; text-decoration: none;'>Righteous Protector
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+            <li class='card-list-item'>
+            <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/vilefin-inquisitor.png' width='200px' alt='Vilefin Inquisitor'/></div>
+                <div class='card-gem card-gem-epic'>1</div>
+                <div class='card-name card-epic' style=" background-image: url('http://images.metastats.net/images/bars/OG_006.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Paladin/Vilefin-Inquisitor" target='_blank' style='color: inherit; text-decoration: none;'>Vilefin Inquisitor
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+            <li class='card-list-item'>
+            <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/hydrologist.png' width='200px' alt='Hydrologist'/></div>
+                <div class='card-gem card-gem-common'>2</div>
+                <div class='card-name card-common' style=" background-image: url('http://images.metastats.net/images/bars/UNG_011.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Paladin/Hydrologist" target='_blank' style='color: inherit; text-decoration: none;'>Hydrologist
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+                <li class='card-list-item'>
+                <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/knife-juggler.png' width='200px' alt='Knife Juggler'/></div>
+                <div class='card-gem card-gem-rare'>2</div>
+                <div class='card-name card-rare' style=" background-image: url('http://images.metastats.net/images/bars/NEW1_019.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Neutral/Knife-Juggler" target='_blank' style='color: inherit; text-decoration: none;'>Knife Juggler
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+                <li class='card-list-item'>
+                <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/rockpool-hunter.png' width='200px' alt='Rockpool Hunter'/></div>
+                <div class='card-gem card-gem-common'>2</div>
+                <div class='card-name card-common' style=" background-image: url('http://images.metastats.net/images/bars/UNG_073.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Neutral/Rockpool-Hunter" target='_blank' style='color: inherit; text-decoration: none;'>Rockpool Hunter
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+                <li class='card-list-item'>
+                <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/coldlight-seer.png' width='200px' alt='Coldlight Seer'/></div>
+                <div class='card-gem card-gem-rare'>3</div>
+                <div class='card-name card-rare' style=" background-image: url('http://images.metastats.net/images/bars/EX1_103.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Neutral/Coldlight-Seer" target='_blank' style='color: inherit; text-decoration: none;'>Coldlight Seer
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x1</div>
+                </li>
+
+            <li class='card-list-item'>
+            <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/divine-favor.png' width='200px' alt='Divine Favor'/></div>
+                <div class='card-gem card-gem-rare'>3</div>
+                <div class='card-name card-rare' style=" background-image: url('http://images.metastats.net/images/bars/EX1_349.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Paladin/Divine-Favor" target='_blank' style='color: inherit; text-decoration: none;'>Divine Favor
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+                <li class='card-list-item'>
+                <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/murloc-warleader.png' width='200px' alt='Murloc Warleader'/></div>
+                <div class='card-gem card-gem-epic'>3</div>
+                <div class='card-name card-epic' style=" background-image: url('http://images.metastats.net/images/bars/EX1_507.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Neutral/Murloc-Warleader" target='_blank' style='color: inherit; text-decoration: none;'>Murloc Warleader
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+            <li class='card-list-item'>
+            <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/rallying-blade.png' width='200px' alt='Rallying Blade'/></div>
+                <div class='card-gem card-gem-rare'>3</div>
+                <div class='card-name card-rare' style=" background-image: url('http://images.metastats.net/images/bars/OG_222.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Paladin/Rallying-Blade" target='_blank' style='color: inherit; text-decoration: none;'>Rallying Blade
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+            <li class='card-list-item'>
+            <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/unidentified-maul.png' width='200px' alt='Unidentified Maul'/></div>
+                <div class='card-gem card-gem-rare'>3</div>
+                <div class='card-name card-rare' style=" background-image: url('http://images.metastats.net/images/bars/LOOT_286.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Paladin/Unidentified-Maul" target='_blank' style='color: inherit; text-decoration: none;'>Unidentified Maul
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+            <li class='card-list-item'>
+            <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/call-to-arms.png' width='200px' alt='Call to Arms'/></div>
+                <div class='card-gem card-gem-epic'>4</div>
+                <div class='card-name card-epic' style=" background-image: url('http://images.metastats.net/images/bars/LOOT_093.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Paladin/Call-to-Arms" target='_blank' style='color: inherit; text-decoration: none;'>Call to Arms
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+                <li class='card-list-item'>
+                <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/gentle-megasaur.png' width='200px' alt='Gentle Megasaur'/></div>
+                <div class='card-gem card-gem-epic'>4</div>
+                <div class='card-name card-epic' style=" background-image: url('http://images.metastats.net/images/bars/UNG_089.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Neutral/Gentle-Megasaur" target='_blank' style='color: inherit; text-decoration: none;'>Gentle Megasaur
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+                <li class='card-list-item'>
+                <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/spellbreaker.png' width='200px' alt='Spellbreaker'/></div>
+                <div class='card-gem card-gem-common'>4</div>
+                <div class='card-name card-common' style=" background-image: url('http://images.metastats.net/images/bars/EX1_048.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Neutral/Spellbreaker" target='_blank' style='color: inherit; text-decoration: none;'>Spellbreaker
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x2</div>
+                </li>
+
+            <li class='card-list-item'>
+            <div id='card-image-hover'><img src='http://images.metastats.net/images/cards/enUS/sunkeeper-tarim.png' width='200px' alt='Sunkeeper Tarim'/></div>
+                <div class='card-gem card-gem-legendary'>6</div>
+                <div class='card-name card-legendary' style=" background-image: url('http://images.metastats.net/images/bars/UNG_015.png')">
+                <div class='hover-img'>
+                    <a href="/cardstats/Paladin/Sunkeeper-Tarim" target='_blank' style='color: inherit; text-decoration: none;'>Sunkeeper Tarim
+                    
+                    </a>
+                </div>
+                </div>
+                <div class='card-quantity'>x1</div>
+                </li>
+</ul>
+                </div></div>                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--
+            *************************
+            ARCHETYPE TIERS
+            *************************
+            -->
+
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <br>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- MetaStats Responsive -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-9673846611107075"
+                         data-ad-slot="3818128232"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <br>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Deck Archetype Tiers                        <small style="margin-left: 15px; font-size: 12px;">Last
+                            Update: 2/20/2018 2:46 PM (-7 GMT)</small>
+                        <br>
+                        <small>Nerf Patch Data Only</small>
+                    </h3>
+                    <small>Archetype tiers are calculated using Machine Learning Algorithm. As we all know there are already experts out there creating tier lists, so we decided to do something different and let machine figure out what is going to be successful on the ladder. This is still a work in progress and will be tweaked as we move along. The training data for the algorithm includes <a href="/archetype/matchup/"><strong>Archetype Matchup</strong></a>, <a href="/decks/winrate/"><strong>Deck Win-Rates</strong></a>, <a href="/archetypecards/"><strong>Archetype Card Stats</strong></a>, and Archetype Popularity. Since the meta is quite fluid the tiers will be updated frequently.                    </small>
+                    <br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> <span
+                                    style="font-size: 14px; font-weight: 600;">Archetype Tier Ranks                                <br><small style="float: right;">Rank 20 - Rank 11</small><br></span>
+                        </div>
+                        <div class="panel-body">
+                            <table class='tablearchetyperank' style='font-size: 12px; width: 100%;' >
+                            <thead>
+</thead>
+<tbody><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 1<small class='text-muted' style='float: right'>Most likely to succeed</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>1</div></td>
+                                        <td><div id='archetype' style='color: #F58CBA'>
+                                        <a href="/archetypedecks/Murloc-Paladin/" style='text-decoration: none; color: inherit;'>Murloc Paladin</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>2</div></td>
+                                        <td><div id='archetype' style='color: #F58CBA'>
+                                        <a href="/archetypedecks/Aggro-Paladin/" style='text-decoration: none; color: inherit;'>Aggro Paladin</a></div></td>                                        
+                                    </tr><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 2<small class='text-muted' style='float: right'>Can stand their ground</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>3</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Secret-Mage/" style='text-decoration: none; color: inherit;'>Secret Mage</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>4</div></td>
+                                        <td><div id='archetype' style='color: #BFBDBD'>
+                                        <a href="/archetypedecks/Spiteful-Priest/" style='text-decoration: none; color: inherit;'>Spiteful Priest</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>5</div></td>
+                                        <td><div id='archetype' style='color: #FF7D0A'>
+                                        <a href="/archetypedecks/Token-Druid/" style='text-decoration: none; color: inherit;'>Token Druid</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>6</div></td>
+                                        <td><div id='archetype' style='color: #9482CA'>
+                                        <a href="/archetypedecks/Cube-Warlock/" style='text-decoration: none; color: inherit;'>Cube Warlock</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>7</div></td>
+                                        <td><div id='archetype' style='color: #BFBDBD'>
+                                        <a href="/archetypedecks/Big-Priest/" style='text-decoration: none; color: inherit;'>Big Priest</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>8</div></td>
+                                        <td><div id='archetype' style='color: #ABD473'>
+                                        <a href="/archetypedecks/Spell-Hunter/" style='text-decoration: none; color: inherit;'>Spell Hunter</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>9</div></td>
+                                        <td><div id='archetype' style='color: #ABD473'>
+                                        <a href="/archetypedecks/Midrange-Hunter/" style='text-decoration: none; color: inherit;'>Midrange Hunter</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>10</div></td>
+                                        <td><div id='archetype' style='color: #9482CA'>
+                                        <a href="/archetypedecks/Zoo-Warlock/" style='text-decoration: none; color: inherit;'>Zoo Warlock</a></div></td>                                        
+                                    </tr><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 3<small class='text-muted' style='float: right'>Might work in the right hands</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>11</div></td>
+                                        <td><div id='archetype' style='color: #FF7D0A'>
+                                        <a href="/archetypedecks/Aggro-Token-Druid/" style='text-decoration: none; color: inherit;'>Aggro Token Druid</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>12</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Exodia-Mage/" style='text-decoration: none; color: inherit;'>Exodia Mage</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>13</div></td>
+                                        <td><div id='archetype' style='color: #E3D530'>
+                                        <a href="/archetypedecks/Tempo-Rogue/" style='text-decoration: none; color: inherit;'>Tempo Rogue</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>14</div></td>
+                                        <td><div id='archetype' style='color: #C79C6E'>
+                                        <a href="/archetypedecks/Pirate-Warrior/" style='text-decoration: none; color: inherit;'>Pirate Warrior</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>15</div></td>
+                                        <td><div id='archetype' style='color: #2459FF'>
+                                        <a href="/archetypedecks/Evolve-Shaman/" style='text-decoration: none; color: inherit;'>Evolve Shaman</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>16</div></td>
+                                        <td><div id='archetype' style='color: #FF7D0A'>
+                                        <a href="/archetypedecks/Jade-Druid/" style='text-decoration: none; color: inherit;'>Jade Druid</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>17</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Burn-Mage/" style='text-decoration: none; color: inherit;'>Burn Mage</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>18</div></td>
+                                        <td><div id='archetype' style='color: #F58CBA'>
+                                        <a href="/archetypedecks/Control-Paladin/" style='text-decoration: none; color: inherit;'>Control Paladin</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>19</div></td>
+                                        <td><div id='archetype' style='color: #C79C6E'>
+                                        <a href="/archetypedecks/Recruit-Warrior/" style='text-decoration: none; color: inherit;'>Recruit Warrior</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>20</div></td>
+                                        <td><div id='archetype' style='color: #BFBDBD'>
+                                        <a href="/archetypedecks/Dragon-Priest/" style='text-decoration: none; color: inherit;'>Dragon Priest</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>21</div></td>
+                                        <td><div id='archetype' style='color: #9482CA'>
+                                        <a href="/archetypedecks/Control-Warlock/" style='text-decoration: none; color: inherit;'>Control Warlock</a></div></td>                                        
+                                    </tr><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 4<small class='text-muted' style='float: right'>Just for fun</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>22</div></td>
+                                        <td><div id='archetype' style='color: #E3D530'>
+                                        <a href="/archetypedecks/Miracle-Rogue/" style='text-decoration: none; color: inherit;'>Miracle Rogue</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>23</div></td>
+                                        <td><div id='archetype' style='color: #E3D530'>
+                                        <a href="/archetypedecks/Mill-Rogue/" style='text-decoration: none; color: inherit;'>Mill Rogue</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>24</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Freeze-Mage/" style='text-decoration: none; color: inherit;'>Freeze Mage</a></div></td>                                        
+                                    </tr></tbody></table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> <span
+                                    style="font-size: 14px; font-weight: 600;">Archetype Tier Ranks                                <br>
+                            <small style="float: right;">Rank 10 - Rank 6</small><br></span>
+                        </div>
+                        <div class="panel-body">
+                            <table class='tablearchetyperank' style='font-size: 12px; width: 100%;' >
+                            <thead>
+</thead>
+<tbody><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 1<small class='text-muted' style='float: right'>Most likely to succeed</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>1</div></td>
+                                        <td><div id='archetype' style='color: #F58CBA'>
+                                        <a href="/archetypedecks/Murloc-Paladin/" style='text-decoration: none; color: inherit;'>Murloc Paladin</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>2</div></td>
+                                        <td><div id='archetype' style='color: #F58CBA'>
+                                        <a href="/archetypedecks/Aggro-Paladin/" style='text-decoration: none; color: inherit;'>Aggro Paladin</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>3</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Secret-Mage/" style='text-decoration: none; color: inherit;'>Secret Mage</a></div></td>                                        
+                                    </tr><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 2<small class='text-muted' style='float: right'>Can stand their ground</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>4</div></td>
+                                        <td><div id='archetype' style='color: #BFBDBD'>
+                                        <a href="/archetypedecks/Spiteful-Priest/" style='text-decoration: none; color: inherit;'>Spiteful Priest</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>5</div></td>
+                                        <td><div id='archetype' style='color: #9482CA'>
+                                        <a href="/archetypedecks/Cube-Warlock/" style='text-decoration: none; color: inherit;'>Cube Warlock</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>6</div></td>
+                                        <td><div id='archetype' style='color: #BFBDBD'>
+                                        <a href="/archetypedecks/Big-Priest/" style='text-decoration: none; color: inherit;'>Big Priest</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>7</div></td>
+                                        <td><div id='archetype' style='color: #FF7D0A'>
+                                        <a href="/archetypedecks/Token-Druid/" style='text-decoration: none; color: inherit;'>Token Druid</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>8</div></td>
+                                        <td><div id='archetype' style='color: #ABD473'>
+                                        <a href="/archetypedecks/Spell-Hunter/" style='text-decoration: none; color: inherit;'>Spell Hunter</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>9</div></td>
+                                        <td><div id='archetype' style='color: #9482CA'>
+                                        <a href="/archetypedecks/Zoo-Warlock/" style='text-decoration: none; color: inherit;'>Zoo Warlock</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>10</div></td>
+                                        <td><div id='archetype' style='color: #ABD473'>
+                                        <a href="/archetypedecks/Midrange-Hunter/" style='text-decoration: none; color: inherit;'>Midrange Hunter</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>11</div></td>
+                                        <td><div id='archetype' style='color: #BFBDBD'>
+                                        <a href="/archetypedecks/Dragon-Priest/" style='text-decoration: none; color: inherit;'>Dragon Priest</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>12</div></td>
+                                        <td><div id='archetype' style='color: #9482CA'>
+                                        <a href="/archetypedecks/Control-Warlock/" style='text-decoration: none; color: inherit;'>Control Warlock</a></div></td>                                        
+                                    </tr><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 3<small class='text-muted' style='float: right'>Might work in the right hands</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>13</div></td>
+                                        <td><div id='archetype' style='color: #FF7D0A'>
+                                        <a href="/archetypedecks/Aggro-Token-Druid/" style='text-decoration: none; color: inherit;'>Aggro Token Druid</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>14</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Exodia-Mage/" style='text-decoration: none; color: inherit;'>Exodia Mage</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>15</div></td>
+                                        <td><div id='archetype' style='color: #F58CBA'>
+                                        <a href="/archetypedecks/Control-Paladin/" style='text-decoration: none; color: inherit;'>Control Paladin</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>16</div></td>
+                                        <td><div id='archetype' style='color: #C79C6E'>
+                                        <a href="/archetypedecks/Pirate-Warrior/" style='text-decoration: none; color: inherit;'>Pirate Warrior</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>17</div></td>
+                                        <td><div id='archetype' style='color: #2459FF'>
+                                        <a href="/archetypedecks/Evolve-Shaman/" style='text-decoration: none; color: inherit;'>Evolve Shaman</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>18</div></td>
+                                        <td><div id='archetype' style='color: #FF7D0A'>
+                                        <a href="/archetypedecks/Jade-Druid/" style='text-decoration: none; color: inherit;'>Jade Druid</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>19</div></td>
+                                        <td><div id='archetype' style='color: #E3D530'>
+                                        <a href="/archetypedecks/Tempo-Rogue/" style='text-decoration: none; color: inherit;'>Tempo Rogue</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>20</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Freeze-Mage/" style='text-decoration: none; color: inherit;'>Freeze Mage</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>21</div></td>
+                                        <td><div id='archetype' style='color: #E3D530'>
+                                        <a href="/archetypedecks/Mill-Rogue/" style='text-decoration: none; color: inherit;'>Mill Rogue</a></div></td>                                        
+                                    </tr><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 4<small class='text-muted' style='float: right'>Just for fun</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>22</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Burn-Mage/" style='text-decoration: none; color: inherit;'>Burn Mage</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>23</div></td>
+                                        <td><div id='archetype' style='color: #E3D530'>
+                                        <a href="/archetypedecks/Miracle-Rogue/" style='text-decoration: none; color: inherit;'>Miracle Rogue</a></div></td>                                        
+                                    </tr></tbody></table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> <span
+                                    style="font-size: 14px; font-weight: 600;">Archetype Tier Ranks                                <br>
+                            <small style="float: right;">Rank 5 - Legend</small><br></span>
+                        </div>
+                        <div class="panel-body">
+                            <table class='tablearchetyperank' style='font-size: 12px; width: 100%;' >
+                            <thead>
+</thead>
+<tbody><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 1<small class='text-muted' style='float: right'>Most likely to succeed</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>1</div></td>
+                                        <td><div id='archetype' style='color: #9482CA'>
+                                        <a href="/archetypedecks/Cube-Warlock/" style='text-decoration: none; color: inherit;'>Cube Warlock</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>2</div></td>
+                                        <td><div id='archetype' style='color: #F58CBA'>
+                                        <a href="/archetypedecks/Murloc-Paladin/" style='text-decoration: none; color: inherit;'>Murloc Paladin</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>3</div></td>
+                                        <td><div id='archetype' style='color: #F58CBA'>
+                                        <a href="/archetypedecks/Aggro-Paladin/" style='text-decoration: none; color: inherit;'>Aggro Paladin</a></div></td>                                        
+                                    </tr><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 2<small class='text-muted' style='float: right'>Can stand their ground</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>4</div></td>
+                                        <td><div id='archetype' style='color: #ABD473'>
+                                        <a href="/archetypedecks/Spell-Hunter/" style='text-decoration: none; color: inherit;'>Spell Hunter</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>5</div></td>
+                                        <td><div id='archetype' style='color: #9482CA'>
+                                        <a href="/archetypedecks/Control-Warlock/" style='text-decoration: none; color: inherit;'>Control Warlock</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>6</div></td>
+                                        <td><div id='archetype' style='color: #BFBDBD'>
+                                        <a href="/archetypedecks/Spiteful-Priest/" style='text-decoration: none; color: inherit;'>Spiteful Priest</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>7</div></td>
+                                        <td><div id='archetype' style='color: #ABD473'>
+                                        <a href="/archetypedecks/Midrange-Hunter/" style='text-decoration: none; color: inherit;'>Midrange Hunter</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>8</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Secret-Mage/" style='text-decoration: none; color: inherit;'>Secret Mage</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>9</div></td>
+                                        <td><div id='archetype' style='color: #FF7D0A'>
+                                        <a href="/archetypedecks/Aggro-Token-Druid/" style='text-decoration: none; color: inherit;'>Aggro Token Druid</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>10</div></td>
+                                        <td><div id='archetype' style='color: #BFBDBD'>
+                                        <a href="/archetypedecks/Dragon-Priest/" style='text-decoration: none; color: inherit;'>Dragon Priest</a></div></td>                                        
+                                    </tr><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 3<small class='text-muted' style='float: right'>Might work in the right hands</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>11</div></td>
+                                        <td><div id='archetype' style='color: #BFBDBD'>
+                                        <a href="/archetypedecks/Big-Priest/" style='text-decoration: none; color: inherit;'>Big Priest</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>12</div></td>
+                                        <td><div id='archetype' style='color: #FF7D0A'>
+                                        <a href="/archetypedecks/Token-Druid/" style='text-decoration: none; color: inherit;'>Token Druid</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>13</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Burn-Mage/" style='text-decoration: none; color: inherit;'>Burn Mage</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>14</div></td>
+                                        <td><div id='archetype' style='color: #C79C6E'>
+                                        <a href="/archetypedecks/Pirate-Warrior/" style='text-decoration: none; color: inherit;'>Pirate Warrior</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>15</div></td>
+                                        <td><div id='archetype' style='color: #9482CA'>
+                                        <a href="/archetypedecks/Zoo-Warlock/" style='text-decoration: none; color: inherit;'>Zoo Warlock</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>16</div></td>
+                                        <td><div id='archetype' style='color: #E3D530'>
+                                        <a href="/archetypedecks/Tempo-Rogue/" style='text-decoration: none; color: inherit;'>Tempo Rogue</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>17</div></td>
+                                        <td><div id='archetype' style='color: #FF7D0A'>
+                                        <a href="/archetypedecks/Jade-Druid/" style='text-decoration: none; color: inherit;'>Jade Druid</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>18</div></td>
+                                        <td><div id='archetype' style='color: #2459FF'>
+                                        <a href="/archetypedecks/Evolve-Shaman/" style='text-decoration: none; color: inherit;'>Evolve Shaman</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>19</div></td>
+                                        <td><div id='archetype' style='color: #F58CBA'>
+                                        <a href="/archetypedecks/Control-Paladin/" style='text-decoration: none; color: inherit;'>Control Paladin</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>20</div></td>
+                                        <td><div id='archetype' style='color: #E3D530'>
+                                        <a href="/archetypedecks/Miracle-Rogue/" style='text-decoration: none; color: inherit;'>Miracle Rogue</a></div></td>                                        
+                                    </tr><tr style='border-bottom: 1px solid #dddddd;'><td colspan='2'>Tier 4<small class='text-muted' style='float: right'>Just for fun</small></td></tr><tr>
+                                        <td align='center'><div style='color: grey;'>21</div></td>
+                                        <td><div id='archetype' style='color: #E3D530'>
+                                        <a href="/archetypedecks/Mill-Rogue/" style='text-decoration: none; color: inherit;'>Mill Rogue</a></div></td>                                        
+                                    </tr><tr>
+                                        <td align='center'><div style='color: grey;'>22</div></td>
+                                        <td><div id='archetype' style='color: #60D1E0'>
+                                        <a href="/archetypedecks/Freeze-Mage/" style='text-decoration: none; color: inherit;'>Freeze Mage</a></div></td>                                        
+                                    </tr></tbody></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--
+            *************************
+            META CHANGE GRAPHS
+            *************************
+            -->
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> <span
+                                    style="font-size: 14px; font-weight: 600;">Meta Changes Since Nerf Patch (2/6/2018)</span>
+                        </div>
+                        <div class="panel-body">
+
+
+
+                            <h4>Archetype by Day</h4>
+                            <div id="daily-archetype-history" style="height: 400px; margin-top: 20px;"></div>
+
+                            <h4>Class by Day</h4>
+                            <div id="daily-class-history" style="height: 400px;"></div>
+
+                            <div style="display: block;">
+                            <h4>Archetype by Hour</h4>
+                            <div id="hourly-archetype-history" style="height: 500px;"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- MetaStats Responsive -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-9673846611107075"
+                         data-ad-slot="3818128232"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <br>
+                </div>
+
+            </div>
+
+            <!--
+            *************************
+            SNAPSHOT SUMMARY
+            *************************
+            -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Meta Snapshot Summary
+                        <small style="margin-left: 15px;">Last Update: 2/12/2018</small>
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-bar-chart-o fa-fw"></i> <span
+                                            style="font-size: 14px; font-weight: 600;">Popular Archetypes (Mar 12                                        - Mar 18)</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <table class='tablearchetyperank'><tr>
+                                        <td align='center' width='40px'><div style='color: grey;'>1</div></td>
+                                        <td width='200px'><div id='archetype' style='color: #60D1E0'>
+                                        <a href='/archetypedecks/Secret-Mage/' style='text-decoration: none; color: inherit;'>Secret Mage</a></div></td>
+                                        <td align='right' width='15px' style='font-size: smaller'></td>
+                                        <td align='center' valign='middle'></td>
+                                    </tr><tr>
+                                        <td align='center' width='40px'><div style='color: grey;'>2</div></td>
+                                        <td width='200px'><div id='archetype' style='color: #BFBDBD'>
+                                        <a href='/archetypedecks/Dragon-Priest/' style='text-decoration: none; color: inherit;'>Dragon Priest</a></div></td>
+                                        <td align='right' width='15px' style='font-size: smaller'><span class='rankup'>+2</span></td>
+                                        <td align='center' valign='middle'><i class='fa fa-chevron-up rankup'></i></td>
+                                    </tr><tr>
+                                        <td align='center' width='40px'><div style='color: grey;'>3</div></td>
+                                        <td width='200px'><div id='archetype' style='color: #F58CBA'>
+                                        <a href='/archetypedecks/Aggro-Paladin/' style='text-decoration: none; color: inherit;'>Aggro Paladin</a></div></td>
+                                        <td align='right' width='15px' style='font-size: smaller'><span class='rankup'>+2</span></td>
+                                        <td align='center' valign='middle'><i class='fa fa-chevron-up rankup'></i></td>
+                                    </tr><tr>
+                                        <td align='center' width='40px'><div style='color: grey;'>4</div></td>
+                                        <td width='200px'><div id='archetype' style='color: #9482CA'>
+                                        <a href='/archetypedecks/Cube-Warlock/' style='text-decoration: none; color: inherit;'>Cube Warlock</a></div></td>
+                                        <td align='right' width='15px' style='font-size: smaller'><span class='rankdown'>-4</span></td>
+                                        <td align='center' valign='middle'><i class='fa fa-chevron-down rankdown'></i></td>
+                                    </tr><tr>
+                                        <td align='center' width='40px'><div style='color: grey;'>5</div></td>
+                                        <td width='200px'><div id='archetype' style='color: #BFBDBD'>
+                                        <a href='/archetypedecks/Spiteful-Priest/' style='text-decoration: none; color: inherit;'>Spiteful Priest</a></div></td>
+                                        <td align='right' width='15px' style='font-size: smaller'><span class='rankdown'>-5</span></td>
+                                        <td align='center' valign='middle'><i class='fa fa-chevron-down rankdown'></i></td>
+                                    </tr><tr>
+                                        <td align='center' width='40px'><div style='color: grey;'>6</div></td>
+                                        <td width='200px'><div id='archetype' style='color: #F58CBA'>
+                                        <a href='/archetypedecks/Murloc-Paladin/' style='text-decoration: none; color: inherit;'>Murloc Paladin</a></div></td>
+                                        <td align='right' width='15px' style='font-size: smaller'><span class='rankup'>+7</span></td>
+                                        <td align='center' valign='middle'><i class='fa fa-chevron-up rankup'></i></td>
+                                    </tr><tr>
+                                        <td align='center' width='40px'><div style='color: grey;'>7</div></td>
+                                        <td width='200px'><div id='archetype' style='color: #9482CA'>
+                                        <a href='/archetypedecks/Control-Warlock/' style='text-decoration: none; color: inherit;'>Control Warlock</a></div></td>
+                                        <td align='right' width='15px' style='font-size: smaller'><span class='rankup'>+26</span></td>
+                                        <td align='center' valign='middle'><i class='fa fa-chevron-up rankup'></i></td>
+                                    </tr><tr>
+                                        <td align='center' width='40px'><div style='color: grey;'>8</div></td>
+                                        <td width='200px'><div id='archetype' style='color: #ABD473'>
+                                        <a href='/archetypedecks/Spell-Hunter/' style='text-decoration: none; color: inherit;'>Spell Hunter</a></div></td>
+                                        <td align='right' width='15px' style='font-size: smaller'><span class='rankup'>+4</span></td>
+                                        <td align='center' valign='middle'><i class='fa fa-chevron-up rankup'></i></td>
+                                    </tr><tr>
+                                        <td align='center' width='40px'><div style='color: grey;'>9</div></td>
+                                        <td width='200px'><div id='archetype' style='color: #ABD473'>
+                                        <a href='/archetypedecks/Midrange-Hunter/' style='text-decoration: none; color: inherit;'>Midrange Hunter</a></div></td>
+                                        <td align='right' width='15px' style='font-size: smaller'><span class='rankup'>+7</span></td>
+                                        <td align='center' valign='middle'><i class='fa fa-chevron-up rankup'></i></td>
+                                    </tr><tr>
+                                        <td align='center' width='40px'><div style='color: grey;'>10</div></td>
+                                        <td width='200px'><div id='archetype' style='color: #9482CA'>
+                                        <a href='/archetypedecks/Zoo-Warlock/' style='text-decoration: none; color: inherit;'>Zoo Warlock</a></div></td>
+                                        <td align='right' width='15px' style='font-size: smaller'><span class='rankdown'>-2</span></td>
+                                        <td align='center' valign='middle'><i class='fa fa-chevron-down rankdown'></i></td>
+                                    </tr></table>                                        <div style="float: right; margin-right: 15px; margin-top: 10px;">
+                                            <a href="/snapshot/week/">View Complete List</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-database fa-fw"></i> <span
+                                            style="font-size: 14px; font-weight: 600;">Most Played Deck Lists (Mar 12                                        - Mar 18)</span>
+                                </div>
+                                <div class="panel-body">
+                                    <table class='tablearchetyperank'><tr><td>
+<div id='archetype' style='color: #9482CA'>
+<a href='/deck/e5ad4855-75b7-46d8-bbef-27c14db33132/week/' style='color:inherit; text-decoration: none;'>Cube Warlock Deck</a>
+</div></td></tr><tr><td>
+<div id='archetype' style='color: #FF7D0A'>
+<a href='/deck/c2da8f22-6820-4d08-82bc-f18f0efb698a/week/' style='color:inherit; text-decoration: none;'>Jade Druid Deck</a>
+</div></td></tr><tr><td>
+<div id='archetype' style='color: #BFBDBD'>
+<a href='/deck/a047f254-2dc5-4217-b2da-4fe0b60ff04d/week/' style='color:inherit; text-decoration: none;'>Spiteful Priest Deck</a>
+</div></td></tr><tr><td>
+<div id='archetype' style='color: #F58CBA'>
+<a href='/deck/d828b9f3-5500-4a65-b578-d1dbb758c017/week/' style='color:inherit; text-decoration: none;'>Aggro Paladin Deck</a>
+</div></td></tr><tr><td>
+<div id='archetype' style='color: #60D1E0'>
+<a href='/deck/6ba13d1f-cb6d-4557-9043-46fc292ec1e2/week/' style='color:inherit; text-decoration: none;'>Secret Mage Deck</a>
+</div></td></tr><tr><td>
+<div id='archetype' style='color: #ABD473'>
+<a href='/deck/ce5f310d-db23-4386-bd2d-6db675e177ef/week/' style='color:inherit; text-decoration: none;'>Spell Hunter Deck</a>
+</div></td></tr></table>                                    <div style="float: right; margin-right: 15px; margin-top: 40px;">
+                                        <a href="/decks/">View Popular Deck Lists</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                                    </div>
+            </div>
+            
+                        <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+        <div id="notification" style="display: none;">
+            <span class="dismiss"><a title="dismiss this notification">x</a></span>
+        </div>
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        <div id="populardecklist" style="font-weight: 600;">Deck List</div>
+                    </div>
+                    <div class="modal-body" style="align-content: center;">
+                        <div>
+                            <small>Click on deck name to view stats</small>
+                        </div>
+                        <div id="top-archetype-deck">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+
+    <div id="fixed-social">
+        <div class="social">
+            <ul>
+                <li><a href="#" onclick="window.scrollTo(0, 0); return false;"><i class="fa fa-lg fa-arrow-up"></i></a></li>
+                <li><a href="http://twitter.com/MetaStats" target="_blank"><i class="fa fa-lg fa-twitter"></i></a></li>
+                <li><a href="http://reddit.com/r/MetaStats" target="_blank"><i class="fa fa-lg fa-reddit"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- <div class="col-lg-12 text-left" style="margin-top: 20px;">
+        * All stats are compiled using Standard Ranked Game data. <a href="/plugins/">We need your help to grow and get
+            a better picture of the meta</a>.
+        <br><br>
+    </div>
+    -->
+
+</div>
+
+<div style="width:200px;margin-right: auto; margin-left: auto; bottom: 10px; position: relative; font-size: 12px; margin-top:20px;">
+    <a href="/tos/">Terms of Service</a> - <a href="/privacy/">Privacy Policy</a>
+</div>
+
+<div id="feedback">
+    <a class="OverlayTrigger" href="http://reddit.com/r/Metastats/" target="_blank">
+        <img src="/images/feedback.jpg" /></a>
+</div>    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+
+    <script src="/js/c3.min.js"></script>
+
+    <script src="/js/notify-min.js" type="text/javascript"></script>
+
+    <script src="/js/spin.min.js"></script>
+    <script type="text/javascript">
+
+        var opts = {
+lines: 13 // The number of lines to draw
+, length: 18 // The length of each line
+, width: 5 // The line thickness
+, radius: 15 // The radius of the inner circle
+, scale: 1 // Scales overall size of the spinner
+, corners: 1 // Corner roundness (0..1)
+, color: '#0066cc' // #rgb or #rrggbb or array of colors
+, opacity: 0.45 // Opacity of the lines
+, rotate: 56 // The rotation offset
+, direction: 1 // 1: clockwise, -1: counterclockwise
+, speed: 1 // Rounds per second
+, trail: 66 // Afterglow percentage
+, fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+, zIndex: 2e9 // The z-index (defaults to 2000000000)
+, className: 'spinner' // The CSS class to assign to the spinner
+, top: '30%' // Top position relative to parent
+, left: '50%' // Left position relative to parent
+, shadow: false // Whether to render a shadow
+, hwaccel: false // Whether to use hardware acceleration
+, position: 'absolute' // Element positioning
+};        //var turnsSpinner = new Spinner(opts).spin(document.getElementById('turns-per-game'));
+        //var cardsSpinner = new Spinner(opts).spin(document.getElementById('cards-per-game'));
+        //var opponentSpinner = new Spinner(opts).spin(document.getElementById('opponents-chart'));
+        var classSpinner = new Spinner(opts).spin(document.getElementById('meta-class-stats'));
+        var archebydaySpinner = new Spinner(opts).spin(document.getElementById('daily-archetype-history'));
+        var archetype = "";
+
+        //google.charts.load("current", {packages: ['corechart']});
+        //google.charts.setOnLoadCallback(classesFaced);
+
+
+        $(document).ready(function () {
+
+            archbyday();
+            archbyhour();
+            classbyday();
+
+
+            $.notifyDefaults({
+                delay: 0,
+                mouse_over: null,
+                type: "info",
+                animate: {
+                    enter: 'animated bounceIn',
+                    exit: 'animated bounceOut'
+                },
+                placement: {
+                    from: "bottom",
+                    align: "right"
+                }
+            });
+
+            $('[data-toggle="tooltip"]').tooltip(
+                {html: true}
+            );
+
+            $.ajax({
+                url: "/getTip.php",
+                dataType: "text",
+                async: true,
+                timeout: 10000
+            }).done(function (jsonData) {
+                $("#metastats-tips").html(jsonData);
+            }).fail(function (err, ee, msg) {
+                //console.log("Error: " + msg);
+                //$("#archetype-card-list").html("<h3>Error Fetching Data... Try again<h3>");
+            });
+
+            $(".showdecklist").click(function (event) {
+                event.preventDefault();
+                archetype = $(this).data("archetype").replace("'", "\'");
+                $("#populardecklist").html(archetype + " Deck List");
+                getTopDeck(1, $(this).data("deckid"));
+            });
+
+
+            if (getCookieValue("MetaStats-Contribute") === "") {
+                setTimeout(function () {
+                    $.notify({
+                        message: 'All stats are based on data contributed by players like you. If you are using TrackoBot or Hearthstone Deck Tracker click here to join and help the Hearthstone community',
+                        url: '/plugins/',
+                        target: '_self'
+                    });
+                }, 2000);
+
+                var d = new Date();
+                d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = "MetaStats-Contribute" + "=JoinUs;" + expires + ";path=/";
+            }
+
+            $(document).on("mousemove", '.card-list-item', function (event) {
+                var left = event.pageX - $(this).offsetParent().offset().left + 15;
+                var top = event.pageY - $(this).offsetParent().offset().top - 100;
+
+                $(this).find('#card-image-hover').css({top: top, left: left}).show();
+            });
+
+            $(document).on("mouseout", '.card-list-item', function (event) {
+                $(this).find('#card-image-hover').hide();
+            });
+
+        });
+
+        function getCookieValue(a) {
+            var b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
+            return b ? b.pop() : '';
+        }
+
+        
+        function getTopDeck(deckCount, deckid) {
+            var deckid = (typeof deckid !== 'undefined') ? deckid : "";
+
+            $("#top-archetype-deck").html("");
+            $('#myModal').modal('show');
+            TopDeckSpinner = new Spinner(opts).spin(document.getElementById('top-archetype-deck'));
+
+            $.ajax({
+                url: "/topearchetypedeck.php?deckcount=" + deckCount + "&archetype=" + archetype + "&deckid=" + deckid,
+                dataType: "text",
+                async: true,
+                contentType: "text/html; charset=utf-8",
+                timeout: 10000
+            }).done(function (responseData) {
+                //console.log(responseData);
+                TopDeckSpinner.stop();
+                $("#top-archetype-deck").html(responseData);
+
+            }).fail(function (err, ee, msg) {
+                console.log("Error: " + msg);
+                $("#top-archetype-deck").html("<h3>Error Fetching Data... Try again<h3>");
+            });
+        }
+
+        function classesFaced() {
+            $.ajax({
+                url: "/metadecks.php?range=week&region=all&rank=all",
+                dataType: "json",
+                async: true,
+                timeout: 10000
+            }).done(function (jsonData) {
+                //console.log(jsonData);
+                classSpinner.stop();
+                // Create our data table out of JSON data loaded from server.
+
+                var data = new google.visualization.DataTable(jsonData);
+
+                var options = {
+                    focusTarget: 'category',
+                    colors: ['#ff6666'],
+                    chartArea: {top: 40, bottom: 40},
+                    title: '',
+                    hAxis: {
+                        title: '% of Total',
+                        format: '#\'%\'',
+                        viewWindow: {
+                            min: 0
+                        }
+                    },
+                    vAxis: {
+                        title: 'Classes'
+                    },
+                    legend: {position: 'none'}
+                };
+
+                // Instantiate and draw our chart, passing in some options.
+                var chart = new google.visualization.BarChart(document.getElementById('meta-class-stats'));
+
+                function selectHandler() {
+                    /*var selectedItem = chart.getSelection()[0];
+                     if (selectedItem) {
+                     var topping = data.getValue(selectedItem.row, 0);
+                     topping = topping.replace(" ", "-");
+                     topping = encodeURIComponent(topping);
+                     window.location.href = "/classdecks/" + topping + "/" + range;
+                     }*/
+                }
+
+                google.visualization.events.addListener(chart, 'select', selectHandler);
+
+                if (data.getNumberOfRows() < 4)
+                    $("#meta-class-stats").height(150);
+                else
+                    $("#meta-class-stats").height(data.getNumberOfRows() * 32);
+
+                chart.draw(data, options);
+
+                getGameStats();
+
+            }).fail(function (err, ee, msg) {
+                console.log("Error: " + msg);
+                $("#meta-class-stats").html("<h3>Error Fetching Data... Try again<h3>");
+            });
+        }
+
+        function getGameStats() {
+
+            var spinner = new Spinner(opts).spin(document.getElementById('region-graph'));
+            var gameformatSpinner = new Spinner(opts).spin(document.getElementById('gameformat-graph'));
+            var rankedgamesSpinner = new Spinner(opts).spin(document.getElementById('rankedgames-graph'));
+
+            $.ajax({
+                url: "/metastats/regiongraph.php",
+                dataType: "json",
+                async: true,
+                timeout: 15000
+            }).done(function (jsonData) {
+                //console.log(jsonData);
+                spinner.stop();
+
+                var data = new google.visualization.DataTable(jsonData);
+                //console.log(data);
+                var options = {
+                    title: 'Hearthstone Games by Region'
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('region-graph'));
+                chart.draw(data, options);
+            }).fail(function (err, ee, msg) {
+                console.log("Error: " + msg);
+                $("#region-graph").html("<h3>Error Fetching Data... Try again<h3>");
+
+            });
+
+            $.ajax({
+                url: "/metastats/gameformat.php",
+                dataType: "json",
+                async: true,
+                timeout: 15000
+            }).done(function (jsonData) {
+                //console.log(jsonData);
+                gameformatSpinner.stop();
+
+                var data = new google.visualization.DataTable(jsonData);
+                //console.log(data);
+                var options = {
+                    title: 'Hearthstone Games by Format'
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('gameformat-graph'));
+                chart.draw(data, options);
+            }).fail(function (err, ee, msg) {
+                console.log("Error: " + msg);
+                $("#gameformat-graph").html("<h3>Error Fetching Data... Try again<h3>");
+
+            });
+
+            $.ajax({
+                url: "/metastats/rankedgames.php?region=all&range=all",
+                dataType: "json",
+                async: true,
+                timeout: 15000
+            }).done(function (jsonData) {
+                //console.log(jsonData);
+                rankedgamesSpinner.stop();
+
+                var data = new google.visualization.DataTable(jsonData);
+                //console.log(data);
+                var options = {
+                    focusTarget: 'category',
+                    title: 'Hearthstone Ranked Games (Standard)',
+                    hAxis: {
+                        title: 'Rank'
+                    },
+                    vAxis: {
+                        title: '% of Total Games',
+                        format: '#\'%\'',
+                        viewWindow: {
+                            min: 0
+                        }
+                    },
+                    legend: {position: 'none'}
+                };
+
+                var chart = new google.visualization.ColumnChart(document.getElementById('rankedgames-graph'));
+                chart.draw(data, options);
+            }).fail(function (err, ee, msg) {
+                console.log("Error: " + msg);
+                $("#rankedgames-graph").html("<h3>Error Fetching Data... Try again<h3>");
+            });
+        }
+
+        function archbyday() {
+            var chart = c3.generate({
+                bindto: '#daily-archetype-history',
+                title: {
+                    text: 'Daily Archetype Frequency'
+                },
+                data: {
+                    url: '/archbyday.php?format=compact',
+                    type: 'spline',
+                    x: 'Week'
+                },
+                axis: {
+                    x: {
+                        label: {
+                            text: 'Date',
+                            position: 'outer-center'
+                        },
+                        type: 'category', // this needed to load string x value
+                        tick: {
+                            centered: true,
+                            rotate: -45,
+                            multiline: false,
+                            culling: {
+                                max: 7 // the number of tick texts will be adjusted to less than this value
+                            }
+                        },
+                        height: 75
+                    },
+                    y: {
+                        label: {
+                            text: '% of Total Games',
+                            position: 'outer-middle'
+                        },
+                        inverted: false,
+                        tick: {
+                            format: function (d) {
+                                return d + '%';
+                            }
+                            //or format: function (d) { return '$' + d; }
+                        }
+                    }
+                },
+                point: {
+                    show: false
+                },
+                legend: {
+                    position: 'right'
+                },
+                color: {
+                    pattern: ['#1f77b4', '#2ca02c', '#d62728', '#9467bd', '#ff7f0e', '#8c564b', '#e377c2', '#7f7f7f', '#17becf', '#f70889', '#92c060', '#fc8166', '#6ea2c2', '#d38cab', '#6e790a', '#0c795a', '#b93ce9', '#2794f2', '#936724', '#e3421c']
+                },
+                grid: {
+                    x: {
+                        lines: [
+                            {value: '2/06', text: 'Patches Nerf Patch', class: 'graphgridlines'},
+                            {value: '12/07', text: 'Kobolds and Catacombs', class: 'graphgridlines'},
+                            {value: '9/18', text: 'Druid Nerf Patch', class: 'graphgridlines'},
+                            {value: '8/10', text: 'Knights of the Frozen Throne', class: 'graphgridlines'}
+                        ]
+                    }
+                }
+            });
+        }
+
+        function archbyhour() {
+            var chart = c3.generate({
+                bindto: '#hourly-archetype-history',
+                title: {
+                    text: 'Hourly Archetype Frequency'
+                },
+                data: {
+                    url: '/archbyhour.php?format=compact',
+                    type: 'spline',
+                    x: 'Week'
+                    //x_format: '%m/%d %H:%M %LZ'
+                },
+                axis: {
+                    x: {
+                        label: {
+                            text: 'Date',
+                            position: 'outer-center'
+                        },
+                        type: 'category', // this needed to load string x value
+                        tick: {
+                            centered: true,
+                            rotate: -45,
+                            multiline: false,
+                            culling: {
+                                max: 7 // the number of tick texts will be adjusted to less than this value
+                            }
+                        },
+                        height: 100
+                    },
+                    y: {
+                        label: {
+                            text: '% of Total Games',
+                            position: 'outer-middle'
+                        },
+                        inverted: false,
+                        tick: {
+                            format: function (d) {
+                                return d + '%';
+                            }
+                            //or format: function (d) { return '$' + d; }
+                        }
+                    }
+                },
+                legend: {
+                    position: 'right'
+                },
+                point: {
+                    show: false
+                },
+                color: {
+                    pattern: ['#1f77b4', '#2ca02c', '#d62728', '#9467bd', '#ff7f0e', '#8c564b', '#e377c2', '#7f7f7f', '#17becf', '#f70889', '#92c060', '#fc8166', '#6ea2c2', '#d38cab', '#6e790a', '#0c795a', '#b93ce9', '#2794f2', '#936724', '#e3421c']
+                },
+                grid: {
+                    x: {
+                        lines: [
+                            {value: '2/06 8:00 AM', text: 'Patches Nerf Patch', class: 'graphgridlines'},
+                            {value: '12/07 10:00 AM', text: 'Kobolds and Catacombs', class: 'graphgridlines'},
+                            {value: '9/18 10:00 AM', text: 'Druid Nerf Patch', class: 'graphgridlines'},
+                            {value: '8/10 12:00 PM', text: 'Knights of the Frozen Throne', class: 'graphgridlines'}
+                        ]
+                    }
+                }
+            });
+        }
+
+        function classbyday() {
+            var chart = c3.generate({
+                bindto: '#daily-class-history',
+                title: {
+                    text: 'Daily Class Frequency'
+                },
+                data: {
+                    url: '/classbyday.php?region=all',
+                    type: 'spline',
+                    x: 'Week',
+                    colors: {
+                        Druid: "#FF7D0A",
+                        Hunter: "#ABD473",
+                        Mage: "#69EEFF",
+                        Paladin: "#F58CBA",
+                        Priest: "#a8a4a4",
+                        Rogue: "#EEE468",
+                        Shaman: "#2459FF",
+                        Warlock: "#9482CA",
+                        Warrior: "#C79C6E"
+                    }
+                },
+                axis: {
+                    x: {
+                        label: {
+                            text: 'Date',
+                            position: 'outer-center'
+                        },
+                        type: 'category', // this needed to load string x value
+                        tick: {
+                            centered: true,
+                            rotate: -45,
+                            multiline: false,
+                            culling: {
+                                max: 7 // the number of tick texts will be adjusted to less than this value
+                            }
+                        },
+                        height: 75
+                    },
+                    y: {
+                        label: {
+                            text: '% of Total Games',
+                            position: 'outer-middle'
+                        },
+                        inverted: false,
+                        tick: {
+                            format: function (d) {
+                                return d + '%';
+                            }
+                            //or format: function (d) { return '$' + d; }
+                        }
+                    }
+                },
+                legend: {
+                    position: 'right'
+                },
+                point: {
+                    show: false
+                },
+                grid: {
+                    x: {
+                        lines: [
+                            {value: '02/06', text: 'Patches Nerf Patch', class: 'graphgridlines'},
+                            {value: '12/07', text: 'Kobolds and Catacombs', class: 'graphgridlines'},
+                            {value: '09/18', text: 'Druid Nerf Patch', class: 'graphgridlines'},
+                            {value: '08/10', text: 'Knights of the Frozen Throne', class: 'graphgridlines'}
+                        ]
+                    }
+                }
+            });
+        }
+    </script>
+
+    </body>
+
+    </html>
+
+<!-- Last Update: 23rd March 2018 11:05 -->

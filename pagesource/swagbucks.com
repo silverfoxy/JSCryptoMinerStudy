@@ -1,0 +1,1 @@
+The URL has temporarily moved <a href="https://www.swagbucks.com/">here</a>

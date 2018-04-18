@@ -1,0 +1,1 @@
+<p>Found. Redirecting to <a href="https://edpuzzle.com/">https://edpuzzle.com/</a></p>

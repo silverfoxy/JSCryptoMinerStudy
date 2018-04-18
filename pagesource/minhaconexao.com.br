@@ -1,0 +1,1008 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+<title>  TESTE DE VELOCIDADE da Internet | Speed Test | Velocimetro </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="NOODP">
+<meta name="robots" content="index,follow" /> <meta name="classification" content="Web Services,internet"  /> 
+<meta name="keywords" content="teste copel, rjnet, teste de velocidade, speed test, teste internet, banda larga, speedtest, velocidade, medidor, velocimetro " >
+<meta name="Description" content="Teste de Velocidade da Internet Banda Larga no Brasil. Teste a velocidade da sua Conexão: Speed Test, Teste Copel, Velocimetro RJNet, Net Virtua, Speedtest, Velox, GVT, CTBC e outras." >
+<link rel="image_src" href="http://cdn.minhaconexao.com.br/facebook/figs/velocimetro_fb2.png">
+<link rel="image_src" href="http://cdn.minhaconexao.com.br/ranking/img/ranking_minhaconexao_gradient_fb.png">
+<link rel="image_src" href="http://cdn.minhaconexao.com.br/ranking/img/ranking_minhaconexao_fire_fb.png">
+<link rel="canonical" href="http://www.minhaconexao.com.br">
+<link rel="alternate" href="http://www.minhaconexao.com.br" hreflang="pt-br" />
+<link rel="alternate" href="http://www.minhavelocidade.pt" hreflang="pt-pt" />
+<meta property="fb:app_id" content="275933989119521"/>
+<meta property="fb:admins" content="731741918" />
+<meta name="google-site-verification" content="QqU7Cet6fYkGQ37mZC5aozxj1450dTU4wSMhIpdDPRk" /> <!-- GoogleAps -->
+
+
+
+<script language="javascript">function createCookie(c,e,d){if(d){var b=new Date();b.setTime(b.getTime()+(d*24*60*60*1000));var a="; expires="+b.toGMTString();}else var a="";document.cookie=c+"="+e+a+"; path=/";}function readCookie(c){var e=c+"=",d=document.cookie.split(';');for(var b=0;b<d.length;b++){var a=d[b];while(a.charAt(0)==' ')a=a.substring(1,a.length);if(a.indexOf(e)==0)return a.substring(e.length,a.length);}return null;}function eraseCookie(c){createCookie(c,"",-1);}function testCookie(){createCookie("Test","1",1);if(readCookie("Test")){eraseCookie("Test");return (true);}else{return (false);}};</script><!--inline-->
+<script type='text/javascript' src='//static.criteo.net/js/ld/publishertag.js'></script><script language="javascript">
+var jquery_ready = false; //vou usar depois
+var low_speed = 0;
+var noads = 0;
+var page_loaded = false; //aguardar carregamento
+var load_ini = new Date().getTime(); //soh pra debug, pra ver o tempo gasto
+
+if (low_speed) createCookie('tipo','old', 10/(24*60)); //10 minutos
+else createCookie('tipo','', -1); //garantir que apago
+
+function calc_load_time(msg){//soh pra debug, pra ver o tempo gasto
+	var end=new Date().getTime(); 
+	//console.log(msg+' Load Time:'+(end-load_ini)); //safari 11 da pau com console.log!!!
+}
+
+function adsBlocked(){
+	if (typeof canRunAds === "undefined") return true;
+	else return false;
+}
+
+function hide_alternatives() {//double check to hide alternatives ads - it looks sometimes Chrome loads ads_detect asynchronously
+	if (!adsBlocked()) try {
+		document.getElementById('alternative_1').style.display="none";
+		document.getElementById('alternative_1').src="";
+		document.getElementById('alternative_2').style.display="none";
+		document.getElementById('alternative_2').src="";
+		document.getElementById('alternative_3').style.display="none";
+		document.getElementById('alternative_3').src="";
+		document.getElementById('alternative_4').style.display="none";
+		document.getElementById('alternative_4').src="";
+	} catch (e){
+	}
+}
+
+function load_timeout(){
+	if (!page_loaded) {
+		if (low_speed) window.location.href='timeout.php'; //mesmo low_speed nao carregou
+		else {
+			createCookie('low_speed',1, 1/(24*60) ); //1 minuto
+			alert('Sua Internet está lenta! Vamos usar um teste mais leve.');
+			window.location.reload();
+		}
+	}
+}
+
+var other_servers_visible = false;
+var handle_other_servers;
+function show_other_servers(){
+	if (!jquery_ready) return;
+	clearTimeout(handle_other_servers);
+	if (!other_servers_visible) $('#other_servers').animate({height:90},300);
+	other_servers_visible = true;
+}
+
+function hide_other_servers(){
+	if (!jquery_ready) return;
+	if (other_servers_visible) $('#other_servers').animate({height:22},300);
+	other_servers_visible = false;
+}
+
+
+function jquery_loaded(){ //evitar fazer isso antes de load da JQuery
+	jquery_ready = true; 
+	calc_load_time('JQuery');
+	setTimeout("showMessageBar();",4000);
+	show_other_servers();
+	handle_other_servers = setTimeout('hide_other_servers();',10000);
+	$.ajaxSetup({cache: true});
+	$.getScript("http://cdn.minhaconexao.com.br/lib/bootstrap-3.3.5/js/bootstrap.min.js");
+}
+
+
+setTimeout('load_timeout();', 90000); //X milisegundos pra carregar
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" async onload="jquery_loaded();"></script>
+<script language="javascript" src="js/ads_detect.js" onload="hide_alternatives()"></script><!-- dando algum problema quando no body, tambem tirei da CDN pra controlar o cache diretamente no HTACCES, pois nao quero cache disso -->
+
+<style type="text/css">
+<!--
+
+p { text-indent:50px;}
+
+#decoration {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:768px;
+	z-index:0;
+	background-image: url('http://cdn.minhaconexao.com.br/img/site_background.png'); border: 0px;
+	background-repeat:repeat-x
+}
+
+.rounded_box {
+	border-radius: 10px;
+	width:auto;
+	height: 30px;
+	border: 0;
+	background-color:#0064ff;
+	display:inline;
+	padding: 0px 15px 15px 15px;
+}
+.rounded_box:hover { background-color: #003BFF}
+
+
+#div_teste_tipo{
+	position:relative;
+	top:12px;
+	width:230px;
+	margin-left: 15px;
+	visibility: inherit;
+}
+
+#main_page {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	z-index:2;
+}
+
+#sky_banner{
+	position:absolute;
+	left:1100px;
+	top:45px;
+	width:160px;
+	height:60px;
+	z-index:2;
+}
+
+.style1 {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #0000FF;
+	font-weight: bold;
+}
+
+.style2 {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #FFFFFF;
+	font-size:12px;
+}
+
+.style3 {
+	color: #0000FF;
+	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.style4 {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #444444;
+	font-size:14px;
+}
+
+.style5 {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #FFFFFF;
+	font-size:17px;
+	font-weight:bold;
+	text-shadow: 2px 2px 0.2em black ;
+}
+
+.style6 {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #FFFFFF;
+	font-size:16px;
+}
+
+.style_menu {
+	position:relative;
+	top: 8px;
+	left: -4px;
+	text-shadow: 2px 2px 0.2em black ;
+	text-decoration: none;
+	color:#ffffff;
+	font-weight:bold;
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.style_menu a:link {color:#ffffff; text-decoration:none;}
+.style_menu a:visited {color:#ffffff; text-decoration:none;}
+.style_menu a:hover {color:#FF3; text-decoration:none;}
+
+.wellcome_msg {
+	position:relative;
+	top: 2px;
+	text-decoration: none;
+	color:#ffffff;
+	font-weight:bold;
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Botoes do Menus */
+.testar {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat 0 0px;
+	width: 76px;
+	height: 23px;
+	display:inline-block;
+}
+.testar:hover {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat 0 -23px;
+}
+.servidores {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -78px 0px;
+	width: 89px;
+	height: 23px;
+	display:inline-block;
+}
+.servidores:hover {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -78px -23px;
+}
+.ranking {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -169px 0px;
+	width: 81px;
+	height: 23px;
+	display:inline-block;
+}
+.ranking:hover {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -169px -23px;
+}
+.mini {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -253px 0px;
+	width: 115px;
+	height: 23px;
+	display:inline-block;
+}
+.mini:hover {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -253px -23px;
+}
+.perguntar {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -370px 0px;
+	width: 80px;
+	height: 26px;
+	display:inline-block;
+}
+.perguntar:hover {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -370px -23px;
+}
+.entrar {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -452px 0px;
+	width: 54px;
+	height: 23px;
+	display:inline-block;
+}
+.entrar:hover {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -452px -23px;
+}
+.sair {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -508px 0px;
+	width: 39px;
+	height: 23px;
+	display:none;
+}
+.sair:hover {
+	background: url('http://cdn.minhaconexao.com.br/img/botoes_menu.png') no-repeat -508px -23px;
+}
+
+-->
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="apple-touch-icon" sizes="57x57" href="http://cdn.minhaconexao.com.br/icons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="http://cdn.minhaconexao.com.br/icons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="http://cdn.minhaconexao.com.br/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="http://cdn.minhaconexao.com.br/icons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="http://cdn.minhaconexao.com.br/icons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="http://cdn.minhaconexao.com.br/icons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="http://cdn.minhaconexao.com.br/icons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="http://cdn.minhaconexao.com.br/icons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://cdn.minhaconexao.com.br/icons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="http://cdn.minhaconexao.com.br/icons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="http://cdn.minhaconexao.com.br/icons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="http://cdn.minhaconexao.com.br/icons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="http://cdn.minhaconexao.com.br/icons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="http://cdn.minhaconexao.com.br/icons/manifest.json">
+<link rel="shortcut icon" href="http://cdn.minhaconexao.com.br/favicon.ico">
+<link rel="icon" href="http://cdn.minhaconexao.com.br/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="http://cdn.minhaconexao.com.br/icons/mstile-144x144.png">
+<meta name="msapplication-config" content="http://cdn.minhaconexao.com.br/icons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!--Google DFP-->
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+	var googletag = googletag || {};
+	googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+	googletag.cmd.push(function() {
+		googletag.defineSlot('/39750411/Top_DFP', [728, 90], 'div-gpt-ad-1515466255434-0').addService(googletag.pubads());
+		googletag.defineSlot('/39750411/Bottom_DFP', [728, 90], 'div-gpt-ad-1515466255434-1').addService(googletag.pubads());
+		googletag.pubads().enableSingleRequest();
+		googletag.enableServices();
+	});
+</script>
+
+</head>
+
+
+
+<body onLoad="page_loaded=true; calc_load_time('Full'); on_page_loded(); " style="background-color:#d1dfeb;">
+<script language="javascript"><!--It needs JQuery adn Cookies.js -->
+
+function HTML5GeoIPLocate(){
+	if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+			HTML5geoIPFound(position.coords.latitude, position.coords.longitude, position.coords.accuracy);
+		}, function(err) { HTML5geoIPError(err) }, {enableHighAccuracy:false, timeout:10000, maximumAge:60*60*1000} );
+	}
+	else {
+ 
+	}
+}
+
+function HTML5geoIPError(err){ 
+  //alert('Erro localizando: '+err.code);
+}
+
+function HTML5geoIPFound(mylat, mylng, accuracy) {
+	mylat = (Math.round(mylat*1000000)/1000000); //arredondar 6 casas
+	mylng = (Math.round(mylng*1000000)/1000000); //arredondar 6 casas
+	accuracy = Math.round(accuracy);
+	createCookie('user_lat', mylat, 1);
+	createCookie('user_lng', mylng, 1);
+	createCookie('pos_accu', accuracy, 1);
+	$.ajax({
+		type: 'GET',
+		dataType: "json",
+		url: "https://maps.googleapis.com/maps/api/geocode/json?latlng="+mylat+","+mylng+"&sensor=false",
+		data: {},
+		success: function(data) {
+			var city, state, countryCode, countryName;
+			$.each( data['results'],function(i, val) {
+				$.each( val['address_components'],function(i, val) {
+					if (val['types'] == "locality,political") city = val['long_name']; 
+					if (val['types'] == "administrative_area_level_1,political") state = val['short_name'];
+					if (val['types'] == "country,political") { countryCode = val['short_name']; countryName = val['long_name']; }
+				});
+			});
+			createCookie('user_city', city, 1);
+			createCookie('user_state', state, 1);
+			createCookie('user_countryCode', countryCode, 1);		
+			createCookie('user_countryName', countryName, 1);	
+//			console.log('Success: '+countryName+'-'+city);
+			$.ajax({
+				type: 'GET',
+				dataType: "text",
+				url: 'http://www.localizaip.com.br/databank/ipinfo.php?ip=this&city='+city+'&state='+state+'&country='+countryCode+'&lat='+mylat+'&lng='+mylng+'&accu='+accuracy
+			});
+		},
+		error: function () { /*console.log('HTML5 City locate error');*/ } 
+	}); 
+}
+
+HTML5GeoIPLocate();
+</script><!--inline-->
+
+
+<!--replica das tabelas de cabecalho que ficam abaixo e ocupam a tela inteira (o resto da pagina eh centralizado) -->
+<div id="decoration" align="center" ></div>
+
+
+<div id="main_page" align="center">
+<table id="main_table" width="1400px" border="0" cellpadding="0" cellspacing="0" ><tr><td> <!-- tabela para centralizar pagina -->
+
+<script type="text/javascript">
+/******  AJUSTES PARA A LARGURA DA TABELA/TELA *****/
+var availWidth;
+var pageWidth=1400; //main_table width
+availWidth=window.screen.availWidth  ;
+if (availWidth<1000) {// muito pequeno, eh melhor nao colocar duas das propagandas
+	//evitando JQuery
+/*  $("#publicidade_horizontal_topo").hide(0); //removo os ID mas tambem nao carrego os codigos dos banner (posteriormente)
+  $("#publicidade_retangle").hide(0);*/
+	document.getElementById("#publicidade_retangle").style.display='none';
+	document.getElementById("#publicidade_horizontal_topo").style.display='none';
+	pageWidth = "780px";
+} else if (availWidth<1100) pageWidth = "1020px"; //1050 eh o tamanho confortavel ads da esquerda
+	else if (availWidth<1330) pageWidth = (availWidth-30)+"px"; //minimo pra exibir tudo, com Sky de 160x600 //-30 barra lateral
+	else if (availWidth<1400) pageWidth = "1328px"; //minimo pra exibir tudo //1400 eh o maximo que quero
+	document.getElementById('main_table').width = pageWidth;
+
+/*** Guardar para uso no PHP em futuras visitas ***/
+createCookie("screen_detected", 1, 365);	
+createCookie("screen_width", window.screen.availWidth, 365);
+createCookie("screen_height", window.screen.availHeight, 365);
+
+function clear_frame_central(){
+	window.clearInterval(timer_fc_handle);
+	if (jquery_ready) $('#frame_central').contents().find('body').html('');
+}
+
+
+</script>
+
+
+
+<!--tabela superior com LOGO e Menu -->
+<table id="top_table" width="100%" height="40" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000" >
+	<tr>
+		<td width="2%">&nbsp;</td> <!--espaco inicial,antes do logo -->
+		<td width="15%">
+			<div align="left"><a href="http://www.minhaconexao.com.br"  target="_top"><img src="http://cdn.minhaconexao.com.br/img/logo_branco_221x33.png" alt="Teste de Velocidade | Veloc&iacute;metro | Speedtest"  border="0" /></a></div>
+		</td>
+		<td><div align="right">
+				<a href="serverselect/server_select.php?redir=velocimetro_padrao.php&model=worldmap&server_id=&user_lat=39.0437&user_lng=-77.4875&user_city=Ashburn&user_region=Virginia&provider=AMAZONAWS" Title="Teste de Velocidade | Speedtest" onClick="clear_frame_central();" alt="Teste da Internet" target="frame_central" onMouseOver="this.style.cursor='pointer';"><div class="testar">&nbsp;</div></a>&nbsp;&nbsp;&nbsp;
+				<a href="velocimetro_padrao.php?model=worldmap&server_selection=1&user_lat=39.0437&user_lng=-77.4875&user_city=Ashburn&user_region=Virginia&provider=AMAZONAWS" Title="Escolher servidor" onClick="clear_frame_central();" alt="Escolher outro servidor" target="frame_central" onMouseOver="this.style.cursor='pointer';"><div class="servidores">&nbsp;</div></a>&nbsp;&nbsp;&nbsp;
+				<a id="clickRanking" Title="Provedores mais Rapidos do Brasil" href="ranking/" alt="Ranking MinhaConexao - Veja a Internet mais R&aacute; do Brasil e de sua Regi&atilde;o." target="_blank" ><div class="ranking">&nbsp;</div></a>&nbsp;&nbsp;&nbsp;
+        <a id="clickMini" Title="Mini Velocimetro no seu Site" onClick="clear_frame_central();" href="mini-velocimetro/velocimetro_no_seu_site.php" alt="Velocimetro em seu Site ou Blog" target="frame_central"><div class="mini">&nbsp;</div></a>&nbsp;&nbsp;&nbsp;
+        <a id="clickForum" Title="Pergunte em nosso Forum" href="http://www.minhaconexao.com.br/forum/viewforum.php?f=3" alt="F&oacute; para tiras suas d&uacute;vidas" target="_blank" ><div class="perguntar">&nbsp;</div></a>&nbsp;&nbsp;&nbsp;
+				<a id="clickLogout" Title="Sair do sistema" alt="Sair do sistema" target="_blank" ><div id="div_sair" class="sair" onMouseOver="this.style.cursor='pointer';" onClick="logout();">&nbsp;</div></a>
+				<a id="clickLogin" Title="Entrar no sistema" onClick='show_loginbox();'; alt="Entrar no sistema" onMouseOver="this.style.cursor='pointer';"><div id="div_entrar" class="entrar">&nbsp;</div></a>&nbsp;&nbsp;
+<!--				<a onClick="configurar_click();" onMouseOver="this.style.cursor='pointer';" alt="Configurar Teste" target="frame_central" ></a>-->
+				<span class="wellcome_msg"><div id="user_msg" style="display:inline">&nbsp;</div></span>
+    </div>
+    </td>
+  </tr>
+</table>
+<div id="criteo_cnt_div" style="visibility: hidden; display: none"></div> <!--contar exibicoes criteo-->
+
+
+
+<!-- tabela com velocimetro e propaganda -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+  <td rowspan="3" width="300px" id="publicidade_retangle" align="left" valign="top"> 
+    <div id="publicidade_esquerda" align="left" ><iframe width='300px' height='89px' src='alternative/melhorplano_plugin.html?stamp=1237812332' allowtransparency='TRUE' frameborder='0' scrolling='no'></iframe><br><br><script type='text/javascript'>	Criteo.DisplayAd({
+		"zoneid": 55184,
+		"async": false});
+</script><script type='text/javascript'>	Criteo.DisplayAd({
+		"zoneid": 55184,
+		"async": false});
+</script></div><iframe id="alternative_2" style="display:none" allowtransparency="TRUE" frameborder="0" scrolling="no" width="301px" height="251px" src=""></iframe><iframe id="alternative_2_cnt" style="display:none" allowtransparency="TRUE" frameborder="0" scrolling="no" width="1px" height="1px" src=""></iframe><iframe id="alternative_3" style="display:none" allowtransparency="TRUE" frameborder="0" scrolling="no" width="301px" height="251px" src=""></iframe><iframe id="alternative_3_cnt" style="display:none" allowtransparency="TRUE" frameborder="0" scrolling="no" width="1px" height="1px" src=""></iframe>  </td>
+<td width="728px" valign="top">
+
+<table height="96px" width="100%" cellpadding="0" cellspacing="0" border="0"> <!-- Banner 728x90 TOP -->
+<tr>
+<td ><div align="center" style="position:relative;top:-4px;">
+<iframe id="alternative_1" style="display:none; margin-top: 3px"  allowtransparency="TRUE" frameborder="0" scrolling="no" width="729px" height="91px" src=""></iframe>
+<iframe id="alternative_1_cnt" style="display:none" allowtransparency="TRUE" frameborder="0" scrolling="no" width="1px" height="1px" src=""></iframe>
+<div id='div-gpt-ad-1515466255434-0' style='height:90px; width:728px;'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1515466255434-0'); });
+</script>
+</div></div>
+</td>
+</tr>
+</table><!--Tabela Ads Top-->
+</td>
+
+	<td rowspan="3" valign="top" width="0"> <!--ads grande direita -->
+		<div id="sky_dir"></div>
+	<script>
+		if (availWidth>1330) { //300x600
+			document.getElementById("sky_dir").style.width="300px";
+			Criteo.DisplayAd({ "zoneid": 1108708,	"async": false});
+		} else if (availWidth > 1220) {
+			document.getElementById("sky_dir").style.width="160px";
+			Criteo.DisplayAd({"zoneid": 492417, "async": false});
+		}
+	</script>
+	</td>
+
+</tr>
+
+<tr>
+
+  <td width="62%" height="402px" id="velocimetro" align="center" valign="top">
+    <div align="center">
+    <h1> Teste de Velocidade da Internet </h1>
+    <iframe style="position:relative;top:6px;" name="frame_central" id="frame_central" width="700px" height="400px" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" src="serverselect/server_select.php?redir=velocimetro_padrao.php&model=worldmap&server_id=&user_lat=39.0437&user_lng=-77.4875&user_city=Ashburn&user_region=Virginia&provider=AMAZONAWS" allowtransparency="true" > </iframe><br><br><span onMouseOver="this.style.cursor='pointer';" style="color:#444;font-size:17px;"><a href="//melhorplano.net/internet-banda-larga/resultado?utm_source=mc206&utm_medium=link&utm_campaign=link-lenta-result&bs=5&c=" target="_top" rel="nofollow"><b>Sua Internet est&aacute; lenta?</b> Procure agora outros <b>Planos de Internet</b> na sua cidade.</a></span></div>
+  </td></tr>
+
+<tr valign="top" >
+	<td align="center">
+  <br style="content: ' '; display: block; margin: 12px 0;"/>
+	  <div id="other_servers_div" style="z-index:10" onMouseOver="show_other_servers();" onMouseOut="handle_other_servers = setTimeout('hide_other_servers();',2000);"> <iframe id="other_servers" src="serverselect/select_servers_table.php?&user_lat=39.0437&user_lng=-77.4875&user_city=Ashburn&user_region=Virginia&provider=AMAZONAWS" width="730px" height="90px" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+  </td>
+</tr>
+
+
+<tr valign="top" >
+	<td>&nbsp;</td>
+
+	<td height='92px' valign='bottom' align='center'>
+		<br style="content: ' '; display: block; margin: 5px 0;"/>
+
+		<div id="baixo_texto">
+		<!-- /39750411/Bottom_DFP -->
+		<div id='div-gpt-ad-1515466255434-1' style='height:90px; width:728px;'>
+			<script>
+				googletag.cmd.push(function() { googletag.display('div-gpt-ad-1515466255434-1'); });
+			</script>
+		</div>
+		<iframe id="alternative_4" style="display:none; margin-top: 3px"  allowtransparency="TRUE" frameborder="0" scrolling="no" width="729px" height="91px" src=""></iframe>
+		<iframe id="alternative_4_cnt" style="display:none" allowtransparency="TRUE" frameborder="0" scrolling="no" width="1px" height="1px" src=""></iframe>
+		<br><br></div>
+	</td>
+	<td>&nbsp;</td>
+</tr>
+
+</table>
+
+<!--<div align="left"><strong><p><font color="#444444" size="2" face="Arial, Helvetica, sans-serif">Perguntas Frequentes:</font></p></strong>-->
+<div align="center">
+	<div class="rounded_box"><span class="style_menu"><a href="forum/viewtopic.php?f=3&t=503" target="_blank">Melhorar minha Internet?</a></span></div> &nbsp;&nbsp;&nbsp;&nbsp;
+	<div class="rounded_box"><span class="style_menu"><a href="forum/viewtopic.php?f=3&t=651" target="_blank">YouTube est&aacute; muito Lento?</a></span></div>&nbsp;&nbsp;&nbsp;&nbsp;
+	<div class="rounded_box"><span class="style_menu"><a href="https://melhorplano.net/planos-de-celular?utm_source=mc206&utm_medium=link&utm_campaign=link-escol-plan3g4g" target="_top" rel="nofollow"> Quer mais internet no celular? </a></span></div>&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="rounded_box"><span class="style_menu"><a href="forum/viewtopic.php?f=3&t=3" target="_blank">Minha Velocidade M&aacute;xima?</a></span></div>
+	<!--	<div class="rounded_box"><span class="style_menu"><a href="forum/viewtopic.php?f=3&t=540" target="_blank">Veloc&iacute;metro no Meu Site?</a></span></div>-->
+<br><br>
+</div>
+
+
+<a name="atalho_comments" id="atalho_comments"> </a><!-- tag para atalho # -->
+
+<div id="facebook_comments" style="display:none; width: 1050px" align="left"></div> <!-- Div do Facebook comments -->
+
+<a name="publicidade_center" id="publicidade_center"></a> <!-- tag para atalho # -->
+
+<!-- historico, Figura do teste e Propaganda -->
+<br>
+<div id="fig_test" style="display:none" align="center"></div> <!-- Div figura do teste -->
+
+<a name="hist_label" id="hist_label"></a> <!-- tag para atalho # -->
+
+<div id="hist_div" align="center"></div> <!-- Div para colocar o historico -->
+
+<div id="tmp_iframe_div"><iframe id = "contentFRAME" name = "contentFRAME" src ="historico/historico.php" onLoad = "changeHistContent()" style = "height:0; width:0; border-width:0;"></iframe></div> <!-- Div para carregar IFrame temporario -->
+
+
+<script type="text/javascript">
+var tipo = readCookie("MinhaConexao_Tipo");
+var last_test_show = readCookie("last_test_time");
+var timer_handle;
+var timer_fc_handle;
+var show_hist = 0; //saber se deve mostrar historico apos logar
+var fc_cnt = 0;
+var fb_like_shown = 0;
+
+if (last_test_show==null) last_test_show=0;
+
+function changeHistContent() { //copiar conteudo do tmp_IFrame para a pagina principal, na tag "hist_div"... assim a pagina se adapta ao tamanho do conteudo do IFrame
+  document.getElementById("hist_div").innerHTML = window.frames['contentFRAME'].document.getElementsByTagName('html')[0].innerHTML;
+}
+
+
+var FBcomments_loaded = 0;
+function loadFBcomments(){
+	if (!jquery_ready) return;
+	if ((FBcomments_loaded==0) && (!low_speed)) {
+		FBcomments_loaded = 1;
+  	document.getElementById("facebook_comments").innerHTML = '<iframe id="iframe_comments" src="fb_comments.php" frameborder="0" height="650" scrolling="no"></iframe><hr>';
+		document.getElementById("iframe_comments").width = pageWidth;
+		$('#facebook_comments').delay(500).show(1000); //mostrar facebook
+	}
+}
+
+function hideMessageBar(){
+	if (!jquery_ready) return;
+	$("#message_bar").animate({height:0},300, function(){
+		$("#message_bar").css({visibility: "hidden"})
+	});
+	$("#decoration").animate({top:0},300);	
+	$("#main_page").animate({top:0},300);
+}
+
+function showMessageBar(){
+	if (!jquery_ready) return;
+	var user_id=readCookie("user_id");
+	if (!user_id) {
+		$("#message_bar").css({visibility: "visible"}).animate({height:40},800);
+		$("#decoration").animate({top:41},800);		
+		$("#main_page").animate({top:41},800);
+		setTimeout('hideMessageBar();',20000);
+	}
+}
+
+function temporizador(){
+  var reloadHist;
+  var last_test = readCookie("last_test_time");
+  if (last_test==null) last_test=0;
+  if (last_test > last_test_show) { //mostrar novo teste
+    last_test_show = last_test;
+    loadFBcomments();
+
+    //carrega historico
+		document.getElementById("contentFRAME").src ="historico/historico.php?r="+Math.random();
+		    
+		var user_id=readCookie("user_id"); //sugerir armazenagem
+		var shown_armazene=readCookie("shown_armazene");
+		if ((!user_id) && (!shown_armazene)) { 
+			setTimeout('hist_click();',3000);
+			createCookie("shown_armazene", 1, 15);//fico 15 dias sem mostrar
+		}
+  }
+  window.clearInterval(timer_handle);
+  timer_handle = window.setInterval("temporizador()",500);	//0,5 segundos
+}
+
+function hist_click(){
+	var user_id=readCookie("user_id");
+	if (!user_id) {
+		show_loginbox();
+		show_hist = 1;
+	} else window.open("historico/historico.php?interactive=1&user_id="+user_id);
+}
+
+/* LOGIN FUNCTIONS */
+function updateLoginMsg(){
+	var user_id=readCookie("user_id");
+	var user_fname=readCookie("user_fname");
+	if (user_id) {
+		document.getElementById("div_sair").style.display="inline-block";	
+		document.getElementById("div_entrar").style.display="none";	
+		document.getElementById("user_msg").style.display="inline";	
+		document.getElementById("user_msg").innerHTML="<b> (Ol&aacute; "+user_fname+")</b>";
+		createCookie('user_fname', user_fname, 30);
+		createCookie('user_id', user_id, 30); //renovar cookies pra mais 30 dias	
+	} else {
+		document.getElementById("div_sair").style.display="none";
+		document.getElementById("div_entrar").style.display="inline-block";	
+		document.getElementById("user_msg").style.display="none";			
+		document.getElementById("user_msg").innerHTML="";
+	}
+}
+
+function show_loginbox(msg){
+	if (!jquery_ready) return;
+	if (!msg) msg = "<br><b><font color=red>Armazene seus Testes para<br> provar problemas no futuro!!!</font><br><br>Conecte-se com seu<br>Facebook ou seu e-mail.</b><br><br>";
+	document.getElementById("login_box_content").src='login/login_frame.php?welcome_msg='+msg+'&stamp='+Math.random();
+	$('#login_box').modal('show');
+	checkLateLogin();
+}
+
+function show_page(page){
+	if (!jquery_ready) return;
+	document.getElementById("melhorplano_box_content").src=page;
+	$('#melhorplano_box').modal('show');
+}
+
+function logout(){
+	eraseCookie('user_id');
+	eraseCookie('user_fname');	
+	updateLoginMsg();
+}
+
+function checkLateLogin(){ //atualizar boas vindas e salvar testes se alguem logar mais tarde
+	if (!jquery_ready) return;
+	var user_id=readCookie("user_id");
+	if (user_id) {
+		$('#login_box').modal('hide');
+		updateLoginMsg();	
+		document.getElementById("dummy_iframe").src = 'historico/save_hist_cookie.php?user_id='+user_id+'&just_cookies=1';
+		if (show_hist) setTimeout('window.location = "historico/historico.php?interactive=1&user_id='+user_id+'";',2000); //aguardo pedido anterior concluir
+		show_hist = 0;
+	} else {
+		setTimeout("checkLateLogin()",1000);	//fica checando a cada 1 segundo
+	}
+}
+/* LOGIN acaba aqui */
+
+function loadFrameCentral(){ //pra atrasar carregamento
+  window.clearInterval(timer_fc_handle);
+  if (fc_cnt<100) {
+  	var show_server_name='';
+  			if (jquery_ready) $('#frame_central').contents().find('body').html('<div align="center"> <span style="font-family:Arial, Helvetica, sans-serif; font-size: 16px"><br><br><br><br><br><br><br><br>'+show_server_name+'<br> Esvaziando Buffers e Carregando...'+fc_cnt+'% <br/><br/><span	style="font-size: 13px; color:#444"><b> Fique pr&oacute;ximo do roteador e desligue todos os downloads em andamento para maior precis&atilde;o no teste.</b></span></span></div>');
+    timer_fc_handle = window.setInterval("loadFrameCentral()",250);	
+		if ((!page_loaded) && (fc_cnt>=40)) { //para de incrementar em 40% e aguardo carregar
+			if (fc_cnt>=80) fc_cnt=80; //se nao acabou de carregar a pagina eu paro em 80%
+			else fc_cnt = fc_cnt + 1; //vai de 1% em 1%, pois t&aacute; lenta a carga
+		} else
+			fc_cnt = fc_cnt + 5;
+  } else{
+    document.getElementById('frame_central').src="serverselect/server_select.php?redir=velocimetro_padrao.php&model=worldmap&server_id=&user_lat=39.0437&user_lng=-77.4875&user_city=Ashburn&user_region=Virginia&provider=AMAZONAWS";
+  }
+}
+
+if (tipo!="simples") {
+ 	temporizador();
+}
+</script>
+
+<br/>
+<table class="table table-bordered" width="100%" border="0" style="border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; border-collapse:separate; border-spacing:20px 0px;" >
+
+	<tr height="30px">
+		<td bgcolor="#0064ff" width="50%" height="30px" style="border-radius:10px 10px 0px 0px;"><div align="center"><img src="http://cdn.minhaconexao.com.br/img/info_24x24.png" alt="Brasil BandaLarga">&nbsp; <span class="style5">Brasil - Banda Larga</span></div></td>
+		<td bgcolor="#0064ff" width="50%" height="30px" style="border-radius:10px 10px 0px 0px;"><div align="center"><img src="http://cdn.minhaconexao.com.br/img/info_24x24.png" alt="Speedtest Copel">&nbsp; <a href="http://www.minhaconexao.com.br/teste-copel" target="_top"><span class="style5">SpeedTest Copel</span></a></div></td>
+	</tr>
+	<tr>
+
+		<td  bgcolor="#FFFFFF" width="50%" valign="top" style="border-radius:0px 0px 10px 10px; margin-left:20px"><span class="style4"><p>Você sabia que a Internet <b>Banda Larga</b> no <b>Brasil</b> só surgiu no ano 2000? </p>
+				<p>Como evolução da internet discada, surgiu a <b>banda larga</b>, uma conexão de internet que utilizava novas tecnologias, como ADSL, permitindo navegar em alta velocidade e revolucionou a Internet no Brasil. <a href="http://www.minhaconexao.com.br/blog/velocidade-da-internet-o-que-e-banda-larga/" target="_blank"><b>Continue lendo aqui...</b></a></p></span>
+		</td >
+		<td  bgcolor="#FFFFFF" width="50%" valign="top" style="border-radius:0px 0px 10px 10px;"><span class="style4">
+				<p>Muitos conhecem o <b>SpeedTeste Copel</b>, que nada mais é do que um Speed Test convencional hospedado no site da Copel. Mas a grande dúvida é: quando deve-se utilizar o Velocímetro Copel?
+				<p>Resumidamente o <b>Teste Copel</b> só faz sentido para pessoas que moram próximas de Curitiba ou são assinantes Copel. <a href="http://www.minhaconexao.com.br/blog/speedtest-copel/" target="_blank"><b>Veja o motivo aqui...</b></a> </p></span>
+		</td>
+	</tr>
+
+	<tr height="30px"><td></td><td></td></tr>
+
+	<tr height="30px">
+		<td bgcolor="#0064ff" width="50%" height="30px" style="border-radius:10px 10px 0px 0px;"><div align="center"><img src="http://cdn.minhaconexao.com.br/img/info_24x24.png" alt="Teste">&nbsp; <a href="http://www.minhaconexao.com.br/seja_um_servidor_de_testes.php" target="_blank"><span class="style5">Servidor de Teste</span></a></div></td>
+		<td bgcolor="#0064ff" width="50%" height="30px" style="border-radius:10px 10px 0px 0px;"><div align="center"><img src="http://cdn.minhaconexao.com.br/img/info_24x24.png" alt="Banda Larga">&nbsp; <a href="http://www.minhaconexao.com.br/forum/viewtopic.php?f=3&t=624" target="_blank"><span class="style5">Localizar ou Esconder um IP...</span></a></div></td>
+	</tr>
+
+	<tr>
+		<td  bgcolor="#FFFFFF" width="50%" valign="top" style="border-radius:0px 0px 10px 10px; margin-left:20px"><span class="style4"><p>Instale um Servidor de <b>Teste</b> da Internet Banda Larga (Speed Test) em sua infraestrutura e ofere&ccedil;a aos seus clientes testes de velocidade com a m&aacute;xima qualidade, evitando reclama&ccedil;&otilde;es equivocadas sobre seu provedor.</p>
+      <p> &Eacute; gratuito! Veja mais detalhes sobre as vantagens de instalar um servidor de Teste: <a href="http://www.minhaconexao.com.br/seja_um_servidor_de_testes.php" target="_blank"><b>Saiba Mais...</b></a></p></span>
+		</td >
+		<td  bgcolor="#FFFFFF" width="50%" valign="top" style="border-radius:0px 0px 10px 10px;"><span class="style4">
+    <p>Sempre tem gente nos perguntando como encontrar um computador atrav&eacute;s de um IP. Vejam este site: <a href="http://www.localizaip.com.br" target="_blank"><b>Localizar IP</b></a></p>
+		<p>J&aacute; para os que ficam perguntando como esconder ou trocar seu IP, deixamos esta outra dica:<a href="http://www.minhaconexao.com.br/forum/viewtopic.php?f=3&t=624" target="_blank"><b>Trocar IP</b></a></p>
+		</span>
+		</td>
+	</tr>
+
+  <tr height="30px"><td></td><td></td></tr>
+
+  <tr height="30px">
+    <td bgcolor="#0064ff" width="50%" height="30px" style="border-radius:10px 10px 0px 0px;"><div align="center"><img src="http://cdn.minhaconexao.com.br/img/info_24x24.png" alt="Teste Copel">&nbsp; <a href="http://www.minhaconexao.com.br/forum/viewtopic.php?f=3&t=503" target="_blank"><span class="style5">Deixando sua Internet mais r&aacute;pida...</span></a></div></td>
+    <td bgcolor="#0064ff" width="50%" height="30px" style="border-radius:10px 10px 0px 0px;"><div align="center"><img src="http://cdn.minhaconexao.com.br/img/info_24x24.png" alt="Velocímetro RJNet">&nbsp; <a href="http://www.minhaconexao.com.br/forum/viewtopic.php?f=3&t=78" target="_blank"><span class="style5">Teste no RJNet com valores estranhos...</span></a></div></td>
+  </tr>
+  <tr>
+    <td  bgcolor="#FFFFFF" width="50%" valign="top" style="border-radius:0px 0px 10px 10px; margin-left:20px"><span class="style4"><p>Sempre que instalamos algum programa em nosso computador estamos correndo riscos de instalar tamb&eacute;m algum v&iacute;rus ou programas espi&otilde;es.</p>
+		    <p> Os v&iacute;rus e programas espi&otilde;es podem ocupar parte da <b>banda larga</b> da sua <b>internet</b> para se proliferarem ou para roubarem suas informa&ccedil;&otilde;es, deixando sua internet muito mais lenta.</p><p> Por isto &eacute; sempre importante ficar atento &agrave; origem dos programas que voc&ecirc; instala, assim como com a atualiza&ccedil;&atilde;o de seu anti-v&iacute;rus. <a href="http://www.minhaconexao.com.br/forum/viewtopic.php?f=3&t=503" target="_blank"><b>Leia Mais...</b></a></p></span>
+    </td >
+    <td  bgcolor="#FFFFFF" width="50%" valign="top" style="border-radius:0px 0px 10px 10px;"><span class="style4">
+		    <p>Alguns anos atr&aacute;s o <b>veloc&iacute;metro</b> <b>RJNet</b> era um dos <b>testes de velocidade</b> mais utilizados no Brasil. </p>
+		    <p>Mas com o aumento da velocidade m&eacute;dia da internet no pa&iacute;s, através principalmente da Internet <b>Banda Larga</b>, os resultados dos testes no velocimetro RJNet come&ccedil;aram a ficar muito imprecisos, foi ent&atilde;o que nasceu o Speed Test MinhaConex&atilde;o.</p> <p> Utilizando um sistema mais moderno e com milhares de provedores espalhados pelo <b>Brasil</b> e pelo Mundo, &eacute; poss&iacute;vel medir com precis&atilde;o a velocidade da sua conexão com a internet. <a href="http://www.minhaconexao.com.br/forum/viewtopic.php?f=3&t=78" target="_blank"><b>Entenda porque isto acontece...</b></a> </p></span>
+    </td>
+  </tr>
+	<tr height="30px"><td></td><td></td></tr>
+
+	<tr>
+		<td bgcolor="#0064ff" width="50%" height="30px" style="border-radius:10px 10px 0px 0px;" colspan="2" align="center"><span class="style5"><img src="http://cdn.minhaconexao.com.br/img/info_24x24.png" alt="SpeedTest">&nbsp; Como funciona o Teste do MinhaConex&atilde;o (Speed Test)</span></td>
+	</tr>
+	<tr>
+		<td  bgcolor="#FFFFFF" width="50%" valign="top" style="border-radius:0px 0px 10px 10px;" colspan="2"><span class="style4">
+		<p>O <b>Teste</b> da internet - Internet Speed Test MinhaConexão - &eacute; um teste usado para monitorar o desempenho da conex&atilde;o que voc&ecirc; contratou de seu provedor. Com nosso SpeedTest &eacute; possível acompanhar informa&ccedil;&otilde;es importantes sobre a qualidade de sua internet, como informa&ccedil;&otilde;es sobre o ping (lat&ecirc;ncia), velocidade de download, velocidade de upload e diversas outras informa&ccedil;&otilde;es.</p>
+		<p>O nosso Speed Test é totalmente compatível com Internet Banda Larga (Cabo ou ADSL), Conexão Discada (dial-up), Internet via Rádio, Internet via Satélite ou mesmo Internet via Fibra Ótica.</p>
+		<p>O Teste pode também ser feito através de sua Conexão Wifi, mas é importante notar que isto poderá trazer redução da velocidade calculada, devido às interferências que podem ocorrer com seu sinal Wifi. Por este motivo aconselhamos, sempre que possível, utilizar um cabo conectado ao seu modem para fazer os testes, além de desligar qualquer download ou transferência de dados que estiver em andamento.</p>
+		<p>A principal vantagem de sempre fazer o Speed Teste &eacute; monitorar o desempenho de sua conex&atilde;o, de forma que seja poss&iacute;vel acompanhar a varia&ccedil;&atilde;o hist&oacute;rica do desempenho e da velocidade de sua internet. Assim voc&ecirc; pode entrar em contato com o seu provedor e solicitar melhorias na sua conex&atilde;o.</p>
+		<p>O Teste de internet MinhaConex&atilde;o, também conhecido como Speed Test, &eacute; altamente preciso, pois o sistema detecta automaticamente a localiza&ccedil;&atilde;o do usu&aacute;rio e, com base nisso, escolhe o melhor servidor para o teste, entre os milhares de provedores de internet que nossa rede possui espalhados Brasil, garantindo resultados mais precisos.</p>
+		<p>No MinhaConex&atilde;o, todos os testes que voc&ecirc; realiza ficam armazenados em nosso sistema, permitindo que voc&ecirc; tenha um registro hist&oacute;rico da velocidade da sua internet, podendo acompanhar o desempenho da sua conex&atilde;o durante o tempo.
+		<p><a href="metodologia.php" target="_blank"><strong><font color="#444444" size="3" face="Arial, Helvetica, sans-serif">Veja detalhadamente a metodologia utilizada no Teste.</font></strong></a></p>
+		</span>
+		</td>
+	</tr>
+
+</table>
+
+
+
+
+<br/>
+
+
+<div align="center"><h4>
+<span style="color: #444444; font-weight: bold">Tire suas d&uacute;vidas em nosso <a href="forum/">F&oacute;rum</a> e veja &oacute;timas dicas em nosso <a href="blog/">Blog</a>!</span><br><br>
+Este veloc&iacute;metro faz o Teste da internet de qualquer tipo de conexão:<br>
+RJNet, Copel, Wifi, Net Virtua, Velox, Speedy, GVT, 3G, 4G, Claro, <a href="//melhorplano.net/planos-oi" targer="_blank">Oi</a>, Vivo, Tim, internet discada, internet banda larga, cabo, ADSL, fibra, etc.</h4></div>
+
+<br/>
+<!-- EMAIL -->
+<div align="center">
+  <p><strong><font color="#0000FF" size="3" face="Arial, Helvetica, sans-serif">Problemas ou sugest&otilde;es, contate-nos: <a href="mailto:minhaconexao@minhaconexao.com.br">minhaconexao@minhaconexao.com.br</a> </font></strong></p></div>
+<br>
+<div align="center"><span class="style4"> Sites Parceiros:  
+<a href="http://www.meuip.com" target="_blank"> Meu IP </a> ||
+<!--<a href="http://www.localizaip.com.br" target="_blank"> Localizar IP </a> ||
+<a href="http://testeportas.com.br" target="_blank"> Teste de Portas </a> ||
+<a href="http://www.sitespeed.com.br" target="_blank"> Velocidade do Site </a> ||-->
+<a href="http://cotacaobitcoin.net" target="_blank"> Cotacao Bitcoin </a> ||
+GoCache <a href="https://www.gocache.com.br" target="_blank">CDN</a> ||
+<a href="http://www.feriados.com.br/2018" target="_blank"> Feriados 2018 </a></span></div>
+
+<br><br><font size="-1">by (<a href="https://plus.google.com/111156868736288249648?rel=author">Minha Conex&atilde;o</a>)</font>
+ 
+<br><br><br>
+
+<script type="text/javascript">
+//desligar os boxes para animar depois
+function on_page_loded(){
+	updateLoginMsg();
+	if (adsBlocked() && (!low_speed) && (!noads)) {
+		document.getElementById('img_adblock').src='http://cdn.minhaconexao.com.br/img/adblocks_logos.png'; //carrega apenas se necessario
+		$('#adblock_box').modal({backdrop: 'static', keyboard: false}, 'show');
+	}
+}
+</script>
+
+<br>
+
+</td></tr></table></div><!-- fim da tabela de centralizacao -->
+
+<div id="message_bar">
+<table width="100%" height="100%" border="0"><tr>
+<td align="center" width="95%" bgcolor="#FF6600"><span class="style6">Armazene seus Testes para usar como Prova de Problemas em sua Internet! &nbsp;&nbsp;</span> <button onMouseOver="this.style.cursor='pointer';" onClick='hideMessageBar();show_loginbox();'>&nbsp;&nbsp; Armazenar &nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://cdn.minhaconexao.com.br/figs/uparrow_24x24.png" onMouseOver="this.style.cursor='pointer';" onClick="hideMessageBar();" border="0"/></td>
+</tr></table>
+</div>
+
+<script type='text/javascript'>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2602243-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<iframe id='dummy_iframe' style="visibility:hidden" width="1" height="1" scrolling="no"></iframe> <!--carregar coisas temporarias-->
+
+<!-- Modal Login -->
+  <div class="modal fade" id="login_box" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body" style="top:-10px">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>				
+          <iframe id="login_box_content" frameborder="0" width="310px" height="165px" scrolling="no"> </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+	
+<!-- Modal AdBlock -->
+  <div class="modal fade" id="adblock_box">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body" style="top:-10px">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+					<hr>
+					<div align="center">				
+	          <span class="style_adblock1">Aten&ccedil;&atilde;o!<br></span>
+						<span class="style_adblock2">AdBlocks interferem no Teste de Velocidade!<br> Desligue-o por garantia.<br></span><br>
+						<span class="style4">Qual AdBlock voc&ecirc; est&aacute; usando?</span><br>
+						<a href="adblocks/tutorial_adblock.php" target="_blank"> <img id='img_adblock' border="0"/> </a>
+					</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<script language="javascript">
+if (adsBlocked() && (!low_speed) && (!noads)) {
+	document.getElementById('alternative_1').style.display="block";
+	//document.getElementById('alternative_1').src="http://cdn.minhaconexao.com.br/alternative/speeduppc_top.html";
+	document.getElementById('alternative_1').src="http://cdn.minhaconexao.com.br/alternative/melhorplano_horizontal.html";
+	document.getElementById('alternative_1_cnt').src="http://www.minhaconexao.com.br/alternative/conta_exibicao.php?id=top_blocked";
+	
+	document.getElementById('alternative_2').style.display="block";
+    document.getElementById('alternative_2').src="http://cdn.minhaconexao.com.br/alternative/gocache_retangulo.html";
+//	document.getElementById('alternative_2').src="http://cdn.minhaconexao.com.br/alternative/melhorplano_retangulo.html";
+
+	document.getElementById('alternative_3').style.display="block";
+	document.getElementById('alternative_3').src="http://cdn.minhaconexao.com.br/alternative/facebook_like_retangulo.html";
+//	document.getElementById('alternative_3').src="http://cdn.minhaconexao.com.br/alternative/gocache_retangulo.html";
+
+	document.getElementById('alternative_4').style.display="block";
+	document.getElementById('alternative_4').src="http://cdn.minhaconexao.com.br/alternative/melhorplano_horizontal2.html";
+}
+
+
+
+</script>
+
+
+<!--No fim pra agilizar carregamento -->
+<link href="http://cdn.minhaconexao.com.br/lib/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet"><!-- Bootstrap core CSS -->
+<link href="http://cdn.minhaconexao.com.br/lib/bootstrap-3.3.5/css/bootstrap-theme.min.css" rel="stylesheet"><!-- Bootstrap theme -->
+<!--<script src="http://cdn.minhaconexao.com.br/lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>--> <!--Depende da Jquery que agora eh async -->
+<!--bootstrap zoa todo o meu stylesheet, preciso fazer aqui em baixo-->
+<style>
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color:#d1dfeb;
+}
+hr {
+	color: #AAAAAA;
+	background-color: #d1dfeb;
+	height: 1px;
+}
+
+.modal-dialog {/* bootstrap modal */
+	width: 350px;
+	height: 185px;
+	margin-top: 100px;
+}
+
+
+H1 {
+	font-size:22px;
+	font-weight: bold;
+	color:black;
+	margin-top:0px;
+	margin-bottom:0px;
+	text-shadow: 0px 0px 0.6em white,0px 0px 0.2em white;;
+}
+H2 {
+  font-size:13px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFF;
+  margin-top:0px;
+  margin-bottom:0px;
+	font-weight:bold;
+}
+H3 {
+	font-size:18px;
+	#color:blue;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+H4 {
+  font-size:16px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:400;
+  color:black;
+}
+.hist_style { /* usado no historico */
+	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+.hist_average_style {
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+
+.style_adblock1 {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #FF0000;
+	font-size:22px;
+	font-weight:bold;
+}
+
+.style_adblock2 {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #000;
+	font-size:18px;
+	font-weight:bold;
+}
+
+#message_bar{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:0px;
+	z-index:10;
+	visibility:hidden;
+}
+
+a:link {
+text-decoration:none;
+}
+a:visited {
+text-decoration:none;
+color:inherit;
+}
+a:hover {
+text-decoration:underline;
+}
+
+</style>
+
+</body>
+</html>
+
+
+
+<!--Fim da Pagina-->

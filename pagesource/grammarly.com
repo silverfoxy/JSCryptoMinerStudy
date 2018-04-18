@@ -1,0 +1,1 @@
+This and all future requests should be directed to <a href="https://grammarly.com/">this URI</a>.

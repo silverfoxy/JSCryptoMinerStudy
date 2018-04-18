@@ -1,0 +1,1 @@
+﻿<meta http-equiv=REFRESH CONTENT=0;url=http://pad.skyozora.com>

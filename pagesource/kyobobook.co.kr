@@ -1,0 +1,30 @@
+<script type="text/javascript">
+var strSearch = new String(document.location.search);
+var strRef = new String(document.referrer);
+var str_ref="OV_REFFER="+strRef;
+var strflag="";
+if(strSearch.length>0){strflag=(strRef.length>0)?"&"+str_ref:"";}else{strflag=(strRef.length>0)?"?"+str_ref:"";}
+var str_param=strSearch+strflag;
+
+var url = location.href;
+var userAgentInfo = navigator.userAgent;
+var chkAgentArr = 'Android,iPhone,iPad'.split(',');
+var chkRslt = false;
+if(userAgentInfo) {
+  for(var idx=0;!chkRslt&&idx<chkAgentArr.length;idx++) {
+    if(userAgentInfo.indexOf(chkAgentArr[idx])>-1) chkRslt=true;
+  }
+}
+
+if(chkRslt) {
+        location.replace("http://mobile.kyobobook.co.kr");
+}else if(url.indexOf('daum.net')>1){
+        location.replace("/myroom_index.jsp"+str_param);
+}else if(url.indexOf('joins.com')>1){
+        location.replace("/joins/main.jsp"+str_param);
+}else if(url.indexOf('dreamcard.')>1){
+        location.replace("http://www.kyobobook.co.kr/event/dreamCard.laf");
+}else{
+        location.replace("http://www.kyobobook.co.kr/index.laf"+str_param);
+}
+</script>

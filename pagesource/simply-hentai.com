@@ -1,0 +1,1 @@
+<html><script src="/cdn-cgi/apps/head/nJ2uox6hK2u5GPgAvwJTapG4FiQ.js"></script><body>You are being <a href="https://www.simply-hentai.com/">redirected</a>.</body></html>

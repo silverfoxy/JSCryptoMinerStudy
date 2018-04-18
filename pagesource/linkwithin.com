@@ -1,0 +1,1 @@
+This resource resides temporarily at <a href='http://www.linkwithin.com/learn'>http://www.linkwithin.com/learn</a>.

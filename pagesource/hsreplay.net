@@ -1,0 +1,1086 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8"/><title>HSReplay.net - Hearthstone Statistics and Replays</title><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="twitter:site" content="@HSReplayNet"/><meta name="description" content="Watch and share Hearthstone replays directly from your web browser. Explore advanced statistics about decks and cards based on millions of games per week."/><meta property="og:description" content="Watch and share Hearthstone replays directly from your web browser. Explore advanced statistics about decks and cards based on millions of games per week."/><meta name="twitter:card" content="summary"/><link rel="assets" href="/static/"/><link rel="icon" type="image/x-icon" href="/static/images/favicon.8f91517be22a.ico"/><link rel="apple-touch-icon" sizes="400x400" href="/static/images/hsreplay-thumbnail.1f150253c208.png"/><link rel="mask-icon" href="/static/images/mask-icon.ac66bd001f0d.svg" color="#1d3657"/><link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.5c7070ef655a.css" type="text/css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" type="text/css"/><meta property="og:type" content="website"/><meta property="og:site_name" content="HSReplay.net"/><meta property="og:locale" content="en_US"/><meta property="og:image" content="https://hsreplay.net/static/images/hsreplay-thumbnail.1f150253c208.png"/><meta property="og:image:width" content="400"/><meta property="og:image:height" content="400"/><meta property="fb:app_id" content="1278788528798942"/><meta property="og:title" content="HSReplay.net - Hearthstone Statistics and Replays"/>
+
+	<link type="text/css" href="/static/webpack/main.59b8651f4587.css" rel="stylesheet" />
+
+	
+		<script type="application/json" id="userdata">{"is_authenticated": false, "card_art_url": "https://art.hearthstonejson.com/v1/256x/", "hearthstone_locale": "enUS", "languages": [["en", "English"], ["fr", "Fran\u00e7ais"], ["de", "Deutsch"], ["ko", "\ud55c\uad6d\uc5b4"], ["es", "Espa\u00f1ol (Espa\u00f1a)"], ["es-mx", "Espa\u00f1ol (Latinoam\u00e9rica)"], ["ru", "\u0420\u0443\u0441\u0441\u043a\u0438\u0439"], ["zh-hant", "\u7e41\u9ad4\u4e2d\u6587(\u53f0\u7063)"], ["zh-hans", "\u4e2d\u6587\uff08\u7b80\u4f53\uff09"], ["it", "Italiano"], ["pt-br", "Portugu\u00eas (Brasil)"], ["pl", "Polski"], ["ja", "\u65e5\u672c\u8a9e"], ["th", "\u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22"]], "messages": [], "login": {"default": "/account/login/", "blizzard": "/account/battlenet/login/", "blizzard_cn": "/account/battlenet/login/?region=cn"}, "features": {"paypal": {"enabled": true}, "current-arena-event-filter": {"enabled": true}, "billing": {"enabled": true}, "replay-predicted-cards": {"enabled": true}, "twitch-stream-promotion": {"enabled": true}}, "ipcountry": "US"}</script>
+		<script type="text/javascript">_userdata = JSON.parse(document.getElementById("userdata").textContent);</script>
+	
+
+	
+
+<script type="text/javascript" src="/static/vendor/jquery.min.4f252523d4af.js"></script>
+<script type="text/javascript" src="/static/vendor/bootstrap/js/bootstrap.min.5869c96cc8f1.js"></script>
+
+
+<script type="text/javascript" src="/static/webpack/vendor.33200d074b32.js" ></script>
+
+
+	<script type="text/javascript">
+		
+
+
+var joust_required = [
+	"https://s3.amazonaws.com/joust.hearthsim.net/branches/master/joust.css",
+	"https://s3.amazonaws.com/joust.hearthsim.net/branches/master/joust.js",
+	"/static/fonts/belwefs_extrabold_macroman/stylesheet.272826de1893.css",
+	"/static/fonts/franklingothicfs_mediumcondensed_macroman/stylesheet.105d6e43db26.css",
+];
+
+$(document).ready(function() {
+	$("#joust-lightbox").click(function(e) {
+		if(e.target == document.getElementById("joust-lightbox")) {
+			e.preventDefault();
+			$("#joust-lightbox").hide();
+		}
+	});
+	$(document).keypress(function (e) {
+		if (e.keyCode == 27) {
+			$("#joust-lightbox").hide();
+		}
+	});
+	var joust_started = false;
+	var joust_check = function() {
+		if(joust_required.length) {
+			var file = joust_required.shift();
+			var tag = file.match(/\.css$/) ? "link" : "script";
+			var element = document.createElement(tag);
+			element.onload = function() {
+				joust_check();
+			};
+			if(tag == "link") {
+				element.href = file;
+				element.rel = "stylesheet";
+			}
+			else {
+				element.src = file;
+			}
+			document.getElementsByTagName("head")[0].appendChild(element);
+		}
+		else if(!joust_started) {
+			joust_started = true;
+
+			var shim = document.createElement("style");
+			shim.innerText = "/* The following shim fixes card texture clipping in Firefox.\u000ASee bug: https://bugzilla.mozilla.org/show_bug.cgi?id\u003D1075457 */\u000A.card div.visuals .inhand\u002Dminion {\u000A\u0009clip\u002Dpath: url(/static/svg\u002Dpaths.svg#inhand\u002Dminion\u002Dclip)\u003B\u000A\u0009\u002Dwebkit\u002Dclip\u002Dpath: ellipse(36% 47% at 50% 50%)\u003B\u000A}\u000A.card div.visuals .inhand\u002Dspell {\u000A\u0009clip\u002Dpath: url(/static/svg\u002Dpaths.svg#inhand\u002Dspell\u002Dclip)\u003B\u000A\u0009\u002Dwebkit\u002Dclip\u002Dpath: inset(8% 0% 4% 0%)\u003B\u000A}\u000A.card div.visuals .inhand\u002Dweapon {\u000A\u0009clip\u002Dpath: url(/static/svg\u002Dpaths.svg#inhand\u002Dweapon\u002Dclip)\u003B\u000A\u0009\u002Dwebkit\u002Dclip\u002Dpath: circle(50% at 50% 50%)\u003B\u000A}\u000A.minion div.visuals .inplay\u002Dportrait {\u000A\u0009clip\u002Dpath: url(/static/svg\u002Dpaths.svg#inplay\u002Dminion\u002Dclip)\u003B\u000A\u0009\u002Dwebkit\u002Dclip\u002Dpath: ellipse(35% 46% at 51% 50%)\u003B\u000A}\u000A.hero div.visuals .hero\u002Dportrait {\u000A\u0009clip\u002Dpath: url(/static/svg\u002Dpaths.svg#hero\u002Dclip)\u003B\u000A\u0009\u002Dwebkit\u002Dclip\u002Dpath: polygon(0% 100%, 0 40%, 20% 10%, 30% 3%, 50% 0%, 70% 3%, 80% 10%, 100% 40%, 100% 100%)\u003B\u000A}\u000A.heroPower div.visuals .hero\u002Dpower\u002Dportrait {\u000A\u0009clip\u002Dpath: url(/static/svg\u002Dpaths.svg#hero\u002Dpower\u002Dclip)\u003B\u000A\u0009\u002Dwebkit\u002Dclip\u002Dpath: circle(60% at 50% 50%)\u003B\u000A}\u000A.weapon div.visuals .hero\u002Dweapon\u002Dportrait {\u000A\u0009clip\u002Dpath: url(/static/svg\u002Dpaths.svg#hero\u002Dweapon\u002Dclip)\u003B\u000A\u0009\u002Dwebkit\u002Dclip\u002Dpath: circle(50% at 50% 50%)\u003B\u000A}\u000A";
+			document.getElementsByTagName("head")[0].appendChild(shim);
+
+			Joust.launcher("joust-promo-container")
+				.assets("https://s3.amazonaws.com/joust.hearthsim.net/branches/master/assets/")
+				.cardArt("https://art.hearthstonejson.com/v1/256x/")
+				.width("100%")
+				.height("100%")
+				.fromUrl("https://hsreplaynet-replays.s3.amazonaws.com/replays/2016/07/09/16/47/vZEz7JoNnfgVo34HJUHhEF.hsreplay.xml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJR4YBYAHAPXQR4YQ%2F20180318%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180318T210736Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=3315825c5dc27ad19333706a24d42c3f899954e1ef257f6b16dc19d91133efc3");
+		}
+	};
+	var trigger_resize = function() {
+		var event = new UIEvent("resize", {view: window});
+		window.dispatchEvent(event);
+	};
+	$("#feat-joust-screenshot").click(function(e) {
+		if (e.ctrlKey || e.metaKey || e.button != 0) {
+			return;
+		}
+		$("#joust-lightbox").fadeIn();
+		joust_check();
+		trigger_resize();
+		e.preventDefault();
+	});
+});
+
+
+	</script>
+
+
+	
+		<script type="text/javascript">(function(i, s, o, g, r, a, m) {
+	i["GoogleAnalyticsObject"] = r;
+	i[r] = i[r] || function() {
+		(i[r].q = i[r].q || []).push(arguments)
+	}, i[r].l = 1 * new Date();
+	a = s.createElement(o),
+	m = s.getElementsByTagName(o)[0];
+	a.async = 1;
+	a.src = g;
+	m.parentNode.insertBefore(a, m)
+})(window, document, "script", "https://www.google-analytics.com/analytics.js", "ga");
+ga("create", "UA-81509238-1", "auto");
+ga("set", "transport", "beacon");
+if(typeof _userdata === "object" && typeof _userdata.userid !== "undefined") {
+	ga("set", "userId", _userdata.userid);
+}
+ga("send", "pageview", {
+	page: location.pathname,
+});
+
+
+
+
+
+(function(i, s, o, g, r, a, m) {
+	i["ProfitWellObject"] = r;
+	i[r] = i[r] || function() {
+		(i[r].q = i[r].q || []).push(arguments)
+	}, i[r].l = 1 * new Date();
+	a = s.createElement(o),
+	m = s.getElementsByTagName(o)[0];
+	a.async = 1;
+	a.src = g;
+	m.parentNode.insertBefore(a,m);
+})(window, document, "script", "https://dna8twue3dlxq.cloudfront.net/js/profitwell.js", "profitwell");
+
+profitwell("auth_token", "43a30ae97b6ccc114fe529220012a835");</script>
+	
+	
+</head>
+<body>
+	
+
+	
+		<script type="application/json" id="premium-plan-data">
+	{
+		"stripe": [
+			{
+				"stripeId": "hearthsim-premium-monthly",
+				"description": "$4.99 USD/month",
+				"amount": 499,
+				"currency": "usd"
+			},
+			{
+				"stripeId": "hearthsim-premium-semiannual",
+				"description": "$25.00 USD every 6 months",
+				"amount": 2500,
+				"currency": "usd"
+			}
+		],
+		"paypal": [
+			{
+				"paypalId": "P-5K196779EK462345DIR32G2Y",
+				"description": "$5.49 USD/month",
+				"amount": "5.49",
+				"currency": "USD"
+			},
+			{
+				"paypalId": "P-4V480372LD641991WIR32UXI",
+				"description": "$25.50 USD every 6 months",
+				"amount": "25.5",
+				"currency": "USD"
+			}
+		]
+	}
+</script>
+
+		<script type="text/javascript" src="/static/webpack/premium_modal.ff9514fa2ac5.js" ></script>
+		
+
+
+
+
+
+
+
+<div id="premium-modal" style="display: none;">
+	<div class="inner">
+		<header>
+			<span class="pull-right">
+				<a href="#" id="premium-modal-close" style="display: none;">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</a>
+			</span>
+			<h3>HearthSim <span class="text-premium">Premium</span></h3>
+		</header>
+
+		<main>
+			<p>
+				HearthSim Premium enables loads of cool new features and filters on the site.
+				You get to improve your gameplay and support the continued development of HSReplay.net and
+				Hearthstone Deck Tracker at the same time!
+				
+			</p>
+
+			<div class="thumbnails">
+				<img src="/static/images/premium-promotional/mycards.dc8d4b931aee.png" class="bordered" alt="My Cards" />
+				<img src="/static/images/premium-promotional/filters.750953c57982.png" class="bordered" alt="Rank Range & Time Frame" />
+				<img src="/static/images/premium-promotional/charts.0f824552a503.png" class="bordered" alt="Winrate by turn" />
+				<img src="/static/images/premium-promotional/classes.a0b8682ed182.png" class="bordered" alt="Opponent class selector" />
+			</div>
+
+			
+				<h4 class="text-center">Log in to continue:</h4>
+				<div class="text-center">
+					
+
+
+<div class="btn-group">
+	<a
+		href="/account/battlenet/login/?next=%2F%3Fpremium-modal"
+		class="btn promo-button hero-button"
+		rel="nofollow"
+	>
+	Log in with Blizzard
+	</a>
+	<button
+		type="button"
+		class="btn promo-button hero-button dropdown-toggle"
+		data-toggle="dropdown"
+		aria-haspopup="true"
+		aria-expanded="false"
+	>
+		<span class="caret"></span>
+		<span class="sr-only">Toggle Dropdown</span>
+	</button>
+	<ul class="dropdown-menu">
+		<li class="dropdown-header">Regions</li>
+		<li>
+			<a href="/account/battlenet/login/?next=%2F%3Fpremium-modal" rel="nofollow">
+				Blizzard (US/EU/SEA)&hellip;
+			</a>
+		</li>
+		<li>
+			<a href="/account/battlenet/login/?region=cn&next=%2F%3Fpremium-modal" rel="nofollow">
+				Blizzard China (CN)&hellip;
+			</a>
+		</li>
+		
+	</ul>
+</div>
+
+					<a href="/premium/" class="btn promo-button-outline hero-button">Learn more</a>
+				</div>
+				<p class="help-block text-center">
+					HSReplay.net does not gain access to your Blizzard email address or password.
+				</p>
+			
+		</main>
+	</div>
+</div>
+
+
+
+	
+
+	<header>
+		
+
+
+
+
+
+
+<div class="navbar navbar-hsreplay">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="/">
+			<img src="/static/images/logo.2a63528feaa2.png" id="navbar-logo" alt="HSReplay" height="50" width="43" />
+			<h1>HSReplay.net</h1>
+		</a>
+	</div>
+
+	<div class="container-fluid">
+		<nav class="collapse navbar-collapse" id="navbar-collapse">
+			
+				
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="https://articles.hsreplay.net/" id="navbar-link-articles" target="_blank">
+								<span class="glyphicon glyphicon-comment"></span>
+								<span class="hidden-sm">Articles</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="/decks/trending/" id="navbar-link-trending">
+								<span class="glyphicon glyphicon-fire"></span>
+								<span class="hidden-sm">Trending</span>
+							</a>
+						</li>
+
+						<li id="navbar-link-discover">
+							<a href="/discover/">
+								<span class="glyphicon glyphicon-eye-open"></span>
+								<span class="hidden-sm">Discover</span>
+							</a>
+						</li>
+
+						<li id="navbar-link-meta">
+							<a href="/meta/">
+								<span class="glyphicon glyphicon-random"></span>
+								<span class="hidden-sm">Meta</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="/decks/" id="navbar-link-decks">
+								<span class="glyphicon glyphicon-th-list"></span>
+								<span class="hidden-sm">Decks</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="/cards/" id="navbar-link-cards">
+								<span class="glyphicon glyphicon-stats"></span>
+								<span class="hidden-sm">Cards</span>
+							</a>
+						</li>
+
+						<li id="navbar-link-premium">
+							<a href="/premium/" class="text-premium">
+								Premium
+							</a>
+						</li>
+					</ul>
+				
+
+				<ul
+					class="nav navbar-nav navbar-right"
+					id="dynamic-nav"
+					data-account-url="/account/"
+					data-signout-url="/account/logout/?next=/"
+				>
+					
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+						
+
+						
+
+						<li>
+							<a href="/decks/mine/" class="text-premium" id="navbar-link-my-decks">
+								<span class="glyphicon glyphicon-th-list"></span>
+								<span class="hidden-sm">My Decks</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="/cards/mine/" class="text-premium" id="navbar-link-my-cards">
+								<span class="glyphicon glyphicon-stats"></span>
+								<span class="hidden-sm">My Cards</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="/games/mine/" id="navbar-link-my-replays">
+								<span class="glyphicon glyphicon-play"></span>
+								<span class="hidden-sm">My Replays</span>
+							</a>
+						</li>
+				</ul>
+			
+		</nav>
+	</div>
+</div>
+
+
+	</header>
+
+	
+
+	
+	<div id="content">
+	
+<div id="joust-lightbox">
+	<div id="joust-promo-container"></div>
+</div>
+<div id="home">
+	
+	
+	<header id="promo" class="promo">
+		<div class="container">
+			<img src="/static/images/logo.2a63528feaa2.png" id="logo" alt="HSReplay"/>
+			<h1>HSReplay.net</h1>
+			<p class="tagline">Share your Hearthstone games!</p>
+			
+				
+
+
+<div class="btn-group">
+	<a
+		href="/account/battlenet/login/"
+		class="btn promo-button hero-button"
+		rel="nofollow"
+	>
+	Log in with Blizzard
+	</a>
+	<button
+		type="button"
+		class="btn promo-button hero-button dropdown-toggle"
+		data-toggle="dropdown"
+		aria-haspopup="true"
+		aria-expanded="false"
+	>
+		<span class="caret"></span>
+		<span class="sr-only">Toggle Dropdown</span>
+	</button>
+	<ul class="dropdown-menu">
+		<li class="dropdown-header">Regions</li>
+		<li>
+			<a href="/account/battlenet/login/" rel="nofollow">
+				Blizzard (US/EU/SEA)&hellip;
+			</a>
+		</li>
+		<li>
+			<a href="/account/battlenet/login/?region=cn" rel="nofollow">
+				Blizzard China (CN)&hellip;
+			</a>
+		</li>
+		
+	</ul>
+</div>
+
+				<p class="promo-help">
+					You don't need a new account&mdash;we use the secure <abbr title="We'll send you to the offical Blizzard site where you can securely log in.&#10;HSReplay.net does not gain access to your Blizzard email address or password.">Blizzard login</abbr>.
+				</p>
+			
+		</div>
+	</header>
+
+	<article id="statistics">
+		<div class="container">
+			<header>
+				<h2>Find the best decks for your favorite class.</h2>
+				<h4>
+					<strong>Winrate</strong>
+					by class over the last
+					<strong>48 hours</strong>
+					for:
+				</h4>
+			</header>
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a data-toggle="tab" href="#ranked-standard">
+						<img class="mode-icon" src="/static/images/standard_icon.6b67f1c1632e.svg" alt="Standard"/>
+						Ranked Standard
+					</a>
+				</li>
+				<li>
+					<a data-toggle="tab" href="#ranked-wild">
+						<img class="mode-icon" src="/static/images/wild_icon.a3f0848575f4.svg" alt="Wild"/>
+						Ranked Wild
+					</a>
+				</li>
+				<li>
+					<a data-toggle="tab" href="#arena">
+						<img class="mode-icon" src="/static/images/arena_icon.5ef3341e0114.svg" alt="Arena"/>
+						Arena
+					</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="ranked-standard" class="tab-pane active">
+				<div class="class-boxes tab-content">
+					
+						<a class="box class-box" href="/decks/#playerClasses=DRUID" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_06.jpg)" data-winrate="48.26">
+							<div class="box-title">
+								<span class="player-class druid">Druid</span>
+
+							</div>
+							<div class="box-content" data-winrate="48.26">
+								<span class="class-box-winrate" data-winrate="48.26">
+									48.26%
+								</span>
+								<span class="class-box-footer">View top Druid decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=HUNTER" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_05a.jpg)" data-winrate="50.76">
+							<div class="box-title">
+								<span class="player-class hunter">Hunter</span>
+
+							</div>
+							<div class="box-content" data-winrate="50.76">
+								<span class="class-box-winrate" data-winrate="50.76">
+									50.76%
+								</span>
+								<span class="class-box-footer">View top Hunter decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=MAGE" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_08a.jpg)" data-winrate="50.06">
+							<div class="box-title">
+								<span class="player-class mage">Mage</span>
+
+							</div>
+							<div class="box-content" data-winrate="50.06">
+								<span class="class-box-winrate" data-winrate="50.06">
+									50.06%
+								</span>
+								<span class="class-box-footer">View top Mage decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=PALADIN" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_04a.jpg)" data-winrate="54.45">
+							<div class="box-title">
+								<span class="player-class paladin">Paladin</span>
+
+							</div>
+							<div class="box-content" data-winrate="54.45">
+								<span class="class-box-winrate" data-winrate="54.45">
+									54.45%
+								</span>
+								<span class="class-box-footer">View top Paladin decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=PRIEST" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_09a.jpg)" data-winrate="49.82">
+							<div class="box-title">
+								<span class="player-class priest">Priest</span>
+
+							</div>
+							<div class="box-content" data-winrate="49.82">
+								<span class="class-box-winrate" data-winrate="49.82">
+									49.82%
+								</span>
+								<span class="class-box-footer">View top Priest decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=ROGUE" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_03a.jpg)" data-winrate="44.56">
+							<div class="box-title">
+								<span class="player-class rogue">Rogue</span>
+
+							</div>
+							<div class="box-content" data-winrate="44.56">
+								<span class="class-box-winrate" data-winrate="44.56">
+									44.56%
+								</span>
+								<span class="class-box-footer">View top Rogue decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=SHAMAN" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_02a.jpg)" data-winrate="44.72">
+							<div class="box-title">
+								<span class="player-class shaman">Shaman</span>
+
+							</div>
+							<div class="box-content" data-winrate="44.72">
+								<span class="class-box-winrate" data-winrate="44.72">
+									44.72%
+								</span>
+								<span class="class-box-footer">View top Shaman decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=WARLOCK" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_07a.jpg)" data-winrate="50.51">
+							<div class="box-title">
+								<span class="player-class warlock">Warlock</span>
+
+							</div>
+							<div class="box-content" data-winrate="50.51">
+								<span class="class-box-winrate" data-winrate="50.51">
+									50.51%
+								</span>
+								<span class="class-box-footer">View top Warlock decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=WARRIOR" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_01a.jpg)" data-winrate="42.31">
+							<div class="box-title">
+								<span class="player-class warrior">Warrior</span>
+
+							</div>
+							<div class="box-content" data-winrate="42.31">
+								<span class="class-box-winrate" data-winrate="42.31">
+									42.31%
+								</span>
+								<span class="class-box-footer">View top Warrior decks</span>
+							</div>
+						</a>
+					
+				</div>
+				</div>
+				<div id="ranked-wild" class="tab-pane">
+				<div class="class-boxes">
+					
+						<a class="box class-box" href="/decks/#playerClasses=DRUID&amp;gameType=RANKED_WILD" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_06.jpg)" data-winrate="49.32">
+							<div class="box-title">
+								<span class="player-class druid">Druid</span>
+
+							</div>
+							<div class="box-content" data-winrate="49.32">
+								<span class="class-box-winrate" data-winrate="49.32">
+									49.32%
+								</span>
+								<span class="class-box-footer">View top Druid decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=HUNTER&amp;gameType=RANKED_WILD" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_05a.jpg)" data-winrate="48.92">
+							<div class="box-title">
+								<span class="player-class hunter">Hunter</span>
+
+							</div>
+							<div class="box-content" data-winrate="48.92">
+								<span class="class-box-winrate" data-winrate="48.92">
+									48.92%
+								</span>
+								<span class="class-box-footer">View top Hunter decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=MAGE&amp;gameType=RANKED_WILD" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_08a.jpg)" data-winrate="49.97">
+							<div class="box-title">
+								<span class="player-class mage">Mage</span>
+
+							</div>
+							<div class="box-content" data-winrate="49.97">
+								<span class="class-box-winrate" data-winrate="49.97">
+									49.97%
+								</span>
+								<span class="class-box-footer">View top Mage decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=PALADIN&amp;gameType=RANKED_WILD" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_04a.jpg)" data-winrate="55.89">
+							<div class="box-title">
+								<span class="player-class paladin">Paladin</span>
+
+							</div>
+							<div class="box-content" data-winrate="55.89">
+								<span class="class-box-winrate" data-winrate="55.89">
+									55.89%
+								</span>
+								<span class="class-box-footer">View top Paladin decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=PRIEST&amp;gameType=RANKED_WILD" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_09a.jpg)" data-winrate="48.49">
+							<div class="box-title">
+								<span class="player-class priest">Priest</span>
+
+							</div>
+							<div class="box-content" data-winrate="48.49">
+								<span class="class-box-winrate" data-winrate="48.49">
+									48.49%
+								</span>
+								<span class="class-box-footer">View top Priest decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=ROGUE&amp;gameType=RANKED_WILD" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_03a.jpg)" data-winrate="44.96">
+							<div class="box-title">
+								<span class="player-class rogue">Rogue</span>
+
+							</div>
+							<div class="box-content" data-winrate="44.96">
+								<span class="class-box-winrate" data-winrate="44.96">
+									44.96%
+								</span>
+								<span class="class-box-footer">View top Rogue decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=SHAMAN&amp;gameType=RANKED_WILD" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_02a.jpg)" data-winrate="49.1">
+							<div class="box-title">
+								<span class="player-class shaman">Shaman</span>
+
+							</div>
+							<div class="box-content" data-winrate="49.1">
+								<span class="class-box-winrate" data-winrate="49.1">
+									49.10%
+								</span>
+								<span class="class-box-footer">View top Shaman decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=WARLOCK&amp;gameType=RANKED_WILD" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_07a.jpg)" data-winrate="51.57">
+							<div class="box-title">
+								<span class="player-class warlock">Warlock</span>
+
+							</div>
+							<div class="box-content" data-winrate="51.57">
+								<span class="class-box-winrate" data-winrate="51.57">
+									51.57%
+								</span>
+								<span class="class-box-footer">View top Warlock decks</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/decks/#playerClasses=WARRIOR&amp;gameType=RANKED_WILD" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_01a.jpg)" data-winrate="43.33">
+							<div class="box-title">
+								<span class="player-class warrior">Warrior</span>
+
+							</div>
+							<div class="box-content" data-winrate="43.33">
+								<span class="class-box-winrate" data-winrate="43.33">
+									43.33%
+								</span>
+								<span class="class-box-footer">View top Warrior decks</span>
+							</div>
+						</a>
+					
+				</div>
+				</div>
+				<div id="arena" class="tab-pane">
+				<div class="class-boxes">
+					
+						<a class="box class-box" href="/cards/#playerClass=DRUID&amp;gameType=ARENA" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_06.jpg)" data-winrate="48.76">
+							<div class="box-title">
+								<span class="player-class druid">Druid</span>
+
+							</div>
+							<div class="box-content" data-winrate="48.76">
+								<span class="class-box-winrate" data-winrate="48.76">
+									48.76%
+								</span>
+								<span class="class-box-footer">View top Druid cards</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/cards/#playerClass=HUNTER&amp;gameType=ARENA" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_05a.jpg)" data-winrate="45.47">
+							<div class="box-title">
+								<span class="player-class hunter">Hunter</span>
+
+							</div>
+							<div class="box-content" data-winrate="45.47">
+								<span class="class-box-winrate" data-winrate="45.47">
+									45.47%
+								</span>
+								<span class="class-box-footer">View top Hunter cards</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/cards/#playerClass=MAGE&amp;gameType=ARENA" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_08a.jpg)" data-winrate="50.24">
+							<div class="box-title">
+								<span class="player-class mage">Mage</span>
+
+							</div>
+							<div class="box-content" data-winrate="50.24">
+								<span class="class-box-winrate" data-winrate="50.24">
+									50.24%
+								</span>
+								<span class="class-box-footer">View top Mage cards</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/cards/#playerClass=PALADIN&amp;gameType=ARENA" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_04a.jpg)" data-winrate="52.36">
+							<div class="box-title">
+								<span class="player-class paladin">Paladin</span>
+
+							</div>
+							<div class="box-content" data-winrate="52.36">
+								<span class="class-box-winrate" data-winrate="52.36">
+									52.36%
+								</span>
+								<span class="class-box-footer">View top Paladin cards</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/cards/#playerClass=PRIEST&amp;gameType=ARENA" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_09a.jpg)" data-winrate="48.91">
+							<div class="box-title">
+								<span class="player-class priest">Priest</span>
+
+							</div>
+							<div class="box-content" data-winrate="48.91">
+								<span class="class-box-winrate" data-winrate="48.91">
+									48.91%
+								</span>
+								<span class="class-box-footer">View top Priest cards</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/cards/#playerClass=ROGUE&amp;gameType=ARENA" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_03a.jpg)" data-winrate="50.81">
+							<div class="box-title">
+								<span class="player-class rogue">Rogue</span>
+
+							</div>
+							<div class="box-content" data-winrate="50.81">
+								<span class="class-box-winrate" data-winrate="50.81">
+									50.81%
+								</span>
+								<span class="class-box-footer">View top Rogue cards</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/cards/#playerClass=SHAMAN&amp;gameType=ARENA" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_02a.jpg)" data-winrate="52.1">
+							<div class="box-title">
+								<span class="player-class shaman">Shaman</span>
+
+							</div>
+							<div class="box-content" data-winrate="52.1">
+								<span class="class-box-winrate" data-winrate="52.1">
+									52.10%
+								</span>
+								<span class="class-box-footer">View top Shaman cards</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/cards/#playerClass=WARLOCK&amp;gameType=ARENA" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_07a.jpg)" data-winrate="48.09">
+							<div class="box-title">
+								<span class="player-class warlock">Warlock</span>
+
+							</div>
+							<div class="box-content" data-winrate="48.09">
+								<span class="class-box-winrate" data-winrate="48.09">
+									48.09%
+								</span>
+								<span class="class-box-footer">View top Warlock cards</span>
+							</div>
+						</a>
+					
+						<a class="box class-box" href="/cards/#playerClass=WARRIOR&amp;gameType=ARENA" style="background-image:url(https://art.hearthstonejson.com/v1/256x/HERO_01a.jpg)" data-winrate="51.04">
+							<div class="box-title">
+								<span class="player-class warrior">Warrior</span>
+
+							</div>
+							<div class="box-content" data-winrate="51.04">
+								<span class="class-box-winrate" data-winrate="51.04">
+									51.04%
+								</span>
+								<span class="class-box-footer">View top Warrior cards</span>
+							</div>
+						</a>
+					
+				</div>
+			</div>
+		</div>
+		<div id="live-data">
+			<div id="live-data-placeholder"></div>
+		</div>
+	</article>
+
+	<article id="demo">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-0">
+					<header class="text-center">
+						<h2>Share your Hearthstone games!</h2>
+						<h4>Watch and analyze replays right in your browser.</h4>
+					</header>
+					<a href="/replay/vZEz7JoNnfgVo34HJUHhEF">
+						<img src="/static/images/joust-thumbnail.83b981f8772b.jpg" id="feat-joust-screenshot" alt="Joust: View your HSReplays"/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<article id="how-it-works">
+		<div class="container">
+			<h2 class="text-center">Start recording your own replays</h2>
+			<ul class="row home-steps">
+				<li class="col-sm-6">
+					<h3>Step 1:</h3>
+					<p><a href="/downloads/" class="promo-button-outline text-uppercase">Download Deck Tracker</a></p>
+					<p>Hearthstone Deck Tracker runs while you're in Hearthstone.<br />
+					It will automatically upload your matches as you play them.</p>
+				</li>
+				<li class="col-sm-6">
+					<h3>Step 2:</h3>
+					<p><a href="https://battle.net/account/download/?show=hearthstone&amp;style=hearthstone" class="promo-button-outline text-uppercase" rel="noopener">Play Hearthstone</a></p>
+					<p>Your full match history will always stay private.<br />
+					Share individual games with your friends and show off your craziest plays!</p>
+				</li>
+			</ul>
+		</div>
+	</article>
+
+	<article id="faq">
+		<div class="container">
+			<h2>Frequently Asked Questions</h2>
+			<div class="row">
+				<div class="col-lg-6 col-xs-12">
+					<dl>
+						<dt>Is signing in with Blizzard safe?</dt>
+						<dd>
+							We use the <a href="https://dev.battle.net/docs/read/log_in_with_blizzard#main" target="_blank" rel="noopener">official Blizzard OAuth2 API</a>
+							to let you sign in with your Blizzard account rather than create a new one.
+							HSReplay.net never gains access to your email, password or anything other than your Battletag; it's completely secure!
+						</dd>
+						<dt>Do I need to sign in to upload replays?</dt>
+						<dd>
+							Not at all! Just <a href="/downloads/">download Hearthstone Deck Tracker</a> and use it to upload and share your replays.
+							You may claim them later by clicking "Claim Account" in your deck tracker's settings.
+						</dd>
+						<dt>How do you know which cards opponents are holding in their hand?</dt>
+						<dd>
+							Once a card is played from hand we can deduce when that card was drawn, discovered or created in any other way.
+						</dd>
+					</dl>
+				</div>
+				<div class="col-lg-6 col-xs-12">
+					
+					
+					
+					<dl>
+						<dt>How can I support what you're doing?</dt>
+						<dd>
+							You can support HearthSim, the team behind Hearthstone Deck Tracker, HSReplay.net and other
+							tools by subscribing to <a href="/premium/" class="text-premium"><strong>HearthSim Premium</strong></a>.
+						</dd>
+						<dt>Where can I get the latest news about HSReplay.net?</dt>
+						<dd>
+							You can find us on <a href="https://discord.gg/hearthsim">Discord</a>,
+							follow us <a href="https://twitter.com/HSReplayNet">@HSReplayNet</a>
+							and like our <a href="https://www.facebook.com/HSReplayNet/">Facebook page</a>.
+						</dd>
+						<dt>I need help with the site, my replays, my subscription&hellip;</dt>
+						<dd>
+							Shoot us an <a href="mailto:contact@hsreplay.net">email</a>, or
+							message us on <a href="https://twitter.com/HSReplayNet">Twitter</a> or
+							<a href="https://www.facebook.com/HSReplayNet/">Facebook</a>.
+						</dd>
+						<dt>I think I found a bug!</dt>
+						<dd>
+							Simply <a href="/contact/">contact us</a> or <a href="https://github.com/HearthSim/HSReplay.net/issues">open an issue on GitHub</a>.
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<article class="text-center promo">
+		
+			<h2>Let's get started:</h2>
+			<p class="front-pad-top">
+
+
+<div class="btn-group">
+	<a
+		href="/account/battlenet/login/"
+		class="btn promo-button hero-button"
+		rel="nofollow"
+	>
+	Log in with Blizzard
+	</a>
+	<button
+		type="button"
+		class="btn promo-button hero-button dropdown-toggle"
+		data-toggle="dropdown"
+		aria-haspopup="true"
+		aria-expanded="false"
+	>
+		<span class="caret"></span>
+		<span class="sr-only">Toggle Dropdown</span>
+	</button>
+	<ul class="dropdown-menu">
+		<li class="dropdown-header">Regions</li>
+		<li>
+			<a href="/account/battlenet/login/" rel="nofollow">
+				Blizzard (US/EU/SEA)&hellip;
+			</a>
+		</li>
+		<li>
+			<a href="/account/battlenet/login/?region=cn" rel="nofollow">
+				Blizzard China (CN)&hellip;
+			</a>
+		</li>
+		
+	</ul>
+</div>
+</p>
+			<p class="help-block">
+				We'll send you to the offical Blizzard site where you can securely log in.<br />
+				Blizzard will redirect you back here once you're done.
+			</p>
+		
+	</article>
+</div>
+<script type="text/javascript" src="/static/webpack/home.53f93add7ccb.js" ></script>
+
+
+	</div>
+	
+
+	
+		<footer class="site-footer">
+			
+				
+<p class="visible-xs text-center prominent">
+	<a href="#">&uparrow; Back to top</a>
+</p>
+<p>
+	<a href="https://hearthsim.net">HearthSim</a> &copy; 2018 &middot;
+	<a href="/about/privacy/">Privacy Policy</a> &middot;
+	<a href="/about/tos/">Terms of Service</a> &middot;
+	<a href="/contact/">Contact</a>
+</p>
+<p>
+	This website is not affiliated with Blizzard Entertainment.
+</p>
+
+<ul class="horizontal-icons">
+	
+	<li><a href="https://twitter.com/HSReplayNet" target="_blank" rel="me" class="social-button">
+		<span class="label">Follow us on Twitter</span>
+		<svg width="28" height="28" viewBox="0 0 612 612">
+<style>
+.social-button .bird {
+	fill: #9e9e9e;
+}
+
+.social-button .bird:hover {
+	fill: #1da1f2;
+	transition: fill 0.2s ease;
+}
+</style>
+<path class="bird" d="M612,116.258c-22.525,9.981-46.694,16.75-72.088,19.772c25.929-15.527,45.777-40.155,55.184-69.411 c-24.322,14.379-51.169,24.82-79.775,30.48c-22.907-24.437-55.49-39.658-91.63-39.658c-69.334,0-125.551,56.217-125.551,125.513 c0,9.828,1.109,19.427,3.251,28.606C197.065,206.32,104.556,156.337,42.641,80.386c-10.823,18.51-16.98,40.078-16.98,63.101 c0,43.559,22.181,81.993,55.835,104.479c-20.575-0.688-39.926-6.348-56.867-15.756v1.568c0,60.806,43.291,111.554,100.693,123.104 c-10.517,2.83-21.607,4.398-33.08,4.398c-8.107,0-15.947-0.803-23.634-2.333c15.985,49.907,62.336,86.199,117.253,87.194 c-42.947,33.654-97.099,53.655-155.916,53.655c-10.134,0-20.116-0.612-29.944-1.721c55.567,35.681,121.536,56.485,192.438,56.485 c230.948,0,357.188-191.291,357.188-357.188l-0.421-16.253C573.872,163.526,595.211,141.422,612,116.258z"></path>
+</svg>
+
+	</a></li>
+
+	
+	<li><a href="https://discord.gg/hearthsim" target="_blank" rel="noopener" class="social-button">
+		<span class="label">Join our Discord server</span>
+		<svg width="28" height="28" viewBox="0 0 245 240">
+<style>
+.social-button .discord {
+	fill: #9e9e9e;
+}
+
+.social-button .discord:hover {
+	fill: #7289da;
+	transition: fill 0.2s ease;
+}
+</style>
+<path class="discord" d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
+<path class="discord" d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/>
+</svg>
+
+	</a></li>
+
+	
+	<li><a href="https://www.facebook.com/HSReplayNet/" target="_blank" rel="noopener" class="social-button">
+		<span class="label">Like us on Facebook</span>
+		<svg width="28" height="28" viewBox="0 0 266.893 266.895">
+<style>
+.social-button .facebook {
+    fill: #9e9e9e;
+}
+
+.social-button .facebook:hover {
+    fill: #3c5a99;
+    transition: fill 0.2s ease;
+}
+</style>
+<path class="facebook" d="M248.082,262.307c7.854,0,14.223-6.369,14.223-14.225V18.812  c0-7.857-6.368-14.224-14.223-14.224H18.812c-7.857,0-14.224,6.367-14.224,14.224v229.27c0,7.855,6.366,14.225,14.224,14.225  H248.082z"/>
+<path style="fill: white" d="M182.409,262.307v-99.803h33.499l5.016-38.895h-38.515V98.777c0-11.261,3.127-18.935,19.275-18.935  l20.596-0.009V45.045c-3.562-0.474-15.788-1.533-30.012-1.533c-29.695,0-50.025,18.126-50.025,51.413v28.684h-33.585v38.895h33.585  v99.803H182.409z"/>
+</svg>
+
+	</a></li>
+</ul>
+
+
+
+			
+		</footer>
+	
+
+	<script type="text/javascript" src="/static/webpack/site.080e7d28e129.js" ></script>
+
+</body>
+</html>
